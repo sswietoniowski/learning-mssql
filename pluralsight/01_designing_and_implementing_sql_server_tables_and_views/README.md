@@ -17,6 +17,18 @@ Some terminology:
 - attribute == column,
 - RDBMS == relational database management system.
 
+Problem description (for which we will create a database):
+
+**Bob's Shoes**
+
+Bob has a factory that produces shoes, he needs a database to store information about his shoes, customers, orders, etc.
+
+We need to store:
+
+- customer information,
+- order information,
+- shoe information.
+
 ## Designing and Implementing Tables
 
 ## Improving Table Design Through Normalization

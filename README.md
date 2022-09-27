@@ -1,2 +1,44 @@
-# learning-sql-server-fundamentals
-This repository contains resources helping grasps the basics of Microsoft SQL Server
+# Learning SQL Server - Fundamentals
+
+This repository contains resources helping grasps the basics of Microsoft SQL Server.
+
+## Repository Contents
+
+This repository contains the following sub-directories:
+
+- [pluralsight](pluralsight/) - contains resources for the _Pluralsight_ paths:
+  - [Developing SQL Server Databases Path](https://app.pluralsight.com/paths/skills/developing-sql-server-databases),
+  - [Querying Data with T-SQL from SQL Server](https://app.pluralsight.com/paths/skills/querying-data-with-t-sql-from-sql-server),
+- [other](other/) - some sample projects.
+
+## Learning Resources
+
+Based on these (free) courses:
+
+- [TODO](TODO).
+
+Also used these (paid) courses & books:
+
+- [Designing and Implementing SQL Server Tables and Views](https://app.pluralsight.com/library/courses/sqlserver-tables-view-designing-implementing/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/sqlserver-tables-view-designing-implementing/exercise-files) :arrow_forward:,
+- [Designing and Implementing SQL Server Database Indexes](https://app.pluralsight.com/library/courses/design-build-sql-server-indexes/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/design-build-sql-server-indexes/exercise-files),
+- [Programming SQL Server Database Stored Procedures](https://app.pluralsight.com/library/courses/sql-server-database-programming-stored-procedures/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/sql-server-database-programming-stored-procedures/exercise-files),
+- [Programming SQL Server Database Triggers and Functions](https://app.pluralsight.com/library/courses/program-sql-server-triggers-functions/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/program-sql-server-triggers-functions/exercise-files),
+- [Managing SQL Server Database Concurrency](https://app.pluralsight.com/library/courses/manage-sql-server-concurrency/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/manage-sql-server-concurrency/exercise-files),
+- [Using Memory-optimized Tables and Native Stored Procedures](https://app.pluralsight.com/library/courses/using-memory-optimized-tables-native-stored-procedures/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/using-memory-optimized-tables-native-stored-procedures/exercise-files),
+- [Optimizing SQL Server Statistics and Indexes](https://app.pluralsight.com/library/courses/optimizing-sql-server-statistics-indexes/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/optimizing-sql-server-statistics-indexes/exercise-files),
+- [Analyzing SQL Server Query Plans](https://app.pluralsight.com/library/courses/analyzing-sql-server-query-plans/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/analyzing-sql-server-query-plans/exercise-files),
+- [Managing SQL Server Database Performance](https://app.pluralsight.com/library/courses/managing-sql-server-database-performance/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/managing-sql-server-database-performance/exercise-files),
+- [Managing Azure SQL Server Database Performance](https://app.pluralsight.com/library/courses/managing-azure-sql-server-database-performance/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/managing-azure-sql-server-database-performance/exercise-files),
+- [Querying Data Using T-SQL](https://app.pluralsight.com/library/courses/querying-data-using-tsql/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/querying-data-using-tsql/exercise-files),
+- [Combining and Filtering Data with T-SQL 2019](https://app.pluralsight.com/library/courses/combining-filtering-data-tsql/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/combining-filtering-data-tsql/exercise-files),
+- [T-SQL Data Manipulation Playbook](https://app.pluralsight.com/library/courses/t-sql-data-manipulation-playbook/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/t-sql-data-manipulation-playbook/exercise-files),
+- [Capturing Logic with Stored Procedures in T-SQL](https://app.pluralsight.com/library/courses/capturing-logic-with-stored-procedures-tsql/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/capturing-logic-with-stored-procedures-tsql/exercise-files),
+- [T-SQL Functions Playbook](https://app.pluralsight.com/library/courses/tsql-functions-playbook/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/tsql-functions-playbook/exercise-files),
+- [Querying JSON, XML, and Temporal Data with T-SQL](https://app.pluralsight.com/library/courses/querying-json-xml-temporal-data-tsql/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/querying-json-xml-temporal-data-tsql/exercise-files),
+- [Handling Errors in T-SQL](https://app.pluralsight.com/library/courses/handling-errors-tsql/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/handling-errors-tsql/exercise-files).
+
+## Useful Tools & Other Resources
+
+Some useful tools & other resources:
+
+- [TODO](TODO).

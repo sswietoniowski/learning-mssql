@@ -1,0 +1,31 @@
+W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem:
+
+2022-09-28 - 2022-10-09
+
+Designing and Implementing SQL Server Tables and Views: ŚR, CZW, PT
+Designing and Implementing SQL Server Database Indexes: SO
+Managing SQL Server Database Concurrency: ND
+Optimizing SQL Server Statistics and Indexes: PN
+Analyzing SQL Server Query Plans: WT
+Handling Errors in T-SQL: ŚR
+Querying Data Using T-SQL: CZW
+T-SQL Data Manipulation Playbook: PT
+Combining and Filtering Data with T-SQL 2019: SO
+Programming SQL Server Database Stored Procedures: ND
+Programming SQL Server Database Triggers and Functions: ND
+
+2022-10-10 - 2022-11-06 
+
+4 tygodnie - czas na opracowanie materiałów
+
+2022-11-07 - 2022-11-18
+
+1,5 tygodnia - czas na dopracowanie materiałów
+
+2022-11-19 - 2022-11-27
+
+1 tydzień na dopieszczenie wszystkiego :-)
+
+Termin szkolenia (4 dni / 8h):
+
+PN 2022-11-28 - CZW 2022-12-01

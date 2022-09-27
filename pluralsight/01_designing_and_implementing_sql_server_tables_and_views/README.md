@@ -4,6 +4,8 @@ Introduction to SQL Server Tables and Views.
 
 ## Introducing Tables and Views
 
+Some definitions can be found [here](definitions.md):-).
+
 ## Designing and Implementing Tables
 
 ## Improving Table Design Through Normalization

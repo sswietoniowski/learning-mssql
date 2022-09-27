@@ -50,5 +50,12 @@ Some useful tools & other resources:
 - [Azure Data Studio](https://azure.microsoft.com/pl-pl/products/data-studio/),
 - [SQL Server Data Tools (SSDT) for Visual Studio](https://learn.microsoft.com/pl-pl/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-ver16),
 - [SolarWinds Plan Explorer](https://www.sentryone.com/plan-explorer),
+- [Ola Hallengren - SQL Server Maintenance Solution](https://ola.hallengren.com/),
 - [SQLServerCentral](https://www.sqlservercentral.com/),
-- [Simple-Talk](https://www.red-gate.com/simple-talk/).
+- [Simple-Talk](https://www.red-gate.com/simple-talk/),
+- [sqlbits](https://sqlbits.com),
+- [Brent Ozar](https://www.brentozar.com/),
+- [Paul S. Randal](https://www.sqlskills.com/blogs/paul/),
+- [Kimberly L. Tripp](https://www.sqlskills.com/blogs/kimberly/),
+- [Jonathan Kehayias](https://www.sqlskills.com/blogs/jonathan/),
+- [Tim Radney](https://www.sqlskills.com/blogs/tim/).

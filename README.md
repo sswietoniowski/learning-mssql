@@ -44,6 +44,8 @@ Some useful tools & other resources:
 - [SQL Server 2019](https://www.microsoft.com/pl-pl/sql-server/sql-server-2019),
 - [SQL Server 2022](https://www.microsoft.com/pl-pl/sql-server/sql-server-2022),
 - [Microsoft SQL Server Versions List](https://sqlserverbuilds.blogspot.com/),
+- [Microsoft SQL Server Docker Image List](https://hub.docker.com/_/microsoft-mssql-server),
+- [mssql-docker](https://github.com/microsoft/mssql-docker),
 - [SQL Server Management Studio](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16),
 - [Azure Data Studio](https://azure.microsoft.com/pl-pl/products/data-studio/),
 - [SQL Server Data Tools (SSDT) for Visual Studio](https://learn.microsoft.com/pl-pl/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-ver16),

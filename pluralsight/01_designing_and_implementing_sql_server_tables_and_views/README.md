@@ -21,7 +21,7 @@ Some terminology:
 
 Problem description (for which we will create a database):
 
-Bob has a factory that produces shoes, he needs a database to store information about his shoes, customers, orders, etc.
+_Bob has a factory that produces shoes, he needs a database to store information about his shoes, customers, orders, etc._
 
 We need to store:
 
@@ -30,6 +30,8 @@ We need to store:
 - shoe information.
 
 ## Designing and Implementing Tables
+
+To create a database use [01_create_database.sql](01_create_database.sql).
 
 ## Improving Table Design Through Normalization
 

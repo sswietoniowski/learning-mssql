@@ -75,11 +75,11 @@ varbinary(n) - variable length binary data, n is the maximum length of the strin
 
 varchar(max) - variable length non-unicode characters, maximum length of the string is 2GB.
 
-nvarchar(max) - variable length unicode characters, maximum length of the string is 2GB.
+nvarchar(max) - variable length unicode characters, maximum length of the string is 1GB.
 
 binary(max) - variable length binary data, maximum length of the string is 2GB.
 
-varbinary(max) - variable length binary data, maximum length of the string is 2GB.
+varbinary(max) - variable length binary data, maximum length of the string is 1GB.
 
 ### Using Integer Types
 

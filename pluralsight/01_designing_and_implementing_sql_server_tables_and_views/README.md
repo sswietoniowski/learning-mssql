@@ -56,6 +56,31 @@ Use consistent style for naming objects, for example:
 
 ### Using Character Data Types
 
+There are two types of character data types:
+
+- fixed length: char, nchar, binary,
+- variable length: varchar, nvarchar, varbinary.
+
+char(n) - fixed length non-unicode characters, n is the length of the string (1 <= n <= 8000).
+
+nchar(n) - fixed length unicode characters, n is the length of the string (1 <= n <= 4000).
+
+varchar(n) - variable length non-unicode characters, n is the maximum length of the string (1 <= n <= 8000).
+
+nvarchar(n) - variable length unicode characters, n is the maximum length of the string (1 <= n <= 4000).
+
+binary(n) - fixed length binary data, n is the length of the string (1 <= n <= 8000).
+
+varbinary(n) - variable length binary data, n is the maximum length of the string (1 <= n <= 4000).
+
+varchar(max) - variable length non-unicode characters, maximum length of the string is 2GB.
+
+nvarchar(max) - variable length unicode characters, maximum length of the string is 2GB.
+
+binary(max) - variable length binary data, maximum length of the string is 2GB.
+
+varbinary(max) - variable length binary data, maximum length of the string is 2GB.
+
 ### Using Integer Types
 
 ### Using Decimal Types

@@ -156,6 +156,15 @@ More info [here](https://learn.microsoft.com/en-us/sql/relational-databases/coll
 
 ## Improving Table Design Through Normalization
 
+Normalization is a process of organizing data in a database to minimize redundancy and dependency of data.
+
+There are three normal forms (at least these are the most popular ones):
+
+- zero normal form (0NF) - not really a normal form, it is a state of a table before normalization,
+- first normal form (1NF),
+- second normal form (2NF),
+- third normal form (3NF).
+
 ## Ensuring Data Integrity with Constraints
 
 ## Designing View to Meet Business Requirements

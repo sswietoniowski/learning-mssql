@@ -3,7 +3,7 @@ W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem
 2022-09-28 - 2022-10-09
 
 Designing and Implementing SQL Server Tables and Views: ŚR, CZW, PT
-Designing and Implementing SQL Server Database Indexes: SO
+Designing and Implementing SQL Server Database Indexes: SO, ND
 Managing SQL Server Database Concurrency: PN
 Optimizing SQL Server Statistics and Indexes: WT
 Analyzing SQL Server Query Plans: ŚR

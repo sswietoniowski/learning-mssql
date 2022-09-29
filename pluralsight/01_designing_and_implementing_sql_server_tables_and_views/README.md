@@ -48,7 +48,7 @@ Regular identifiers:
 
 Valid identifiers:
 
-orders, product_name, [Order Details], ...
+`orders`, `product_name`, `[Order Details]`, ...
 
 ### Using Naming Conventions
 
@@ -56,9 +56,9 @@ Do not use @ or # (used for objects in tempdb) as the first character.
 
 Use consistent style for naming objects, for example:
 
-- Pascal Case: OrderDetails,
-- Underscore separated: order_details,
-- don't use delimited identifiers: [Order Details].
+- Pascal Case: `OrderDetails`,
+- Underscore separated: `order_details`,
+- don't use delimited identifiers: `[Order Details]`.
 
 ### Using Character Data Types
 
@@ -67,25 +67,25 @@ There are two types of character data types:
 - fixed length: char, nchar, binary,
 - variable length: varchar, nvarchar, varbinary.
 
-char(n) - fixed length non-unicode characters, n is the length of the string (1 <= n <= 8000).
+`char(n)` - fixed length non-unicode characters, n is the length of the string (1 <= n <= 8000).
 
-nchar(n) - fixed length unicode characters, n is the length of the string (1 <= n <= 4000).
+`nchar(n)` - fixed length unicode characters, n is the length of the string (1 <= n <= 4000).
 
-varchar(n) - variable length non-unicode characters, n is the maximum length of the string (1 <= n <= 8000).
+`varchar(n)` - variable length non-unicode characters, n is the maximum length of the string (1 <= n <= 8000).
 
-nvarchar(n) - variable length unicode characters, n is the maximum length of the string (1 <= n <= 4000).
+`nvarchar(n)` - variable length unicode characters, n is the maximum length of the string (1 <= n <= 4000).
 
-binary(n) - fixed length binary data, n is the length of the string (1 <= n <= 8000).
+`binary(n)` - fixed length binary data, n is the length of the string (1 <= n <= 8000).
 
-varbinary(n) - variable length binary data, n is the maximum length of the string (1 <= n <= 4000).
+`varbinary(n)` - variable length binary data, n is the maximum length of the string (1 <= n <= 4000).
 
-varchar(max) - variable length non-unicode characters, maximum length of the string is 2GB.
+`varchar(max)` - variable length non-unicode characters, maximum length of the string is 2GB.
 
-nvarchar(max) - variable length unicode characters, maximum length of the string is 1GB.
+`nvarchar(max)` - variable length unicode characters, maximum length of the string is 1GB.
 
-binary(max) - variable length binary data, maximum length of the string is 2GB.
+`binary(max)` - variable length binary data, maximum length of the string is 2GB.
 
-varbinary(max) - variable length binary data, maximum length of the string is 1GB.
+`varbinary(max)` - variable length binary data, maximum length of the string is 1GB.
 
 ### Using Integer and Decimal Data Types
 
@@ -95,25 +95,25 @@ There are two types of integer data types:
 - float: real, float,
 - decimal: decimal, numeric, smallmoney, money.
 
-tinyint - 1 byte, 0 to 255.
+`tinyint` - 1 byte, 0 to 255.
 
-smallint - 2 bytes, -32,768 to 32,767.
+`smallint` - 2 bytes, -32,768 to 32,767.
 
-int - 4 bytes, -2,147,483,648 to 2,147,483,647.
+`int` - 4 bytes, -2,147,483,648 to 2,147,483,647.
 
-bigint - 8 bytes, -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.
+`bigint` - 8 bytes, -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.
 
-real - 4 bytes, -3.40E + 38 to -1.18E - 38, 0, and 1.18E - 38 to 3.40E + 38.
+`real` - 4 bytes, -3.40E + 38 to -1.18E - 38, 0, and 1.18E - 38 to 3.40E + 38.
 
-float - 8 bytes, -1.79E + 308 to -2.23E - 308, 0, and 2.23E - 308 to 1.79E + 308.
+`float` - 8 bytes, -1.79E + 308 to -2.23E - 308, 0, and 2.23E - 308 to 1.79E + 308.
 
-decimal(p, s) - 5 to 17 bytes, -10^38 + 1 to 10^38 - 1, 0, and 10^38 - 1 to 10^38 - 1, p is the precision (1 <= p <= 38), s is the scale (0 <= s <= p).
+`decimal(p, s)` - 5 to 17 bytes, -10^38 + 1 to 10^38 - 1, 0, and 10^38 - 1 to 10^38 - 1, p is the precision (1 <= p <= 38), s is the scale (0 <= s <= p).
 
-numeric(p, s) - 5 to 17 bytes, -10^38 + 1 to 10^38 - 1, 0, and 10^38 - 1 to 10^38 - 1, p is the precision (1 <= p <= 38), s is the scale (0 <= s <= p).
+`numeric(p, s)` - 5 to 17 bytes, -10^38 + 1 to 10^38 - 1, 0, and 10^38 - 1 to 10^38 - 1, p is the precision (1 <= p <= 38), s is the scale (0 <= s <= p).
 
-smallmoney - 4 bytes, -214,748.3648 to 214,748.3647.
+`smallmoney` - 4 bytes, -214,748.3648 to 214,748.3647.
 
-money - 8 bytes, -922,337,203,685,477.5808 to 922,337,203,685,477.5807.
+`money` - 8 bytes, -922,337,203,685,477.5808 to 922,337,203,685,477.5807.
 
 ### Using Date and Time Types
 
@@ -124,25 +124,25 @@ There are six types of date and time data types:
 - date and time: datetime, datetime2, smalldatetime,
 - time interval: datetimeoffset.
 
-date - 3 bytes, year, month, day (range: 0001-01-01 to 9999-12-31).
+`date` - 3 bytes, year, month, day (range: 0001-01-01 to 9999-12-31).
 
-time - 5 bytes, hour, minute, second, millisecond (range: 00:00:00.000 to 23:59:59.999).
+`time` - 5 bytes, hour, minute, second, millisecond (range: 00:00:00.000 to 23:59:59.999).
 
-datetime - 8 bytes, year, month, day, hour, minute, second, millisecond (range: 1753-01-01 00:00:00 to 9999-12-31 23:59:59).
+`datetime` - 8 bytes, year, month, day, hour, minute, second, millisecond (range: 1753-01-01 00:00:00 to 9999-12-31 23:59:59).
 
-datetime2 - 6 to 8 bytes, year, month, day, hour, minute, second, millisecond (range: 0001-01-01 00:00:00.000 to 9999-12-31 23:59:59.999).
+`datetime2` - 6 to 8 bytes, year, month, day, hour, minute, second, millisecond (range: 0001-01-01 00:00:00.000 to 9999-12-31 23:59:59.999).
 
-smalldatetime - 4 bytes, year, month, day, hour, minute (1900-01-01 00:00:00 2079-06-06 23:59:59).
+`smalldatetime` - 4 bytes, year, month, day, hour, minute (1900-01-01 00:00:00 2079-06-06 23:59:59).
 
-datetimeoffset - 10 bytes, year, month, day, hour, minute, second, millisecond, offset (range like datetime2 + timezone info).
+`datetimeoffset` - 10 bytes, year, month, day, hour, minute, second, millisecond, offset (range like datetime2 + timezone info).
 
 ### Other Data Types
 
 There are other data types:
 
-- uniqueidentifier - 16 bytes, globally unique identifier (GUID),
-- rowversion - 8 bytes, timestamp.
-- bit - 1 bit, 0 or 1.
+- `uniqueidentifier` - 16 bytes, globally unique identifier (GUID),
+- `rowversion` - 8 bytes, timestamp.
+- `bit` - 1 bit, 0 or 1.
 
 Comprehensive list of data types can be found [here](https://learn.microsoft.com/en-us/sql/t-sql/data-types/data-types-transact-sql?view=sql-server-ver15).
 

@@ -29,6 +29,12 @@ We need to store:
 - order information,
 - shoe information.
 
+## Designing and Implementing Tables
+
+To create a database use [01_create_database.sql](01_create_database.sql).
+
+To create sample tables use [02_create_tables.sql](02_create_tables.sql).
+
 ### Creating Identifiers
 
 Regular identifiers:
@@ -142,9 +148,11 @@ Comprehensive list of data types can be found [here](https://learn.microsoft.com
 
 ### Using Collations
 
-## Designing and Implementing Tables
+A collation specifies the rules for comparing characters in a character set. Collations are used to sort and compare data, they also define case and accent sensitivity and code page for non-unicode data (no n-char/varchar).
 
-To create a database use [01_create_database.sql](01_create_database.sql).
+All character data has some collation, whether it is specified or not. If not specified, the default collation for the database is used. Collation can be specified at the instance level (during setup), database level (ALTER DATABASE), or column level (CREATE TABLE) it is also possible to specify collation at the expression level (SELECT).
+
+More info [here](https://learn.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support?view=sql-server-ver15).
 
 ## Improving Table Design Through Normalization
 

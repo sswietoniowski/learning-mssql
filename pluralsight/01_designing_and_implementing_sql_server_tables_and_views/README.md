@@ -29,6 +29,41 @@ We need to store:
 - order information,
 - shoe information.
 
+### Creating Identifiers
+
+Regular identifiers:
+
+- starts with: letter, underscore, at sign (@) (!use :-)), number sign (#) (!use :-)),
+- then: letters, digits, @, $, #, \_,
+- not a reserved word,
+- not a special character,
+- identifier delimited with square brackets ([]) can break all the rules above,
+- no longer than 128 characters.
+
+Valid identifiers:
+
+orders, product_name, [Order Details], ...
+
+### Using Naming Conventions
+
+Do not use @ or # (used for objects in tempdb) as the first character.
+
+Use consistent style for naming objects, for example:
+
+- Pascal Case: OrderDetails,
+- Underscore separated: order_details,
+- don't use delimited identifiers: [Order Details].
+
+### Using Character Data Types
+
+### Using Integer Types
+
+### Using Decimal Types
+
+### Using Date and Time Types
+
+### Using Collations
+
 ## Designing and Implementing Tables
 
 To create a database use [01_create_database.sql](01_create_database.sql).

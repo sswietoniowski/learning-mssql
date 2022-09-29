@@ -81,9 +81,33 @@ binary(max) - variable length binary data, maximum length of the string is 2GB.
 
 varbinary(max) - variable length binary data, maximum length of the string is 1GB.
 
-### Using Integer Types
+### Using Integer and Decimal Data Types
 
-### Using Decimal Types
+There are two types of integer data types:
+
+- integer: tinyint, smallint, int, bigint,
+- float: real, float,
+- decimal: decimal, numeric, smallmoney, money.
+
+tinyint - 1 byte, 0 to 255.
+
+smallint - 2 bytes, -32,768 to 32,767.
+
+int - 4 bytes, -2,147,483,648 to 2,147,483,647.
+
+bigint - 8 bytes, -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.
+
+real - 4 bytes, -3.40E + 38 to -1.18E - 38, 0, and 1.18E - 38 to 3.40E + 38.
+
+float - 8 bytes, -1.79E + 308 to -2.23E - 308, 0, and 2.23E - 308 to 1.79E + 308.
+
+decimal(p, s) - 5 to 17 bytes, -10^38 + 1 to 10^38 - 1, 0, and 10^38 - 1 to 10^38 - 1, p is the precision (1 <= p <= 38), s is the scale (0 <= s <= p).
+
+numeric(p, s) - 5 to 17 bytes, -10^38 + 1 to 10^38 - 1, 0, and 10^38 - 1 to 10^38 - 1, p is the precision (1 <= p <= 38), s is the scale (0 <= s <= p).
+
+smallmoney - 4 bytes, -214,748.3648 to 214,748.3647.
+
+money - 8 bytes, -922,337,203,685,477.5808 to 922,337,203,685,477.5807.
 
 ### Using Date and Time Types
 

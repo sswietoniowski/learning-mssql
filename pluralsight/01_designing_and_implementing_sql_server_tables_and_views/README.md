@@ -31,9 +31,9 @@ We need to store:
 
 ## Designing and Implementing Tables
 
-To create a database use [01_create_database.sql](01_create_database.sql).
+To create a database use [01_create_database.sql](sql/01_create_database.sql).
 
-To create sample tables use [02_create_tables.sql](02_create_tables.sql).
+To create sample tables use [02_create_tables.sql](sql/02_create_tables.sql).
 
 ### Creating Identifiers
 

@@ -161,7 +161,7 @@ Normalization is a process of organizing data in a database to minimize redundan
 There are three normal forms (at least these are the most popular ones):
 
 - zero normal form (0NF) - not really a normal form, it is a state of a table before normalization,
-- first normal form (1NF) - each column contains atomic values, no repeating groups,
+- first normal form (1NF) - each column contains atomic values, no repeating groups, table has a primary key,
 - second normal form (2NF) - table is in 1NF and all non-key columns are fully dependent on the primary key,
 - third normal form (3NF) - table is in 2NF and all non-key columns are not transitively dependent on the primary key.
 

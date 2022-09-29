@@ -111,6 +111,35 @@ money - 8 bytes, -922,337,203,685,477.5808 to 922,337,203,685,477.5807.
 
 ### Using Date and Time Types
 
+There are six types of date and time data types:
+
+- date: date,
+- time: time,
+- date and time: datetime, datetime2, smalldatetime,
+- time interval: datetimeoffset.
+
+date - 3 bytes, year, month, day (range: 0001-01-01 to 9999-12-31).
+
+time - 5 bytes, hour, minute, second, millisecond (range: 00:00:00.000 to 23:59:59.999).
+
+datetime - 8 bytes, year, month, day, hour, minute, second, millisecond (range: 1753-01-01 00:00:00 to 9999-12-31 23:59:59).
+
+datetime2 - 6 to 8 bytes, year, month, day, hour, minute, second, millisecond (range: 0001-01-01 00:00:00.000 to 9999-12-31 23:59:59.999).
+
+smalldatetime - 4 bytes, year, month, day, hour, minute (1900-01-01 00:00:00 2079-06-06 23:59:59).
+
+datetimeoffset - 10 bytes, year, month, day, hour, minute, second, millisecond, offset (range like datetime2 + timezone info).
+
+### Other Data Types
+
+There are other data types:
+
+- uniqueidentifier - 16 bytes, globally unique identifier (GUID),
+- rowversion - 8 bytes, timestamp.
+- bit - 1 bit, 0 or 1.
+
+Comprehensive list of data types can be found [here](https://learn.microsoft.com/en-us/sql/t-sql/data-types/data-types-transact-sql?view=sql-server-ver15).
+
 ### Using Collations
 
 ## Designing and Implementing Tables

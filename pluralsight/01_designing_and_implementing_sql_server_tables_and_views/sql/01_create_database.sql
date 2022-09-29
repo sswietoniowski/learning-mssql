@@ -18,3 +18,10 @@ GO
 
 SELECT * FROM sys.databases WHERE name = 'inventory';
 GO
+
+EXECUTE sp_helpfile;
+GO
+
+-- Other informations that might be of some use:
+-- - working with files and filegroups,
+-- - using schema for your objects.

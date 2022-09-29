@@ -66,7 +66,8 @@ CREATE TABLE dbo.order_details
     product_quantity INT NOT NULL
         CONSTRAINT CK_order_details_product_quantity_gt_zero CHECK (product_quantity > 0),
     product_price DECIMAL NOT NULL
-        CONSTRAINT CK_product_price_ge_zero CHECK (product_price >= 0)
+        CONSTRAINT CK_product_price_ge_zero CHECK (product_price >= 0),
+    total_price AS (product_quantity * product_price) PERSISTED
 );
 GO
 

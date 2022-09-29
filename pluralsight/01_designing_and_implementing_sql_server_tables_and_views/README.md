@@ -2,7 +2,7 @@
 
 Introduction to SQL Server Tables and Views.
 
-## Introducing Tables and Views
+## 1. Introducing Tables and Views
 
 Some definitions can be found [here](definitions.md) :-).
 
@@ -29,7 +29,7 @@ We need to store:
 - order information,
 - shoe information.
 
-## Designing and Implementing Tables
+## 2. Designing and Implementing Tables
 
 To create a database use [01_create_database.sql](sql/01_create_database.sql).
 
@@ -154,7 +154,7 @@ All character data has some collation, whether it is specified or not. If not sp
 
 More info [here](https://learn.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support?view=sql-server-ver15).
 
-## Improving Table Design Through Normalization
+## 3. Improving Table Design Through Normalization
 
 Normalization is a process of organizing data in a database to minimize redundancy and dependency of data.
 
@@ -167,12 +167,12 @@ There are three normal forms (at least these are the most popular ones):
 
 More info about database normalization can be found [here](https://learn.microsoft.com/en-us/office/troubleshoot/access/database-normalization-description) and [here](https://www.guru99.com/database-normalization.html).
 
-## Ensuring Data Integrity with Constraints
+## 4. Ensuring Data Integrity with Constraints
 
-## Designing View to Meet Business Requirements
+## 5. Designing View to Meet Business Requirements
 
-## Implementing Indexed Views
+## 6. Implementing Indexed Views
 
-## Implementing Partitioned Views
+## 7. Implementing Partitioned Views
 
 ## Summary

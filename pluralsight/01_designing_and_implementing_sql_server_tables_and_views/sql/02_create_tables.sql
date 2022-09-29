@@ -1,19 +1,7 @@
 USE inventory;
 GO
 
-DROP TABLE IF EXISTS dbo.order_details;
-GO
-
-DROP TABLE IF EXISTS dbo.orders;
-GO
-
-DROP TABLE IF EXISTS dbo.customers;
-GO
-
-DROP TABLE IF EXISTS dbo.products;
-GO
-
-DROP TABLE IF EXISTS dbo.categories;
+DROP TABLE IF EXISTS dbo.order_details, dbo.orders, dbo.customers, dbo.products, dbo.categories;
 GO
 
 CREATE TABLE dbo.categories

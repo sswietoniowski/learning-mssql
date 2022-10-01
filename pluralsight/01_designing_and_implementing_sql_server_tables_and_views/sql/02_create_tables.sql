@@ -43,7 +43,7 @@ CREATE TABLE dbo.orders
     order_id INT NOT NULL IDENTITY
         CONSTRAINT PK_orders PRIMARY KEY,
     order_date DATETIME2 NOT NULL
-        CONSTRAINT DF_orders_order_date DEFAULT (GETDATE()),
+        CONSTRAINT DF_orders_order_date_current DEFAULT (GETDATE()),
     delivery_date DATETIME2 NULL
 );
 GO

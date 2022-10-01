@@ -205,6 +205,20 @@ More info about constraints can be found [here](https://learn.microsoft.com/en-u
 
 ## 5. Designing View to Meet Business Requirements
 
+A view is a virtual table based on the result-set of an SQL statement. A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
+
+Views are used to:
+
+- hide data & customize results,
+- combine data from multiple tables,
+- restrict access to data,
+- simplify queries & encapsulate queries,
+- backward compatibility.
+
+Updateable views are views that can be used to update data in the database. Updateable views are created using `CREATE VIEW` statement with `WITH SCHEMABINDING` option.
+
+More info about views can be found [here](https://learn.microsoft.com/en-us/sql/relational-databases/views/views?view=sql-server-ver15).
+
 ## 6. Implementing Indexed Views
 
 ## 7. Implementing Partitioned Views

@@ -37,3 +37,10 @@ WHERE ProductID = 1;
 SELECT * FROM dbo.order_details WHERE product_id = 1;
 ROLLBACK TRANSACTION;
 GO
+
+DROP INDEX IF EXISTS IX_vw_order_details ON dbo.vw_order_details;
+GO
+
+CREATE UNIQUE CLUSTERED INDEX IX_vw_order_details
+ON dbo.vw_order_details (OrderID, ProductID);
+GO

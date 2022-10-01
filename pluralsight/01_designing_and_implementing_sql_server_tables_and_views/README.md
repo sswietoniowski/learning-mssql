@@ -225,6 +225,14 @@ More info about views can be found [here](https://learn.microsoft.com/en-us/sql/
 
 An indexed view is a view that has an index on it. Indexed views are used to improve performance of queries that use the view.
 
+Indexed view has many requirements, some of them:
+
+- first index must be a unique clustered index,
+- certain SET options must be specified,
+- a view must be deterministic,
+- must be created with `SCHEMABINDING` option,
+- restricted T-SQL elements that can't be used inside the index.
+
 More info about indexed views can be found [here](https://learn.microsoft.com/en-us/sql/relational-databases/views/create-indexed-views?view=sql-server-ver15).
 
 ## 7. Implementing Partitioned Views

@@ -35,6 +35,10 @@ To create a database use [01_create_database.sql](sql/01_create_database.sql).
 
 To create sample tables use [02_create_tables.sql](sql/02_create_tables.sql).
 
+To insert a sample data use [03_insert_data.sql](sql/03_insert_data.sql).
+
+To create sample views use [04_create_views.sql](sql/04_create_views.sql).
+
 ### Creating Identifiers
 
 Regular identifiers:

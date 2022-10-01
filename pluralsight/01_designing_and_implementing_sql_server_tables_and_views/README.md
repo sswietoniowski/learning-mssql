@@ -223,6 +223,8 @@ More info about views can be found [here](https://learn.microsoft.com/en-us/sql/
 
 ## 6. Implementing Indexed Views
 
+
+
 ## 7. Implementing Partitioned Views
 
 ## Summary

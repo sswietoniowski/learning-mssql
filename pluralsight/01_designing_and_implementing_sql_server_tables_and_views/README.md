@@ -182,6 +182,8 @@ There are different types of constraints:
 
 NULL is a special marker, that means: absent, unavailable, inapplicable. Introduction of the NULL value leads us to the so-called "three-value logic": true, false, unknown. NULL is not equal to anything, including NULL. NULL is not equal to 0, empty string, or any other value. NULL is not equal to itself. Be explicit about NULL values while creating your tables and always use: `NULL` or `NOT NULL` in your columns.
 
+Primary key in SQL Server ensures uniqueness, to achieve this a backing index is created (clustered by default - not always the best choice).
+
 To change a constraint you must drop the constraint and then create a new constraint.
 
 You can define a constraint inside `CREATE TABLE` statement or after the table is created using `ALTER TABLE ... ADD CONSTRAINT` statement.

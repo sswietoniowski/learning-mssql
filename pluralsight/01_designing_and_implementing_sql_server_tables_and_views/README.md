@@ -184,6 +184,15 @@ NULL is a special marker, that means: absent, unavailable, inapplicable. Introdu
 
 Primary key in SQL Server ensures uniqueness, to achieve this a backing index is created (clustered by default - not always the best choice). Sometimes we might use unique constraint together with the primary key (unique constraint would allow a null value - but, which is a bug IMHO, only single one). PK constraints and unique constraints can be referenced by the foreign key.
 
+For foreign key we might use cascading update and cascading delete, for these we might define what should happen to the child rows when the parent row is updated or deleted. There are three options:
+
+- `NO ACTION` - no action is taken,
+- `CASCADE` - child rows are updated or deleted,
+- `SET NULL` - child rows are updated or deleted, but the foreign key columns are set to NULL,
+- `SET DEFAULT` - child rows are updated or deleted, but the foreign key columns are set to the default value.
+
+For foreign keys backing index is not created automatically, but it is recommended to create one.
+
 To change a constraint you must drop the constraint and then create a new constraint.
 
 You can define a constraint inside `CREATE TABLE` statement or after the table is created using `ALTER TABLE ... ADD CONSTRAINT` statement.

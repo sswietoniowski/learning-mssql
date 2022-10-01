@@ -63,13 +63,13 @@ There are three operations that can be shown on an execution plan:
 
 In SQL Server we have two main types of indexes:
 
-1. clustered indexes:
+1. Clustered Indexes:
 
    Clustered indexes are the primary index for a table. They are used to store the data in the table.
 
    ![Clustered Index](./images/clustered-index.gif)
 
-2. non-clustered indexes.
+2. Non-clustered Indexes.
 
    ![Non-Clustered Index](./images/non-clustered-index.gif)
 

@@ -215,7 +215,9 @@ Views are used to:
 - simplify queries & encapsulate queries,
 - provide backward compatibility.
 
-Updateable views are views that can be used to update data in the database. Updateable views are created using `CREATE VIEW` statement with `WITH SCHEMABINDING` option. If we are using `WITH SCHEMABINDING` option base tables cannot be dropped or altered and we must use two-part names to reference base tables.
+Updateable views are views that can be used to update data in the database. Updateable views are created using `CREATE VIEW` statement with `WITH SCHEMABINDING` option. Any modifications, including update, insert or delete statements must reference columns from only one base table.
+
+If we are using `WITH SCHEMABINDING` option base tables cannot be dropped or altered and we must use two-part names to reference base tables, last all referenced objects must be in the same database.
 
 More info about views can be found [here](https://learn.microsoft.com/en-us/sql/relational-databases/views/views?view=sql-server-ver15).
 

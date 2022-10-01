@@ -49,11 +49,11 @@ In SQL Server we have two main types of indexes:
 
    Clustered indexes are the primary index for a table. They are used to store the data in the table.
 
-   ![Clustered Index](https://miro.medium.com/max/640/0*wRjyin1oaneU5lxK)
+   ![Clustered Index](./images/clustered-index.gif)
 
 2. non-clustered indexes.
 
-   ![Non-Clustered Index](https://miro.medium.com/max/640/0*gtycspuCJ9p6-WYm)
+   ![Non-Clustered Index](./images/non-clustered-index.gif)
 
    Non-clustered indexes are used to store additional information about the data in the table.
 
@@ -61,7 +61,19 @@ More info about clustered and nonclustered indexes can be found [here](https://l
 
 ### How SQL Server uses indexes
 
+When we execute a query, SQL Server uses the indexes to find the data we're looking for. The query optimizer decides which index to use.
+
+> The query optimizer is a component of SQL Server that determines the best way to execute a query. It uses statistics and other information to determine the best execution plan.
+
+We have two main ways how SQL Server can use an index. It can `seek` or `scan` the index. In case of a `seek` we're navigating down the tree to find a value. In case of a `scan` we're reading leaf pages (some or all of them).
+
 ### Reading index-related execution plans operators
+
+There are three operations that can be shown on an execution plan:
+
+1. _Index Seek_ - navigation down the tree to find a value,
+2. _Index Scan_ - read some or all of the leaf pages,
+3. _Key Lookup_ - single-row seek to the clustered index.
 
 ## 3. Designing Indexes to Organize Tables
 

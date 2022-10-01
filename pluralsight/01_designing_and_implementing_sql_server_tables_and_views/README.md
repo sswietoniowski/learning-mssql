@@ -182,7 +182,7 @@ There are different types of constraints:
 
 NULL is a special marker, that means: absent, unavailable, inapplicable. Introduction of the NULL value leads us to the so-called "three-value logic": true, false, unknown. NULL is not equal to anything, including NULL. NULL is not equal to 0, empty string, or any other value. NULL is not equal to itself. Be explicit about NULL values while creating your tables and always use: `NULL` or `NOT NULL` in your columns.
 
-Primary key in SQL Server ensures uniqueness, to achieve this a backing index is created (clustered by default - not always the best choice).
+Primary key in SQL Server ensures uniqueness, to achieve this a backing index is created (clustered by default - not always the best choice). Sometimes we might use unique constraint together with the primary key (unique constraint would allow a null value - but, which is a bug IMHO, only single one). PK constraints and unique constraints can be referenced by the foreign key.
 
 To change a constraint you must drop the constraint and then create a new constraint.
 

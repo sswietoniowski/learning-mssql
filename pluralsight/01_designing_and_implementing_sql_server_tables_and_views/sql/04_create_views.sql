@@ -10,6 +10,8 @@ AS
 SELECT
     od.order_id AS OrderID,
     od.product_id AS ProductID,
+    cu.customer_id AS CustomerID,
+    cu.customer_first_name + ' ' + cu.customer_last_name AS CustomerName,
     od.product_price AS ProductPrice,
     od.product_quantity AS ProductQuantity,
     od.total_price AS TotalPrice,
@@ -23,7 +25,9 @@ FROM
     INNER JOIN dbo.products AS p
     ON od.product_id = p.product_id
     INNER JOIN dbo.categories AS c
-    ON p.category_id = c.category_id;
+    ON p.category_id = c.category_id
+    INNER JOIN dbo.customers AS cu
+    ON od.order_id = cu.customer_id;
 GO
 
 SELECT * FROM dbo.vw_order_details;
@@ -42,5 +46,11 @@ DROP INDEX IF EXISTS IX_vw_order_details ON dbo.vw_order_details;
 GO
 
 CREATE UNIQUE CLUSTERED INDEX IX_vw_order_details
-ON dbo.vw_order_details (OrderID, ProductID);
+ON dbo.vw_order_details (CustomerID, OrderID, ProductID);
+GO
+
+SELECT CustomerName, TotalPrice
+FROM dbo.vw_order_details
+WHERE CustomerID = 1;
+-- OPTION (EXPAND VIEWS);
 GO

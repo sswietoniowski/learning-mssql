@@ -237,4 +237,6 @@ More info about indexed views can be found [here](https://learn.microsoft.com/en
 
 ## 7. Implementing Partitioned Views
 
+
+
 ## Summary

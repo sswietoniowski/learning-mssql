@@ -59,13 +59,13 @@ There are three operations that can be shown on an execution plan:
 2. _Index Scan_ - read some or all of the leaf pages,
 3. _Key Lookup_ - single-row seek to the clustered index.
 
-## 3. Designing Indexes to Organize Tables
+## 3. Designing Indexes to Organize Tables (Clustered Indexes)
 
 In SQL Server we have two main types of indexes:
 
 1. Clustered Indexes
 
-   Clustered indexes are the primary index for a table. They are used to store the data in the table and because of that they defines the physical storage of the table. There could be only one clustered index per table.
+   Clustered indexes are the primary index for a table. They are used to store the data in the table and because of that they defines the physical storage of the table. There could be only one clustered index per table. If a table doesn't have a clustered index it is called a _heap_.
 
    ![Clustered Index](./images/clustered-index.gif)
 
@@ -77,7 +77,21 @@ In SQL Server we have two main types of indexes:
 
    Clustered indexes guidelines: narrow, unique, unchanging, ever-increasing.
 
-2. Non-clustered Indexes
+   Page splits are a problem for clustered indexes. They are expensive and can cause a lot of fragmentation.
+
+   Clustered indexes trade-offs:
+
+   | Organize the table                   | Support queries                                                  |
+   | ------------------------------------ | ---------------------------------------------------------------- |
+   | Table is as small as it can be       | Table may take up more space than necessary                      |
+   | Minimal page splits                  | Potentially problematic page splits on inserts and updates       |
+   | Less overhead on updates             | Clustered index can support queries using a frequent access path |
+   | Need additional nonclustered indexes |
+   |                                      |                                                                  |
+
+   Go for a compromise (example: dates in transactional tables).
+
+2. Non-clustered Indexes (they aren't use to organize tables :-))
 
    ![Non-Clustered Index](./images/non-clustered-index.gif)
 
@@ -86,6 +100,8 @@ In SQL Server we have two main types of indexes:
 More info about clustered and nonclustered indexes can be found [here](https://learn.microsoft.com/en-us/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15).
 
 ## 4. Designing Indexes to Improve Query Performance: Part 1
+
+To improve query performance we can use clustered indexes and non-clustered indexes.
 
 ## 5. Designing Indexes to Improve Query Performance: Part 2
 

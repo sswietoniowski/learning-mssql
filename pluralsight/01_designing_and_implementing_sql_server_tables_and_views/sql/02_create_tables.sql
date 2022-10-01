@@ -7,9 +7,9 @@ GO
 CREATE TABLE dbo.categories
 (
     category_id INT NOT NULL IDENTITY
-        CONSTRAINT PK_categories PRIMARY KEY,
+        CONSTRAINT PK_categories PRIMARY KEY NONCLUSTERED, -- default value: CLUSTERED
     category_name NVARCHAR(64) NOT NULL 
-        CONSTRAINT UQ_categories_category_name UNIQUE,
+        CONSTRAINT UQ_categories_category_name UNIQUE CLUSTERED, -- default value: NONCLUSTERED
     category_description NVARCHAR(MAX) NULL
 );
 GO

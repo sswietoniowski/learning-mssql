@@ -223,7 +223,9 @@ More info about views can be found [here](https://learn.microsoft.com/en-us/sql/
 
 ## 6. Implementing Indexed Views
 
+An indexed view is a view that has an index on it. Indexed views are used to improve performance of queries that use the view.
 
+More info about indexed views can be found [here](https://learn.microsoft.com/en-us/sql/relational-databases/views/create-indexed-views?view=sql-server-ver15).
 
 ## 7. Implementing Partitioned Views
 

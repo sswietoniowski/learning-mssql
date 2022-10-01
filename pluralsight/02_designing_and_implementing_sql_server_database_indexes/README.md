@@ -65,9 +65,17 @@ In SQL Server we have two main types of indexes:
 
 1. Clustered Indexes
 
-   Clustered indexes are the primary index for a table. They are used to store the data in the table.
+   Clustered indexes are the primary index for a table. They are used to store the data in the table and because of that they defines the physical storage of the table. There could be only one clustered index per table.
 
    ![Clustered Index](./images/clustered-index.gif)
+
+   Clustered indexes debate:
+
+   a. create the clustered index to organize the table (preferred),
+
+   b. create the clustered index on the most frequent access path.
+
+   Clustered indexes guidelines: narrow, unique, unchanging, ever-increasing.
 
 2. Non-clustered Indexes
 

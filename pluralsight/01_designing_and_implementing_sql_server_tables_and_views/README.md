@@ -6,7 +6,7 @@ Introduction to SQL Server Tables and Views.
 
 Some definitions can be found [here](definitions.md) :-).
 
-Relational databases are made up of tables and views. Tables are used to store data. Views are used to retrieve data. Views are also used to restrict access to data. Views can be used to hide sensitive data from users. Views can also be used to combine data from multiple tables. Tables are related to each other through relationships.
+>Relational databases are made up of tables and views. Tables are used to store data. Views are used to retrieve data. Views are also used to restrict access to data. Views can be used to hide sensitive data from users. Views can also be used to combine data from multiple tables. Tables are related to each other through relationships.
 
 E.F. Codd, the father of relational databases. He is credited with inventing the relational database model.
 
@@ -152,7 +152,7 @@ Comprehensive list of data types can be found [here](https://learn.microsoft.com
 
 ### Using Collations
 
-A collation specifies the rules for comparing characters in a character set. Collations are used to sort and compare data, they also define case and accent sensitivity and code page for non-unicode data (no n-char/varchar).
+>A collation specifies the rules for comparing characters in a character set. Collations are used to sort and compare data, they also define case and accent sensitivity and code page for non-unicode data (no n-char/varchar).
 
 All character data has some collation, whether it is specified or not. If not specified, the default collation for the database is used. Collation can be specified at the instance level (during setup), database level (ALTER DATABASE), or column level (CREATE TABLE) it is also possible to specify collation at the expression level (SELECT).
 
@@ -160,7 +160,7 @@ More info [here](https://learn.microsoft.com/en-us/sql/relational-databases/coll
 
 ## 3. Improving Table Design Through Normalization
 
-Normalization is a process of organizing data in a database to minimize redundancy and dependency of data.
+>Normalization is a process of organizing data in a database to minimize redundancy and dependency of data.
 
 There are three normal forms (at least these are the most popular ones):
 
@@ -173,7 +173,7 @@ More info about database normalization can be found [here](https://learn.microso
 
 ## 4. Ensuring Data Integrity with Constraints
 
-To ensure the data integrity in the database we might have to create a constraint. A constraint is a rule that is enforced on the data in a table.
+>To ensure the data integrity in the database we might have to create a constraint. A constraint is a rule that is enforced on the data in a table.
 
 There are different types of constraints:
 
@@ -184,7 +184,7 @@ There are different types of constraints:
 - `CHECK` - column or set of columns that must satisfy a specified condition,
 - `DEFAULT` - column would have a default value if no other value is specified.
 
-NULL is a special marker, that means: absent, unavailable, inapplicable. Introduction of the NULL value leads us to the so-called "three-value logic": true, false, unknown. NULL is not equal to anything, including NULL. NULL is not equal to 0, empty string, or any other value. NULL is not equal to itself. Be explicit about NULL values while creating your tables and always use: `NULL` or `NOT NULL` in your columns.
+>NULL is a special marker, that means: absent, unavailable, inapplicable. Introduction of the NULL value leads us to the so-called "three-value logic": true, false, unknown. NULL is not equal to anything, including NULL. NULL is not equal to 0, empty string, or any other value. NULL is not equal to itself. Be explicit about NULL values while creating your tables and always use: `NULL` or `NOT NULL` in your columns.
 
 Primary key in SQL Server ensures uniqueness, to achieve this a backing index is created (clustered by default - not always the best choice). Sometimes we might use unique constraint together with the primary key (unique constraint would allow a null value - but, which is a bug IMHO, only single one). PK constraints and unique constraints can be referenced by the foreign key.
 
@@ -205,7 +205,7 @@ More info about constraints can be found [here](https://learn.microsoft.com/en-u
 
 ## 5. Designing View to Meet Business Requirements
 
-A view is a virtual table based on the result-set of an SQL statement. A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
+>A view is a virtual table based on the result-set of an SQL statement. A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
 
 Views are used to:
 
@@ -215,7 +215,7 @@ Views are used to:
 - simplify queries & encapsulate queries,
 - provide backward compatibility.
 
-Updateable views are views that can be used to update data in the database. Updateable views are created using `CREATE VIEW` statement with `WITH SCHEMABINDING` option. Any modifications, including update, insert or delete statements must reference columns from only one base table.
+>Updateable views are views that can be used to update data in the database. Updateable views are created using `CREATE VIEW` statement with `WITH SCHEMABINDING` option. Any modifications, including update, insert or delete statements must reference columns from only one base table.
 
 If we are using `WITH SCHEMABINDING` option base tables cannot be dropped or altered and we must use two-part names to reference base tables, last all referenced objects must be in the same database.
 
@@ -223,7 +223,7 @@ More info about views can be found [here](https://learn.microsoft.com/en-us/sql/
 
 ## 6. Implementing Indexed Views
 
-An indexed view is a view that has an index on it. Indexed views are used to improve performance of queries that use the view.
+>An indexed view is a view that has an index on it. Indexed views are used to improve performance of queries that use the view.
 
 Indexed view has many requirements, some of them:
 
@@ -237,7 +237,7 @@ More info about indexed views can be found [here](https://learn.microsoft.com/en
 
 ## 7. Implementing Partitioned Views
 
-Use case for the partitioned views is when we have a large table and we want to create a view that would be partitioned by a column. Partitioned views are used to improve performance of queries that use the view. For example let's say we have a table storing an order data, over time that table would grow significantly, at the same time we don't want to just delete the old data. What we can do instead is to create some history tables and from time move the data from the main table to the history ones. Provided that we want to create some queries that would use the data from the main table and the history ones, we can create a partitioned view that would be partitioned by the date column.
+>Use case for the partitioned views is when we have a large table and we want to create a view that would be partitioned by a column. Partitioned views are used to improve performance of queries that use the view. For example let's say we have a table storing an order data, over time that table would grow significantly, at the same time we don't want to just delete the old data. What we can do instead is to create some history tables and from time move the data from the main table to the history ones. Provided that we want to create some queries that would use the data from the main table and the history ones, we can create a partitioned view that would be partitioned by the date column.
 
 General syntax to create a partitioned view is like this:
 

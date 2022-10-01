@@ -178,7 +178,11 @@ There are different types of constraints:
 - `UNIQUE` - column or set of columns that must contain unique values,
 - `FOREIGN KEY` - column or set of columns that must match the values in a column or set of columns in another table,
 - `CHECK` - column or set of columns that must satisfy a specified condition,
-- `DEFAULT` - column or set of columns that must have a default value.
+- `DEFAULT` - column would have a default value if no other value is specified.
+
+NULL is a special marker, that means: absent, unavailable, inapplicable. Introduction of the NULL value leads us to the so-called "three-value logic": true, false, unknown. NULL is not equal to anything, including NULL. NULL is not equal to 0, empty string, or any other value. NULL is not equal to itself. Be explicit about NULL values while creating your tables and always use: `NULL` or `NOT NULL` in your columns.
+
+More info about constraints can be found [here](https://learn.microsoft.com/en-us/sql/relational-databases/tables/unique-constraints-and-check-constraints?view=sql-server-ver15).
 
 ## 5. Designing View to Meet Business Requirements
 

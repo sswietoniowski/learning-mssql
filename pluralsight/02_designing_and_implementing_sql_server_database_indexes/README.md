@@ -87,7 +87,6 @@ In SQL Server we have two main types of indexes:
    | Minimal page splits                  | Potentially problematic page splits on inserts and updates       |
    | Less overhead on updates             | Clustered index can support queries using a frequent access path |
    | Need additional nonclustered indexes |
-   |                                      |                                                                  |
 
    Go for a compromise (example: dates in transactional tables).
 

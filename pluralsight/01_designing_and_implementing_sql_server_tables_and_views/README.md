@@ -169,6 +169,17 @@ More info about database normalization can be found [here](https://learn.microso
 
 ## 4. Ensuring Data Integrity with Constraints
 
+To ensure the data integrity in the database we might have to create a constraint. A constraint is a rule that is enforced on the data in a table.
+
+There are different types of constraints:
+
+- `NOT NULL` - column cannot contain NULL values,
+- `PRIMARY KEY` - column or set of columns that uniquely identifies a row in a table,
+- `UNIQUE` - column or set of columns that must contain unique values,
+- `FOREIGN KEY` - column or set of columns that must match the values in a column or set of columns in another table,
+- `CHECK` - column or set of columns that must satisfy a specified condition,
+- `DEFAULT` - column or set of columns that must have a default value.
+
 ## 5. Designing View to Meet Business Requirements
 
 ## 6. Implementing Indexed Views

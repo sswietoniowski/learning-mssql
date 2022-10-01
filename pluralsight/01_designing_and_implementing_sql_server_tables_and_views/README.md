@@ -237,6 +237,37 @@ More info about indexed views can be found [here](https://learn.microsoft.com/en
 
 ## 7. Implementing Partitioned Views
 
+Use case for the partitioned views is when we have a large table and we want to create a view that would be partitioned by a column. Partitioned views are used to improve performance of queries that use the view. For example let's say we have a table storing an order data, over time that table would grow significantly, at the same time we don't want to just delete the old data. What we can do instead is to create some history tables and from time move the data from the main table to the history ones. Provided that we want to create some queries that would use the data from the main table and the history ones, we can create a partitioned view that would be partitioned by the date column.
 
+General syntax to create a partitioned view is like this:
+
+```sql
+CREATE VIEW [schema_name].[view_name]
+AS
+    SELECT [column_name], [column_name], ...
+    FROM [schema_name].[table_name1]
+    WHERE [column_name] = [value]
+
+    UNION ALL
+
+    SELECT [column_name], [column_name], ...
+    FROM [schema_name].[table_name2]
+    WHERE [column_name] = [value]
+
+    UNION ALL
+    ...
+```
+
+Requirements for the partitioned views are:
+
+- all columns should be included in the view,
+- columns in same position should have the same data type,
+- at least one column should have `CHECK` constraint:
+  - it is called partitioning column,
+- a column can appear only once in the select statement.
+
+More info abut that can be found [here](https://www.brentozar.com/archive/2016/09/partitioned-views-guide/).
 
 ## Summary
+
+Now you know how to design a database to meet business requirements. You know how to create tables, views, and indexed views. You know how to create constraints and how to use them to ensure data integrity. You know how to create partitioned views.

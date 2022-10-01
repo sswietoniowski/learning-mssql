@@ -30,9 +30,10 @@ SELECT * FROM dbo.vw_order_details;
 GO
 
 BEGIN TRANSACTION;
-SELECT * FROM dbo.products WHERE product_id = 1;
+SELECT * FROM dbo.order_details WHERE product_id = 1;
 UPDATE dbo.vw_order_details
 SET ProductPrice = 100
 WHERE ProductID = 1;
-SELECT * FROM dbo.products WHERE product_id = 1;
+SELECT * FROM dbo.order_details WHERE product_id = 1;
 ROLLBACK TRANSACTION;
+GO

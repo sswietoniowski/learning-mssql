@@ -43,22 +43,6 @@ The indexing architecture is based on the B-tree data structure.
 
 > A [B-tree](https://en.wikipedia.org/wiki/B-tree) is a self-balancing tree data structure that keeps data sorted and allows searches, sequential access, insertions, and deletions in logarithmic time.
 
-In SQL Server we have two main types of indexes:
-
-1. clustered indexes:
-
-   Clustered indexes are the primary index for a table. They are used to store the data in the table.
-
-   ![Clustered Index](./images/clustered-index.gif)
-
-2. non-clustered indexes.
-
-   ![Non-Clustered Index](./images/non-clustered-index.gif)
-
-   Non-clustered indexes are used to store additional information about the data in the table.
-
-More info about clustered and nonclustered indexes can be found [here](https://learn.microsoft.com/en-us/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15).
-
 ### How SQL Server uses indexes
 
 When we execute a query, SQL Server uses the indexes to find the data we're looking for. The query optimizer decides which index to use.
@@ -76,6 +60,22 @@ There are three operations that can be shown on an execution plan:
 3. _Key Lookup_ - single-row seek to the clustered index.
 
 ## 3. Designing Indexes to Organize Tables
+
+In SQL Server we have two main types of indexes:
+
+1. clustered indexes:
+
+   Clustered indexes are the primary index for a table. They are used to store the data in the table.
+
+   ![Clustered Index](./images/clustered-index.gif)
+
+2. non-clustered indexes.
+
+   ![Non-Clustered Index](./images/non-clustered-index.gif)
+
+   Non-clustered indexes are used to store additional information about the data in the table.
+
+More info about clustered and nonclustered indexes can be found [here](https://learn.microsoft.com/en-us/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15).
 
 ## 4. Designing Indexes to Improve Query Performance: Part 1
 

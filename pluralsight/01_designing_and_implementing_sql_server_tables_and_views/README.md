@@ -182,6 +182,10 @@ There are different types of constraints:
 
 NULL is a special marker, that means: absent, unavailable, inapplicable. Introduction of the NULL value leads us to the so-called "three-value logic": true, false, unknown. NULL is not equal to anything, including NULL. NULL is not equal to 0, empty string, or any other value. NULL is not equal to itself. Be explicit about NULL values while creating your tables and always use: `NULL` or `NOT NULL` in your columns.
 
+To change a constraint you must drop the constraint and then create a new constraint.
+
+You can define a constraint inside `CREATE TABLE` statement or after the table is created using `ALTER TABLE ... ADD CONSTRAINT` statement.
+
 More info about constraints can be found [here](https://learn.microsoft.com/en-us/sql/relational-databases/tables/unique-constraints-and-check-constraints?view=sql-server-ver15).
 
 ## 5. Designing View to Meet Business Requirements

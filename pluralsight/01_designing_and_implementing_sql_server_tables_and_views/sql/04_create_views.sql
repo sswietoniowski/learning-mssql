@@ -7,16 +7,14 @@ GO
 CREATE VIEW dbo.vw_order_details
 AS
 SELECT
-    od.order_id,
-    od.product_id,
-    od.product_quantity,
-    od.product_price,
-    od.total_price,
-    p.product_name,
-    p.product_description,
-    p.category_id,
-    c.category_name,
-    c.category_description
+    od.order_id AS OrderID,
+    od.product_id AS ProductID,
+    od.total_price AS TotalPrice,
+    p.product_name AS ProductName,
+    p.product_description AS ProductDescription,
+    p.category_id AS CategoryID,
+    c.category_name AS CategoryName,
+    c.category_description AS CategoryDescription
 FROM 
     dbo.order_details AS od
     INNER JOIN dbo.products AS p

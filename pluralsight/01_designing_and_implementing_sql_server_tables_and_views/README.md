@@ -209,11 +209,11 @@ A view is a virtual table based on the result-set of an SQL statement. A view co
 
 Views are used to:
 
-- hide data & customize results,
+- hide data (David Parnas, 1972 - information hiding) & customize results,
 - combine data from multiple tables,
 - restrict access to data,
 - simplify queries & encapsulate queries,
-- backward compatibility.
+- provide backward compatibility.
 
 Updateable views are views that can be used to update data in the database. Updateable views are created using `CREATE VIEW` statement with `WITH SCHEMABINDING` option.
 

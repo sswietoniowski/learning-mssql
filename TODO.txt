@@ -3,13 +3,13 @@ W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem
 2022-09-28 - 2022-10-09
 
 + Designing and Implementing SQL Server Tables and Views
-(I) Designing and Implementing SQL Server Database Indexes: SO, ND
-(I) Managing SQL Server Database Concurrency: PN
-(I) Optimizing SQL Server Statistics and Indexes: WT
-(I) Analyzing SQL Server Query Plans: ŚR
-(I) Handling Errors in T-SQL: CZW
-(I) Querying Data Using T-SQL: CZW
-(O) T-SQL Data Manipulation Playbook: PT
+(I) Designing and Implementing SQL Server Database Indexes: SO, PN
+(I) Managing SQL Server Database Concurrency: WT
+(I) Optimizing SQL Server Statistics and Indexes: ŚR
+(I) Analyzing SQL Server Query Plans: CZW
+(I) Handling Errors in T-SQL: PT
+(I) Querying Data Using T-SQL: PT
+(O) T-SQL Data Manipulation Playbook: SO
 (O) Combining and Filtering Data with T-SQL 2019: SO
 (O) Programming SQL Server Database Stored Procedures: ND
 (O) Programming SQL Server Database Triggers and Functions: ND

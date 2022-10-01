@@ -9,6 +9,8 @@ AS
 SELECT
     od.order_id AS OrderID,
     od.product_id AS ProductID,
+    od.product_price AS ProductPrice,
+    od.product_quantity AS ProductQuantity,
     od.total_price AS TotalPrice,
     p.product_name AS ProductName,
     p.product_description AS ProductDescription,

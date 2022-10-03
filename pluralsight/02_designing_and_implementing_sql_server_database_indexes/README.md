@@ -149,9 +149,63 @@ Needs multiple indexes for best performance.
 
 ### Indexing for joins
 
+There are three types of join operations that might benefit from indexing. At the same time, we're seldom create indexes just for that purpose.
+
+These types of joins are:
+
+1. _Nested Loop_ - joins might benefit from an index on the inner table. The outer table is usually small so it doesn't benefit from an index.
+
+2. _Hash Match_ - joins don't benefit from indexes.
+
+3. _Merge_ - joins may benefit from indexes to provide necessary ordering.
+
 ### Include Columns
 
+> Include columns are columns that are not part of the index key but are stored in the index at the leaf pages.
+
+Include Columns are used to support queries that need additional columns. They were introduced in SQL Server 2008.
+
+They are used to reduce the number of pages that need to be read to retrieve the data. We're using them to avoid expensive key lookups (key lookups are expensive because they require a seek operation).
+
+Key lookups:
+
+- single-row seek against the clustered index,
+- fetch columns which are required but not in the key of the index used,
+- slow if there is a large number.
+
+Syntax for creating an index with include columns:
+
+```sql
+CREATE INDEX IX_Table_IncludeColumns
+ON dbo.Table (Column1, Column2, Column3)
+INCLUDE (Column4, Column5, Column6);
+```
+
+Once more: include columns are not used for filtering. They are used to support queries that need additional columns.
+
+Include columns can make an index larger and in the result slower. We should use them, but not overuse them :-).
+
 ### Filtered Indexes
+
+> Filtered indexes are indexes on a subset of rows in the table.
+
+Can be useful on tables with skewed data.
+
+> Filtered indexes can be useful on tables with skewed data. For example, if we have a table with 100 million rows and 99.9% of the rows have a value of 0 in a particular (bit) column, we can create a filtered index on that column that only includes the rows with a value of 1. Another practical example would be a table with a column that indicates whether a row is active or inactive (soft delete). We could create a filtered index on that column that only includes the active rows.
+
+Also useful for complex unique constraints.
+
+> Filtered indexes are also useful for complex unique constraints. For example, if we have a table with a unique constraint on two columns, we can create a filtered index on those two columns that only includes the rows that have `NOT NULL` value in the second column. This will allow us to insert `NULL` values into the second column many times, without violating the unique constraint.
+
+Filter indexes have limitations, they don't work with parametrized queries.
+
+Syntax for creating a filtered index:
+
+```sql
+CREATE INDEX IX_Table_Filtered
+ON dbo.Table (Column1, Column2, Column3)
+WHERE Column4 = 1;
+```
 
 ## 5. Designing Indexes to Improve Query Performance: Part 2
 

@@ -94,13 +94,64 @@ In SQL Server we have two main types of indexes:
 
    ![Non-Clustered Index](./images/non-clustered-index.gif)
 
-   Non-clustered indexes are used to store additional information about the data in the table.
+   Non-clustered indexes are used to store additional information about the data in the table. It is separate structure from the table. It is used to support queries. There could be many non-clustered indexes per table. Don't have to (and shouldn't) contain all columns. Always in sync with the table.
 
 More info about clustered and nonclustered indexes can be found [here](https://learn.microsoft.com/en-us/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15).
 
 ## 4. Designing Indexes to Improve Query Performance: Part 1
 
 To improve query performance we can use clustered indexes and non-clustered indexes.
+
+Architecture of a non-clustered index was presented in the previous section.
+
+Common query predicates:
+
+1. equality (`=`, `AND`),
+2. inequality (`<>`, `!=`, `>`, `<`, `>=`, `<=`),
+3. ORs (`OR`),
+4. Joins (`JOIN`),
+5. \*range (`>=`, `<=`, `BETWEEN`),
+6. \*pattern (`LIKE`, `IN`).
+
+### Indexing for equality
+
+> When we use an equality predicate, SQL Server can use an index to find the data we're looking for. This is called an index seek.
+
+Query must filter on a left-based subset of the index key.
+
+> A left-based subset of the index key is a subset of the index key that starts with the first column in the index and continues with the next column in the index, and so on.
+
+Order of index columns doesn't matter for a single query.
+
+> The order of the columns in the index doesn't matter for a single query. SQL Server can use an index in any order.
+
+Order does matter when trying to get multiple queries to use a single index.
+
+> The order of the columns in the index does matter when we're trying to get multiple queries to use a single index. We need to make sure that the queries are filtering on a left-based subset of the index key.
+
+### Indexing for inequality
+
+Left-based subset of the index key.
+
+> It is again seek operation not range scan as some might claim.
+
+Equality columns before inequality columns.
+
+Multiple inequalities are hard to index well.
+
+### Indexing for ORs
+
+Additional predicates increase the results.
+
+> In many cases ORs can lead to a full table scan. We need to be careful when using ORs.
+
+Needs multiple indexes for best performance.
+
+### Indexing for joins
+
+### Include Columns
+
+### Filtered Indexes
 
 ## 5. Designing Indexes to Improve Query Performance: Part 2
 

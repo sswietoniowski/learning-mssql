@@ -147,6 +147,8 @@ Additional predicates increase the results.
 
 Needs multiple indexes for best performance.
 
+## 5. Designing Indexes to Improve Query Performance: Part 2
+
 ### Indexing for joins
 
 There are three types of join operations that might benefit from indexing. At the same time, we're seldom create indexes just for that purpose.
@@ -207,7 +209,7 @@ ON dbo.Table (Column1, Column2, Column3)
 WHERE Column4 = 1;
 ```
 
-## 5. Designing Indexes to Improve Query Performance: Part 2
+Final note: we should create as many non-clustered indexes as needed, but no more!
 
 ## 6. Designing Indexed Views
 

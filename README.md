@@ -58,4 +58,5 @@ Some useful tools & other resources:
 - [Paul S. Randal](https://www.sqlskills.com/blogs/paul/),
 - [Kimberly L. Tripp](https://www.sqlskills.com/blogs/kimberly/),
 - [Jonathan Kehayias](https://www.sqlskills.com/blogs/jonathan/),
-- [Tim Radney](https://www.sqlskills.com/blogs/tim/).
+- [Tim Radney](https://www.sqlskills.com/blogs/tim/),
+- [Gail Shaw](http://sqlinthewild.co.za).

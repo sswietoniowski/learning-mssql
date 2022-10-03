@@ -213,6 +213,45 @@ Final note: we should create as many non-clustered indexes as needed, but no mor
 
 ## 6. Designing Indexed Views
 
+> An indexed view (also called: **materialized view**) is a view that has an index on it. Indexed views are used to improve performance of queries that use the view.
+
+Normally, views are just saved SELECT statements. It is possible to create a clustered index on a view. It is also possible to create a non-clustered index on a view. This materializes the view, persists its results as if it were a table. Contents of the view are automatically kept up to date as underlying tables change.
+
+Indexed view has many requirements (or should I say - a massive number of limitations), some of them:
+
+- first index must be a unique clustered index,
+- certain SET options must be specified (these restrictions apply not only to the view but also to the underlying tables!),
+- a view must be deterministic,
+- must be created with `SCHEMABINDING` option,
+- restricted T-SQL elements that can't be used inside the index:
+  - columns must be listed explicitly,
+  - no subqueries are allowed
+  - `LEFT JOIN` not allowed (we can only use `INNER JOIN`),
+  - we can't reference other views only base tables,
+  - we can't use derived tables,
+  - no `MIN` or `MAX`,
+  - ... .
+
+If there are so many limitations when indexed views are useful?
+
+Two scenarios:
+
+- aggregates (not for OLAP, but for OLTP),
+- simple joins with filters.
+
+Indexed views to be fully utilized must be used in conjunction with Microsoft SQL Server Enterprise Edition. To use indexed views in SQL Server Standard Edition we need to use a workaround, which is to add an option to the query hint (`NO EXPAND` - this option disables the expansion of the indexed view).
+
+Indexed views are a niche feature. They are useful in some cases, but not in most of them.
+
+Downside of indexed views:
+
+- they are not (fully) supported in all editions of SQL Server,
+- additional write overhead,
+- additional space requirement,
+- require specific SET options (there could be a situation when we had created an indexed view, but later maintenance tasks could fail due to these requirements).
+
+More info about indexed views can be found [here](https://learn.microsoft.com/en-us/sql/relational-databases/views/create-indexed-views?view=sql-server-ver15).
+
 ## 7. Designing Columnstore Indexes for Analytic Queries
 
 ## Summary

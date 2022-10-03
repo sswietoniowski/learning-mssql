@@ -2,17 +2,6 @@
 
 Introduction to SQL Server Tables and Views.
 
-## Table of contents
-
-- [1. Introducing Tables and Views](## 1. Introducing Tables and Views)
-- [2. Designing and Implementing Tables](## 2. Designing and Implementing Tables)
-- [3. Improving Table Design Through Normalization](## 3. Improving Table Design Through Normalization)
-- [4. Ensuring Data Integrity with Constraints](## 4. Ensuring Data Integrity with Constraints)
-- [5. Designing View to Meet Business Requirements](## 5. Designing View to Meet Business Requirements)
-- [6. Implementing Indexed Views](## 6. Implementing Indexed Views)
-- [7. Implementing Partitioned Views(## 7. Implementing Partitioned Views)
-- [Summary](## Summary)
-
 ## 1. Introducing Tables and Views
 
 Some definitions can be found [here](definitions.md) :-).

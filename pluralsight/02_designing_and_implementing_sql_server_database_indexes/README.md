@@ -314,3 +314,8 @@ More info about columnstore indexes can be found [here](https://learn.microsoft.
 Now you know how to design and implement SQL Server database indexes :-).
 
 More info about Microsoft's guidelines how we should use indexes can be found [here](https://learn.microsoft.com/en-us/sql/relational-databases/sql-server-index-design-guide?view=sql-server-ver15).
+
+There are other types of indexes:
+
+- [XML indexes](https://learn.microsoft.com/en-us/sql/relational-databases/xml/xml-indexes-sql-server?view=sql-server-ver15),
+- [Spatial indexes](https://learn.microsoft.com/en-us/sql/relational-databases/spatial/spatial-indexes-overview?view=sql-server-ver15).

@@ -254,6 +254,45 @@ More info about indexed views can be found [here](https://learn.microsoft.com/en
 
 ## 7. Designing Columnstore Indexes for Analytic Queries
 
+> Columnstore indexes are a new feature introduced in SQL Server 2012. They are designed to improve performance of analytical queries.
+
+They are pretty similar to column-oriented databases. They are designed to store large amounts of data in a compressed format.
+
+> They are indexes where the data for a column is stored together.
+
+Columnstore indexes are not used for filtering, they are also poor for OLTP queries, especially for updates and inserts.
+
+Columnstore indexes are good for analytical queries, especially for queries that use aggregates.
+
+They are built differently than other indexes. They are built in a bottom-up, columnar, compressed fashion.
+
+![Columnstore Index](./images/columnstore-index.gif)
+
+There are two types of columnstore indexes:
+
+1. Clustered columnstore index - organizes the table, consists of all columns in the table.
+2. Non-clustered columnstore index - secondary structure, contains just the columns specified.
+
+To create a columnstore index we need to use the `CLUSTERED COLUMNSTORE INDEX` clause.
+
+```sql
+CREATE CLUSTERED COLUMNSTORE INDEX IX_Table_Columnstore
+ON dbo.Table;
+```
+
+To create a non-clustered columnstore index we need to use the `NONCLUSTERED COLUMNSTORE INDEX` clause.
+
+```sql
+CREATE NONCLUSTERED COLUMNSTORE INDEX IX_Table_Columnstore
+ON dbo.Table (Column1, Column2, Column3);
+```
+
+Columnstore indexes are not supported in all editions of SQL Server. They are supported in Enterprise and Developer editions, since SQL Server 2014 also in Standard edition.
+
+More info about columnstore indexes can be found [here](https://learn.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-overview?view=sql-server-ver15).
+
 ## Summary
 
 Now you know how to design and implement SQL Server database indexes :-).
+
+More info about Microsoft's guidelines how we should use indexes can be found [here](https://learn.microsoft.com/en-us/sql/relational-databases/sql-server-index-design-guide?view=sql-server-ver15).

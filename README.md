@@ -20,7 +20,7 @@ Based on these (free) courses:
 Also used these (paid) courses & books:
 
 - **[Designing and Implementing SQL Server Tables and Views](https://app.pluralsight.com/library/courses/sqlserver-tables-view-designing-implementing/table-of-contents)** [:file_folder:](https://app.pluralsight.com/library/courses/sqlserver-tables-view-designing-implementing/exercise-files) :+1:,
-- [Designing and Implementing SQL Server Database Indexes](https://app.pluralsight.com/library/courses/design-build-sql-server-indexes/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/design-build-sql-server-indexes/exercise-files) :arrow_forward:,
+- [Designing and Implementing SQL Server Database Indexes](https://app.pluralsight.com/library/courses/design-build-sql-server-indexes/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/design-build-sql-server-indexes/exercise-files) :+1:,
 - [Programming SQL Server Database Stored Procedures](https://app.pluralsight.com/library/courses/sql-server-database-programming-stored-procedures/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/sql-server-database-programming-stored-procedures/exercise-files),
 - [Programming SQL Server Database Triggers and Functions](https://app.pluralsight.com/library/courses/program-sql-server-triggers-functions/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/program-sql-server-triggers-functions/exercise-files),
 - [Managing SQL Server Database Concurrency](https://app.pluralsight.com/library/courses/manage-sql-server-concurrency/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/manage-sql-server-concurrency/exercise-files) :arrow_forward:,
@@ -35,7 +35,10 @@ Also used these (paid) courses & books:
 - [Capturing Logic with Stored Procedures in T-SQL](https://app.pluralsight.com/library/courses/capturing-logic-with-stored-procedures-tsql/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/capturing-logic-with-stored-procedures-tsql/exercise-files),
 - [T-SQL Functions Playbook](https://app.pluralsight.com/library/courses/tsql-functions-playbook/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/tsql-functions-playbook/exercise-files),
 - [Querying JSON, XML, and Temporal Data with T-SQL](https://app.pluralsight.com/library/courses/querying-json-xml-temporal-data-tsql/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/querying-json-xml-temporal-data-tsql/exercise-files),
-- [Handling Errors in T-SQL](https://app.pluralsight.com/library/courses/handling-errors-tsql/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/handling-errors-tsql/exercise-files) :arrow_forward:.
+- [Handling Errors in T-SQL](https://app.pluralsight.com/library/courses/handling-errors-tsql/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/handling-errors-tsql/exercise-files) :arrow_forward:,
+- [SQL Server: Indexing for Performance](https://app.pluralsight.com/library/courses/sqlserver-indexing-for-performance/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/sqlserver-indexing-for-performance/exercise-files) :arrow_forward:,
+- [SQL Server: Index Fragmentation Internals, Analysis, and Solutions](https://app.pluralsight.com/library/courses/sqlserver-index-fragmentation-internals-analysis-solutions/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/sqlserver-index-fragmentation-internals-analysis-solutions/exercise-files) :arrow_forward:,
+- [SQL Server: Analyzing Query Performance for Developers](https://app.pluralsight.com/library/courses/sqlserver-query-performance-developers/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/sqlserver-query-performance-developers/exercise-files) :arrow_forward:.
 
 ## Useful Tools & Other Resources
 

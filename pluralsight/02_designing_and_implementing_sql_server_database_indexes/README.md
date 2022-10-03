@@ -289,6 +289,24 @@ ON dbo.Table (Column1, Column2, Column3);
 
 Columnstore indexes are not supported in all editions of SQL Server. They are supported in Enterprise and Developer editions, since SQL Server 2014 also in Standard edition.
 
+Columnstore guidelines:
+
+- clustered columnstore indexes on large fact tables,
+- can add non-clustered rowstore (traditional :-)) indexes to help with searches,
+- nonclustered columnstore indexes can help with analytics in OLTP systems.
+
+They are not ideal for systems with lots of single-row modifications. Delta store is a normal B-Tree. Newly inserted rows aren't compressed. They are stored in a delta store. When the delta store is full, it is merged with the columnstore index. Inserts faster than tuple mover mary result in large delta stores.
+
+Not efficient on small tables. Compression benefits from lots of rows. Also a problem with small partitions in partitioned tables.
+
+Best on columns with repeated patterns in the data. Encrypted data doesn't compress. Data with high degree of randomness is not ideal.
+
+Can't be used for seek operations. No keys in these indexes, not a B-Tree. May need additional nonclustered rowstore indexes for workloads with lots of small seeks.
+
+Can't be used to enforce uniqueness. Primary key/unique constraints/unique index has to be a rowstore index.
+
+Order of columns in columnstore index is not important, they aren't used for seeks, no 'left-based subset of the key'. For nonclustered columnstore indexes it is important to include all the necessary columns in the index (the one that will be used for aggregates and grouping).
+
 More info about columnstore indexes can be found [here](https://learn.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-overview?view=sql-server-ver15).
 
 ## Summary

@@ -206,6 +206,24 @@ There are four (five\*) isolation levels in SQL Server:
 - Serializable,
 - Snapshot\*.
 
+To determine the isolation level used by a session, use the following command:
+
+```sql
+SELECT
+    CASE transaction_isolation_level
+        WHEN 0 THEN 'Unspecified'
+        WHEN 1 THEN 'Read Uncommitted'
+        WHEN 2 THEN 'Read Committed'
+        WHEN 3 THEN 'Repeatable Read'
+        WHEN 4 THEN 'Serializable'
+        WHEN 5 THEN 'Snapshot'
+    END AS IsolationLevel
+FROM
+    sys.dm_exec_sessions
+WHERE
+    session_id = @@SPID
+```
+
 ### Read Uncommitted
 
 `Read Uncommitted` is the lowest isolation level. It allows dirty reads and non-repeatable reads.

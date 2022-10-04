@@ -332,9 +332,19 @@ ALTER DATABASE AdventureWorks2012
 SET READ_COMMITTED_SNAPSHOT ON
 ```
 
+There is still risk o an error if two update operations are performed on the same row at the same time.
+
 We must understand that snapshot isolation is not a replacement for `READ COMMITTED` isolation level.It is a new isolation level that can be used in specific scenarios. It is also important to know the performance impact of using this isolation level, especially to the tempdb.
 
 Tempdb space is used to store the snapshot of the data. If we have a lot of data, it will take a lot of space in tempdb. It is also important to know that the snapshot is not updated until the transaction is committed. This means that if we have a lot of data, it will take a lot of time to update the snapshot.
+
+There are some DMVs that might be useful while working with snapshot isolation (see examples).
+
+### Locking vs Row Versioning
+
+Locking is a mechanism that prevents other transactions from modifying data. Locking is used in `READ UNCOMMITTED`, `READ COMMITTED`, and `REPEATABLE READ` isolation levels. These are ANSI SQL-92 compliant. They are better for long-running updates.
+
+Row versioning is a mechanism that allows us to read previous state of data while other transactions are modifying it. Row versioning is used in `SNAPSHOT` isolation level. This isolation level is proprietary. Better for read-heavy operations. Extra load on tempdb.
 
 ## 5. Locking in the SQL Server Database Engine
 

@@ -220,10 +220,20 @@ SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
 
 Sometimes we need to read data that is not committed yet. In this case, we can add `WITH (NOLOCK)` to our `SELECT` statement.
 
+It might seem as there are no locks involved in this isolation level, but that's not true. There are locks involved, but they are not blocking locks. SQL Server uses schema locks (Sch-S) to prevent other transactions from modifying the schema.
+
 Sample code:
 
 ```sql
 SELECT * FROM dbo.Customers WITH (NOLOCK)
+```
+
+To achieve the same result you could use `With (READUNCOMMITTED)`.
+
+Sample code:
+
+```sql
+SELECT * FROM dbo.Customers WITH (READUNCOMMITTED)
 ```
 
 ### Read Committed

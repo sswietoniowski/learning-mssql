@@ -78,13 +78,13 @@ Autocommit is enabled by default in SQL Server.
 To disable autocommit mode use the following command:
 
 ```sql
-SET IMPLICIT_TRANSACTIONS OFF
+SET IMPLICIT_TRANSACTIONS ON
 ```
 
 To enable it back use the following command:
 
 ```sql
-SET IMPLICIT_TRANSACTIONS ON
+SET IMPLICIT_TRANSACTIONS OFF
 ```
 
 To check whether we're inside a transaction or not use the following command:
@@ -145,7 +145,7 @@ When `SET XACT_ABORT` is disabled, the transaction will not be rolled back when 
 
 If we decide to disable autocommit mode, we're dealing with implicit transactions.
 
-Implicit transactions are started when we execute a DML statement and are committed when we execute commit or rollback.
+Implicit transactions are started when we execute a statement and are committed when we execute commit or rollback.
 
 To commit a implicit transaction use the following command:
 

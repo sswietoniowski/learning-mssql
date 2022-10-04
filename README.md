@@ -38,7 +38,9 @@ Also used these (paid) courses & books:
 - [Handling Errors in T-SQL](https://app.pluralsight.com/library/courses/handling-errors-tsql/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/handling-errors-tsql/exercise-files) :arrow_forward:,
 - [SQL Server: Indexing for Performance](https://app.pluralsight.com/library/courses/sqlserver-indexing-for-performance/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/sqlserver-indexing-for-performance/exercise-files) :arrow_forward:,
 - [SQL Server: Index Fragmentation Internals, Analysis, and Solutions](https://app.pluralsight.com/library/courses/sqlserver-index-fragmentation-internals-analysis-solutions/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/sqlserver-index-fragmentation-internals-analysis-solutions/exercise-files) :arrow_forward:,
-- [SQL Server: Analyzing Query Performance for Developers](https://app.pluralsight.com/library/courses/sqlserver-query-performance-developers/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/sqlserver-query-performance-developers/exercise-files) :arrow_forward:.
+- [SQL Server: Analyzing Query Performance for Developers](https://app.pluralsight.com/library/courses/sqlserver-query-performance-developers/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/sqlserver-query-performance-developers/exercise-files) :arrow_forward:,
+- [SQL Server: Introduction to Extended Events](https://app.pluralsight.com/library/courses/sqlserver-basicxevents/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/sqlserver-basicxevents/exercise-files),
+- [SQL Server: Using SentryOne Plan Explorer](https://app.pluralsight.com/library/courses/sqlserver-using-sentryone-plan-explorer/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/sqlserver-using-sentryone-plan-explorer/exercise-files).
 
 ## Useful Tools & Other Resources
 

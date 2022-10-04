@@ -292,6 +292,50 @@ SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
 
 ## 4. Implementing Snapshot Isolation Levels
 
+Previous four isolation levels can be called pessimistic isolation levels. They are pessimistic because they assume that other transactions will modify data. In this lesson, we will learn about optimistic isolation levels.
+
+Snapshot isolation is a new isolation level introduced in SQL Server 2008. In this case we can read previous state of data while other transactions are modifying it. This isolation level is called optimistic because it assumes that other transactions will not modify data.
+
+To use this isolation level we need to enable it first. To enable it use the following command:
+
+```sql
+ALTER DATABASE AdventureWorks2012
+SET ALLOW_SNAPSHOT_ISOLATION ON
+```
+
+When snapshot isolation is used the SQL Server maintains versions of each row that is modified. The chance that a read operation will block other transactions is greatly reduced. SQL Server uses a copy-on-write mechanism when a row is modified or deleted. Tempdb is used to hold the version store.
+
+To set this level of isolation use the following command:
+
+```sql
+SET TRANSACTION ISOLATION LEVEL SNAPSHOT
+```
+
+To check if the snapshot isolation is enabled use the following command:
+
+```sql
+SELECT
+    is_read_committed_snapshot_on,
+    snapshot_isolation_state_desc
+FROM
+    sys.databases
+WHERE
+name = 'AdventureWorks2012'
+```
+
+By enabling snapshot isolation we can use `WITH (SNAPSHOT)` option in our `SELECT` statement.
+
+We can also change the default isolation level to `SNAPSHOT` by using the following command:
+
+```sql
+ALTER DATABASE AdventureWorks2012
+SET READ_COMMITTED_SNAPSHOT ON
+```
+
+We must understand that snapshot isolation is not a replacement for `READ COMMITTED` isolation level.It is a new isolation level that can be used in specific scenarios. It is also important to know the performance impact of using this isolation level, especially to the tempdb.
+
+Tempdb space is used to store the snapshot of the data. If we have a lot of data, it will take a lot of space in tempdb. It is also important to know that the snapshot is not updated until the transaction is committed. This means that if we have a lot of data, it will take a lot of time to update the snapshot.
+
 ## 5. Locking in the SQL Server Database Engine
 
 ## 6. Optimizing Concurrency and Locking Behavior

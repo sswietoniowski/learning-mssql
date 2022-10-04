@@ -52,19 +52,118 @@ More info about the tools used in this course can be found [here](https://git.io
 
 ## 2. Understanding Transactions
 
+Transactions are the basic unit of work in a database. This lesson will introduce you to the concepts of transactions and how they are used in SQL Server.
+
+> UoW (Unit of Work) is a set of operations that must be performed as a single unit. A transaction is a UoW.
+
 ### Introducing Transactions
+
+Transactions are used to ensure that data is consistent and reliable (data integrity).
 
 ### Understanding Roles and Responsibilities
 
+We need to understand who starts a transaction and who commits it, also who should do what in case of an error.
+
+There are two "players" involved:
+
+- SQL Programmers - starting and ending transactions in accordance with the business rules as a logical unit of work,
+- SQL Server Database Engine - locking (isolation), logging (durability), management (atomicity and consistency).
+
 ### Autocommit
+
+> Autocommit is a mode in which every SQL statement is treated as a transaction and is committed immediately.
+
+Autocommit is enabled by default in SQL Server.
+
+To disable autocommit mode use the following command:
+
+```sql
+SET IMPLICIT_TRANSACTIONS OFF
+```
+
+To enable it back use the following command:
+
+```sql
+SET IMPLICIT_TRANSACTIONS ON
+```
+
+To check whether we're inside a transaction or not use the following command:
+
+```sql
+SELECT @@TRANCOUNT
+```
 
 ### Explicit Transactions
 
+To start explicit transaction use the following command:
+
+```sql
+BEGIN TRANSACTION
+```
+
+To commit a transaction use the following command:
+
+```sql
+COMMIT TRANSACTION
+```
+
+To rollback a transaction use the following command:
+
+```sql
+ROLLBACK TRANSACTION
+```
+
+It is important to understand that rollback behavior can be changed by using the `SET XACT_ABORT` command.
+
+To enable `SET XACT_ABORT` command use the following command:
+
+```sql
+SET XACT_ABORT ON
+```
+
+When `SET XACT_ABORT` is enabled, the transaction will be rolled back when an error occurs.
+
+To disable `SET XACT_ABORT` command use the following command:
+
+```sql
+SET XACT_ABORT OFF
+```
+
+When `SET XACT_ABORT` is disabled, the transaction will not be rolled back when an error occurs.
+
 ### Implicit Transactions
+
+If we decide to disable autocommit mode, we're dealing with implicit transactions.
+
+To commit a implicit transaction use the following command:
+
+```sql
+COMMIT
+```
+
+To rollback a implicit transaction use the following command:
+
+```sql
+ROLLBACK
+```
 
 ### Revisiting Autocommit and Explicit Transactions
 
 ### Introducing Savepoints
+
+Sometimes we need to rollback a transaction to a specific point. We can do that using savepoints.
+
+To create a savepoint use the following command:
+
+```sql
+SAVE TRANSACTION SavepointName
+```
+
+To rollback to a savepoint use the following command:
+
+```sql
+ROLLBACK TRANSACTION SavepointName
+```
 
 ## 3. Managing Basic Isolation Levels
 

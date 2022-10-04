@@ -93,6 +93,10 @@ To check whether we're inside a transaction or not use the following command:
 SELECT @@TRANCOUNT
 ```
 
+If the result is 0, we're not inside a transaction.
+
+You might got an impression that transactions can be nested, but that's not exactly true. In reality if you are performing a rollback, all the transactions will be rolled back. In case of a commit, only the innermost transaction will be "committed" but in reality you will have an active transaction.
+
 To check SQL Server version in use, use the following command:
 
 ```sql
@@ -140,6 +144,8 @@ When `SET XACT_ABORT` is disabled, the transaction will not be rolled back when 
 ### Implicit Transactions
 
 If we decide to disable autocommit mode, we're dealing with implicit transactions.
+
+Implicit transactions are started when we execute a DML statement and are committed when we execute commit or rollback.
 
 To commit a implicit transaction use the following command:
 

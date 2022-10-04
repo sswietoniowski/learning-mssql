@@ -9,10 +9,10 @@ W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem
 (I) Analyzing SQL Server Query Plans: CZW
 (I) Handling Errors in T-SQL: PT
 (I) Querying Data Using T-SQL: PT
-(O) T-SQL Data Manipulation Playbook: SO
-(O) Combining and Filtering Data with T-SQL 2019: SO
-(O) Programming SQL Server Database Stored Procedures: ND
-(O) Programming SQL Server Database Triggers and Functions: ND
+(O) T-SQL Data Manipulation Playbook: WT
+(O) Combining and Filtering Data with T-SQL 2019
+(O) Programming SQL Server Database Stored Procedures: CZW
+(O) Programming SQL Server Database Triggers and Functions: PT
 
 2022-10-10 - 2022-11-06 
 

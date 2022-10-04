@@ -145,6 +145,12 @@ When `SET XACT_ABORT` is disabled, the transaction will not be rolled back when 
 
 If we decide to disable autocommit mode, we're dealing with implicit transactions.
 
+To check if we're using implicit transactions use the following command:
+
+```sql
+SELECT IFF(2 & @@OPTIONS, 'ON', 'OFF') AS ImplicitTransactions
+```
+
 Implicit transactions are started when we execute a statement and are committed when we execute commit or rollback.
 
 To commit a implicit transaction use the following command:
@@ -158,6 +164,8 @@ To rollback a implicit transaction use the following command:
 ```sql
 ROLLBACK
 ```
+
+This behavior of transactions is popular in the Oracle Database, but in case of Microsoft SQL Server, it's not recommended to use implicit transactions.
 
 ### Revisiting Autocommit and Explicit Transactions
 

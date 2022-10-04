@@ -230,7 +230,7 @@ SELECT * FROM dbo.Customers WITH (NOLOCK)
 
 `Read Committed` is the default isolation level. It allows non-repeatable reads.
 
-> Non-repeatable read is when we read the same data twice and get different results.
+> Non-repeatable read is when we read the same data twice and get different results (don't see the same row twice).
 
 To set this level of isolation use the following command:
 
@@ -242,7 +242,7 @@ SET TRANSACTION ISOLATION LEVEL READ COMMITTED
 
 `Repeatable Read` is the next isolation level. It allows phantom reads.
 
-> Phantom read is when we read the same data twice and get different results. It is similar to non-repeatable read, but in this case we're dealing with a range of data instead of a single row.
+> Phantom read is when we read the same data twice and get different results. It is similar to non-repeatable read (but in this case new rows from another session were added).
 
 To set this level of isolation use the following command:
 

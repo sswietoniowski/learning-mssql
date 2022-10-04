@@ -93,9 +93,15 @@ To check whether we're inside a transaction or not use the following command:
 SELECT @@TRANCOUNT
 ```
 
+To check SQL Server version in use, use the following command:
+
+```sql
+SELECT @@VERSION
+```
+
 ### Explicit Transactions
 
-To start explicit transaction use the following command:
+To start explicit transaction (when you are in the autocommit mode) use the following command:
 
 ```sql
 BEGIN TRANSACTION

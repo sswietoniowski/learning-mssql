@@ -194,6 +194,74 @@ ROLLBACK TRANSACTION SavepointName
 
 ## 3. Managing Basic Isolation Levels
 
+When we're dealing with transactions, we need to understand how they are isolated from each other. This lesson will introduce you to the concepts of isolation levels and how they are used in SQL Server.
+
+### Understanding Isolation Levels
+
+There are four (five\*) isolation levels in SQL Server:
+
+- Read Uncommitted,
+- Read Committed,
+- Repeatable Read,
+- Serializable,
+- Snapshot\*.
+
+### Read Uncommitted
+
+`Read Uncommitted` is the lowest isolation level. It allows dirty reads and non-repeatable reads.
+
+> Dirty read is a read of a row that has been modified by another transaction but not yet committed.
+
+To set this level of isolation use the following command:
+
+```sql
+SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
+```
+
+Sometimes we need to read data that is not committed yet. In this case, we can add `WITH (NOLOCK)` to our `SELECT` statement.
+
+Sample code:
+
+```sql
+SELECT * FROM dbo.Customers WITH (NOLOCK)
+```
+
+### Read Committed
+
+`Read Committed` is the default isolation level. It allows non-repeatable reads.
+
+> Non-repeatable read is when we read the same data twice and get different results.
+
+To set this level of isolation use the following command:
+
+```sql
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+```
+
+### Repeatable Read
+
+`Repeatable Read` is the next isolation level. It allows phantom reads.
+
+> Phantom read is when we read the same data twice and get different results. It is similar to non-repeatable read, but in this case we're dealing with a range of data instead of a single row.
+
+To set this level of isolation use the following command:
+
+```sql
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ
+```
+
+### Serializable
+
+Serializable is the highest isolation level. It prevents dirty reads, non-repeatable reads, and phantom reads.
+
+Using this level of isolation is very expensive, so it's not recommended to use it in production. In general, you should use `Read Committed` isolation level.
+
+To set this level of isolation use the following command:
+
+```sql
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE
+```
+
 ## 4. Implementing Snapshot Isolation Levels
 
 ## 5. Locking in the SQL Server Database Engine

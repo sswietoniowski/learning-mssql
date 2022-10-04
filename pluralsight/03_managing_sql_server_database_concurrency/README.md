@@ -167,14 +167,14 @@ ROLLBACK
 
 This behavior of transactions is popular in the Oracle Database, but in case of Microsoft SQL Server, it's not recommended to use implicit transactions.
 
+### Revisiting Autocommit and Explicit Transactions
+
 There are two other types of transactions:
 
 - batched-scoped - applicable to MARS (Multiple Active Result Sets) connections,
 - distributed - applicable to distributed transactions.
 
 We can name our transactions and add special marker to the transaction log (using `WITH MARK` option). It is also possible to add to our `COMMIT` or `ROLLBACK` command a name of the transaction we want to commit or rollback (but that is only for documentation). We can also add to `COMMIT` special option `WITH (DELAYED_DURABILITY = ON` to delay the durability of the transaction (at the risk of breaking D in ACID).
-
-### Revisiting Autocommit and Explicit Transactions
 
 ### Introducing Savepoints
 

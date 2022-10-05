@@ -415,25 +415,73 @@ If a resource is already locked by another transaction, a new lock can be grante
 If the mode of the requested lock is not compatible with the existing lock, the transaction requesting the new lock waits for it.
 No lock modes are compatible with exclusive locks.
 
-There are 4 rules:
-
-1. Shared locks are compatible with each other.
-2. Exclusive locks are not compatible with each other.
-3. Shared locks are not compatible with exclusive locks.
-4. Exclusive locks are not compatible with shared locks.
+More info about locks compatibility can be found [here](https://www.sqlshack.com/locking-sql-server/).
 
 ### Lock Incompatibility and Consequences
 
-### Deadlock Analysis using SSMS
+> Lock incompatibility is a situation when two or more transactions are trying to acquire locks on the same resource at the same time. Lock incompatibility can cause blocking and deadlocks.
 
-### Deadlock Analysis using Extended Events
+### Deadlock Analysis using SSMS and Extended Events
+
+We can use SSMS to diagnose deadlocks. We can see the graph of the deadlock and the list of the transactions involved in the deadlock and view the details of each transaction.
 
 ### Handling and Avoiding Deadlocks
 
+We can handle deadlocks in two ways:
+
+- we can use `TRY...CATCH` block to handle deadlocks (fail or retry).
+- we can use `SET DEADLOCK_PRIORITY` statement to change the priority of the transaction.
+
+Example of using `TRY...CATCH` block to handle deadlocks:
+
+```sql
+BEGIN TRY
+    BEGIN TRANSACTION
+    UPDATE dbo.Table1
+    SET Column1 = 1
+    WHERE Column2 = 2
+    COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+    IF ERROR_NUMBER() = 1205
+    BEGIN
+        PRINT 'Deadlock occurred'
+    END
+    ELSE
+    BEGIN
+        PRINT 'Error occurred'
+    END
+END CATCH
+```
+
+However, it is better to avoid deadlocks.
+
+We can do so by:
+
+- keep transactions short,
+- set `DEADLOCK_PRIORITY`.
+
 ### Controlling Deadlocks with `DEADLOCK_PRIORITY`
 
-### Framework for avoiding and handling deadlocks
+We can influence the way how SQL Server handles deadlocks by using `DEADLOCK_PRIORITY` option. It can be used in `BEGIN TRANSACTION` statement.
 
-### Concurrency Optimization and Deadlock Handling
+To define that our transactions has lower priority we can use the following command:
+
+```sql
+BEGIN TRANSACTION
+
+SET DEADLOCK_PRIORITY LOW
+
+-- do some work
+```
+
+### Framework for Avoiding and Handling Deadlocks
+
+Some ideas how we could limit likelihood of deadlocks:
+
+- batched deletes,
+- retry loop.
 
 ## Summary
+
+Now you've got basic understanding of concurrency and locking in SQL Server.

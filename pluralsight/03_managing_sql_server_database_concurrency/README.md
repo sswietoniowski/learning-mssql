@@ -348,6 +348,90 @@ Row versioning is a mechanism that allows us to read previous state of data whil
 
 ## 5. Locking in the SQL Server Database Engine
 
+In this lesson, we will learn about locking in SQL Server. We will learn about different types of locks and how they are used.
+
+### Locking
+
+I in ACID is related to locking.
+
+> Locking is a mechanism that prevents other transactions from modifying same data.
+
+### Blocking
+
+> Blocking is a situation when a transaction is waiting for a lock to be released by another transaction. Blocking is a bad thing because it can cause performance issues.
+
+To see whether we have some blocking we might use DMV or SPs. There are also special procedures that can be used to find blocking. They are `sp_who2` and `sp_whoisactive`.
+
+Useful DMV to discover blocking is `sys.dm_tran_locks`.
+
+More info about locking can be found [here](https://learn.microsoft.com/en-us/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide?view=sql-server-ver15).
+
+Adam Machanic create a very useful stored procedure `sp_whoisactive` that can be used to find blocking. It can be downloaded from [here](http://whoisactive.com/downloads/).
+
+### Lock Granularity and Hierarchies
+
+> Lock granularity is the level of data that is locked.
+
+Locks can be acquired on different levels. Locks can be acquired on the database level, table level, page level, row level, and key level. It is automatic process. SQL Server decides which level of lock to acquire.
+Smaller granularity reduces blocking but it can cause overhead because we would have to deal with many more locks, larger granularity means less concurrency. It is also important to know that locks are acquired in a hierarchy.
+
+To perform an operation we might need many different locks that would be acquired in a hierarchy. For example, if we want to update a row, we would need to acquire a lock on the table, page, and row level. If we want to update a table, we would need to acquire a lock on the database and table level.
+
+At the moment we've got 11 locking granularities. They are: RID, Key, Page, Extent, HoBT, Table, File, Application, Metadata, Allocation Unit, Database.
+
+### Locking Modes
+
+> Lock mode is a type of lock that is acquired.
+
+We can have: Shared (S), Update (U), Exclusive (X), Intent (IS, IX, SIX, IU, SIU, UIX), Schema (Sch-M, Sch-S), Bulk Update (BU), Key-Range (RS, RU, RN, RX).
+
+### Lock Compatibility
+
+> Lock compatibility is a set of rules that define which locks can be acquired at the same time.
+
+### Lock Escalation and Dynamic Locking
+
+To keep balance between concurrency and lock granularity, SQL Server uses dynamic locking. Dynamic locking is a mechanism that allows SQL Server to escalate locks from a lower level to a higher level.
+For example, if we have a shared lock on a row, SQL Server can escalate it to a shared lock on a page. This simplifies database administration, increases performance. Part of that is automatic lock adjustment.
+
+While we have no direct control over lock escalation, we might define our preferences. We can do so at the table level (SQL Server 2008 and later): `ALTER TABLE` statement
+with `WITH (LOCK_ESCALATION = {AUTO | TABLE | DISABLE})` option.
+
+### Deadlocks
+
+> Deadlocks are as special case of blocking, it is a situation when two or more transactions are waiting for each other to release a lock.
+
+Microsoft SQL Server uses a deadlock detection mechanism to detect deadlocks. When a deadlock is detected, one of the transactions is rolled back.
+
 ## 6. Optimizing Concurrency and Locking Behavior
+
+To optimize concurrency and locking behavior we need to understand how locking works in SQL Server.
+
+### Concurrency Optimization
+
+### Locking and Blocking
+
+### Common Locks Compatibility
+
+There are 4 rules:
+
+1. Shared locks are compatible with each other.
+2. Exclusive locks are compatible with each other.
+3. Shared locks are compatible with exclusive locks.
+4. Exclusive locks are not compatible with shared locks.
+
+### Lock Incompatibility and Consequences
+
+### Deadlock Analysis using SSMS
+
+### Deadlock Analysis using Extended Events
+
+### Handling and Avoiding Deadlocks
+
+### Controlling Deadlocks with `DEADLOCK_PRIORITY`
+
+### Framework for avoiding and handling deadlocks
+
+### Concurrency Optimization and Deadlock Handling
 
 ## Summary

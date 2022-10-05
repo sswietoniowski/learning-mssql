@@ -407,17 +407,19 @@ Microsoft SQL Server uses a deadlock detection mechanism to detect deadlocks. Wh
 
 To optimize concurrency and locking behavior we need to understand how locking works in SQL Server.
 
-### Concurrency Optimization
-
-### Locking and Blocking
-
 ### Common Locks Compatibility
+
+> Lock compatibility controls whether multiple transactions can acquire locks on the same resource at the same time.
+
+If a resource is already locked by another transaction, a new lock can be granted only if the mode of the requested lock is compatible.
+If the mode of the requested lock is not compatible with the existing lock, the transaction requesting the new lock waits for it.
+No lock modes are compatible with exclusive locks.
 
 There are 4 rules:
 
 1. Shared locks are compatible with each other.
-2. Exclusive locks are compatible with each other.
-3. Shared locks are compatible with exclusive locks.
+2. Exclusive locks are not compatible with each other.
+3. Shared locks are not compatible with exclusive locks.
 4. Exclusive locks are not compatible with shared locks.
 
 ### Lock Incompatibility and Consequences

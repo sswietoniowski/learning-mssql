@@ -4,10 +4,11 @@ W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem
 
 + Designing and Implementing SQL Server Tables and Views 4h
 + Designing and Implementing SQL Server Database Indexes 4h
-(I) Managing SQL Server Database Concurrency: WT, ŚR
++ Managing SQL Server Database Concurrency 4h
 (I) Optimizing SQL Server Statistics and Indexes: CZW
 (I) Analyzing SQL Server Query Plans: PT
 (I) Handling Errors in T-SQL: SO
+(I) Querying Data Using T-SQL: ND
 (I) Managing SQL Server Database Performance PN, WT, ŚR
 (O) Querying Data Using T-SQL: CZW, PT
 (I) SQL Server: Analyzing Query Performance for Developers PN, WT, ŚR

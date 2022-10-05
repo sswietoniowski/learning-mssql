@@ -10,6 +10,7 @@ W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem
 (I) Handling Errors in T-SQL: SO
 (I) Querying Data Using T-SQL: ND
 (I) Managing SQL Server Database Performance PN, WT, ŚR
+(I) SQL Server: Analyzing Query Performance for Developers CZW, PT, SO
 (O) T-SQL Data Manipulation Playbook: ND
 (O) Combining and Filtering Data with T-SQL 2019
 (O) Programming SQL Server Database Stored Procedures

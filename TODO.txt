@@ -5,10 +5,9 @@ W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem
 + Designing and Implementing SQL Server Tables and Views 4h
 + Designing and Implementing SQL Server Database Indexes 4h
 + Managing SQL Server Database Concurrency 4h
-(I) Optimizing SQL Server Statistics and Indexes: CZW
-(I) Analyzing SQL Server Query Plans: PT
-(I) Handling Errors in T-SQL: SO
-(I) Querying Data Using T-SQL: ND
+(I) Optimizing SQL Server Statistics and Indexes: PT
+(I) Analyzing SQL Server Query Plans: SO
+(I) Handling Errors in T-SQL: ND
 
 2022-10-10 - 2022-11-06 
 
@@ -17,7 +16,8 @@ W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem
 T1
 
 (I) Managing SQL Server Database Performance: PN, WT, ŚR
-(O) T-SQL Data Manipulation Playbook: CZW, PT
+(I) Querying Data Using T-SQL: CZW
+(O) T-SQL Data Manipulation Playbook: PT
 
 Materiały na D1 (SO, ND)
 

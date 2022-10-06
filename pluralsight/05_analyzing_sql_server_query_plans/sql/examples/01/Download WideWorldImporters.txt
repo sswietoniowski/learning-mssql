@@ -1,0 +1,5 @@
+Here are two blog posts which explains you how you can install sample database: 
+https://blog.sqlauthority.com/2016/06/17/sql-server-2016-import-new-sample-database-wideworldimporters/
+https://blog.sqlauthority.com/2017/12/26/sql-server-install-new-sample-database-wideworldimportersdw-bak/
+Video: 
+https://www.youtube.com/watch?v=zOMFXHf4blg

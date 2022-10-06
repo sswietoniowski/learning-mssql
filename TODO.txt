@@ -9,16 +9,35 @@ W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem
 (I) Analyzing SQL Server Query Plans: PT
 (I) Handling Errors in T-SQL: SO
 (I) Querying Data Using T-SQL: ND
-(I) Managing SQL Server Database Performance: PN, WT, ŚR
-(O) T-SQL Data Manipulation Playbook: CZW, PT
-(I) SQL Server: Analyzing Query Performance for Developers: PN, WT, ŚR
-(O) Combining and Filtering Data with T-SQL 2019: CZW, PT
-(O) Programming SQL Server Database Stored Procedures
-(O) Programming SQL Server Database Triggers and Functions
 
 2022-10-10 - 2022-11-06 
 
-4 tygodnie - czas na opracowanie materiałów
+4 tygodnie - czas na opracowanie materiałów (+ na naukę)
+
+T1
+
+(I) Managing SQL Server Database Performance: PN, WT, ŚR
+(O) T-SQL Data Manipulation Playbook: CZW, PT
+
+T2
+
+(I) SQL Server: Analyzing Query Performance for Developers: PN, WT, ŚR
+(O) Combining and Filtering Data with T-SQL 2019: CZW, PT
+(O) Querying JSON, XML, and Temporal Data with T-SQL
+
+T3
+
+(I) SQL Server: Indexing for Performance
+(I) Managing Azure SQL Server Database Performance
+(O) Programming SQL Server Database Stored Procedures
+(O) Programming SQL Server Database Triggers and Functions
+
+T4
+
+(I) SQL Server: Index Fragmentation Internals, Analysis, and Solutions 
+(O) Using Memory-optimized Tables and Native Stored Procedures
+(O) SQL Server: Introduction to Extended Events
+(O) SQL Server: Using SentryOne Plan Explorer
 
 2022-11-07 - 2022-11-18
 

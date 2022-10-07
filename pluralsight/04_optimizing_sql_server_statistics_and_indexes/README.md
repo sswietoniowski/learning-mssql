@@ -271,6 +271,10 @@ To rebuild an index we can use:
 ALTER INDEX <index_name> ON <table_name> REBUILD;
 ```
 
+Common industry practice is to rebuild indexes on a regular basis (e.g. once a week).
+
+If fragmentation is between 10 and 30% we can use `REORGANIZE` to fix it. If it is above 30% we should use `REBUILD`.
+
 ## 4. Maintaining Columnstore Indexes
 
 ## 5. Maintaining Statistics

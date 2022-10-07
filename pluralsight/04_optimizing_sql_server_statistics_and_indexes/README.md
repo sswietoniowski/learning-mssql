@@ -30,14 +30,14 @@ First we need to know how to review index usage:
 - identify unused indexes,
 - identify redundant indexes.
 
-### Missing Indexes
-
 To identify missing indexes we can use:
 
 - Dynamic Management Views (DMVs),
 - Database Tuning Advisor (DTA).
 
 They both produce **recommendations** which we should review (carefully) and implement (if really needed).
+
+### Missing Indexes DMVs
 
 Missing Index DMVs are:
 
@@ -88,7 +88,36 @@ Limitations of Missing Index DMVs:
 
 ### Database Tuning Advisor
 
-Database Tuning Advisor (DTA) is a tool that can help us with finding missing indexes.
+> Database Tuning Advisor (DTA) is a tool that can help us with finding missing indexes.
+
+DTA is a wizard that can be run from SQL Server Management Studio (SSMS).
+
+DTA:
+
+- tunes a query or a workload,
+- tests out recommendations on target database (!),
+- tends to over-recommend,
+
+DTA Workflow:
+
+1. **generate workload** (on your production database),
+2. **analyze database** (don't perform on the production database),
+3. **implement recommendations** (well - don't start from the production database and don't do that without review).
+
+These 3 steps can be run separately on different instances.
+
+Workload can be generated from:
+
+- Query Store (recommended!),
+- manual T-SQL scripts,
+- Plan Cache,
+- Profiler workload (also recommended for MSSQL <= 2014).
+
+Limitations of DTA:
+
+- requires a comprehensive workload for best results,
+- adds load to target server,
+- tends to badly over-recommend.
 
 ### Unused Indexes
 

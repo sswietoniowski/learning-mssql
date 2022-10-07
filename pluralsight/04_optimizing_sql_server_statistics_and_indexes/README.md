@@ -342,7 +342,12 @@ Columnstore indexes need maintenance because of the following reasons:
 
 ### Effects of Rebuild and Reorganize on Columnstore Indexes
 
+For columnstore indexes we can use the very same commands as for the rowstore indexes, that is: `REORGANIZE` and `REBUILD`.
 
+Rebuild for a columnstore index completely recreates the index. All resulting rowgroups will be compressed. All deleted rows will be removed. This operation can take a long time to complete and is very memory intensive, it would also use a lot of log space.
+
+Because of that most of the time we would use `REORGANIZE` to maintain columnstore indexes. Reorganize
+compresses all CLOSED rowgroups. Removes deleted rows if > 10% rows in a rowgroup are deleted. Combines compressed rowgroups up to row maximum. This operation is much faster than rebuild and is less memory intensive.
 
 ## 5. Maintaining Statistics
 

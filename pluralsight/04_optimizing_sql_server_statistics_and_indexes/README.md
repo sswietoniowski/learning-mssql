@@ -421,6 +421,10 @@ To update statistics we can use:
 UPDATE STATISTICS <table_name> WITH FULLSCAN;
 ```
 
+It is recommended to perform some kind of statistics maintenance on a regular basis, if you have time, update all stats with full scan every night. Don't over-do stats maintenance (it is difficult, but doable). Updating stats will invalidate query execution plan cache. Don't do sampled stats update after index rebuild!
+
+This can be done using Microsoft's "Statistics Maintenance Wizard" or (preferred) Ola Hallengren's scripts.
+
 ## Summary
 
 More info about index maintenance can be found [here](https://learn.microsoft.com/en-us/sql/relational-databases/indexes/reorganize-and-rebuild-indexes?view=sql-server-ver15).

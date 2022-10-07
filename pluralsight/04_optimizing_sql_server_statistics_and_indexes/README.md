@@ -355,9 +355,71 @@ compresses all CLOSED rowgroups. Removes deleted rows if > 10% rows in a rowgrou
 
 ### What are Statistics
 
+Statistics are:
+
+- aggregated data about data in table,
+- measure of uniqueness of column,
+- distribution of data within columns,
+- not kept in sync with the table.
+
+Statistics are very important for the query optimizer. They are used to determine the best way to execute a query.
+That includes estimated rows affected and data sizes for a given query. Thus in result allow optimizer to choose appropriate
+operators for the number of rows and calculate memory needed to run query.
+
 ### Why Statistics Need Maintenance
 
+Over time statistics can become inaccurate. This can happen because of the data changes: inserts, updates, deletes, etc.
+
+In result we can experience:
+
+- slow queries,
+- high CPU usage,
+- excessive IOs,
+- spills to TempDB.
+
+To identify statistics that need maintenance we can use:
+
+```sql
+DBCC SHOW_STATISTICS (NULL, NULL, NULL, NULL, 'LIMITED');
+```
+
 ### How Statistics Get Updated
+
+Normally statistics are updated automatically by SQL Server.
+
+Automatic statistics update is triggered after a certain number of changes to the underlying table.
+Update occurs the next time the stats are needed. This is called "lazy update". It is sampled update
+on large tables.
+
+Statistics are also updated during index rebuild.
+
+We can also update statistics manually using `UPDATE STATISTICS` command.
+
+To check if statistics would be updated automatically we can use:
+
+```sql
+SELECT name,
+       is_auto_update_enabled,
+       is_auto_created,
+       last_updated
+FROM sys.stats
+WHERE is_auto_update_enabled = 1
+ORDER BY name;
+```
+
+To check if a database has enabled automatic statistics update we can use:
+
+```sql
+SELECT name,
+       is_auto_update_enabled
+FROM sys.databases
+```
+
+To update statistics we can use:
+
+```sql
+UPDATE STATISTICS <table_name> WITH FULLSCAN;
+```
 
 ## Summary
 

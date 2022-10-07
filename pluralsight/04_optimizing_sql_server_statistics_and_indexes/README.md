@@ -121,24 +121,38 @@ Limitations of DTA:
 
 ### Unused Indexes
 
-We need to know whether our indexes are used or not.
+Index Usage DMVs:
 
-We can use `sys.dm_db_index_usage_stats` to find out.
+- `sys.dm_db_index_usage_stats` - index usage statistics.
+
+`syst.dm_db_index_usage_stats`:
+
+- tracks how the indexes are used,
+- transient, data lost when server restarts,
+- useful guideline.
+
+To know (or at least got basic idea of) whether our indexes are used or not we can use:
 
 ```sql
-SELECT
-    object_name(object_id) AS [Table],
-    index_id,
-    user_seeks,
-    user_scans,
-    user_lookups,
-    last_user_seek,
-    last_user_scan,
-    last_user_lookup
-FROM sys.dm_db_index_usage_stats
-WHERE database_id = DB_ID()
-ORDER BY user_seeks DESC
+SELECT OBJECT_NAME(i.object_id) AS TableName,
+       i.index_id,
+       ISNULL(user_seeks, 0) AS UserSeeks,
+       ISNULL(user_scans, 0) AS UserScans,
+       ISNULL(user_lookups, 0) AS UserLookups,
+       ISNULL(user_updates, 0) AS UserUpdates
+FROM sys.indexes i
+    LEFT OUTER JOIN sys.dm_db_index_usage_stats ius
+        ON ius.object_id = i.object_id AND ius.index_id = i.index_id
+WHERE OBJECTPROPERTY(i.object_id, 'IsMSShipped') = 0;
 ```
+
+Removing Unused Indexes:
+
+| Pro                                                                               | Con                                                                    |
+| --------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Frees up space in the database                                                    | Requires extensive analysis                                            |
+| Reduces overhead on data modifications                                            | Risk of missing a query that runs occasionally                         |
+| Use automated application testing if possible, to ensure there has been no impact | Consider using Distributed Replay to rerun and test database workloads |
 
 ### Redundant Indexes
 

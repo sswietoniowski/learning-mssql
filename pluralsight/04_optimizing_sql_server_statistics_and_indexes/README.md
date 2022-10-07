@@ -156,6 +156,8 @@ Removing Unused Indexes:
 
 ### Redundant Indexes
 
+
+
 ## 3. Maintaining Rowstore Indexes
 
 ## 4. Maintaining Columnstore Indexes

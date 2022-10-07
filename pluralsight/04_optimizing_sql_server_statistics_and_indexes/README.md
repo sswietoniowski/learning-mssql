@@ -281,6 +281,77 @@ We might consider something better like Ola Hallengren's scripts.
 
 ## 4. Maintaining Columnstore Indexes
 
+Columnstore indexes are quite different from rowstore indexes. So they require different maintenance.
+
+### Why Columnstore Indexes Need Maintenance
+
+Main reason why we need to maintain columnstore indexes is because of the deltastore and deleted list which are used to store the changes to the data.
+
+To identify the indexes with many inserts (open row groups) we can use:
+
+```sql
+SELECT OBJECT_SCHEMA_NAME(rg.object_id) AS SchemaName,
+       OBJECT_NAME(rg.object_id) AS TableName,
+       i.name AS IndexName,
+       i.type_desc AS IndexType,
+       rg.partition_number,
+       rg.row_group_id,
+       rg.total_rows,
+       rg.size_in_bytes,
+       rg.deleted_rows,
+       rg.[state],
+       rg.state_description
+FROM sys.column_store_row_groups AS rg
+    INNER JOIN sys.indexes AS i ON i.object_id = rg.object_id AND i.index_id = rg.index_id
+WHERE state_description != 'TOMBSTONE'
+ORDER BY TableName,
+         IndexName,
+         rg.partition_number,
+         rg.row_group_id;
+```
+
+To identify the indexes with a lot deleted rows (also together with deltastore modified rows), we can use:
+
+```sql
+SELECT OBJECT_SCHEMA_NAME(rg.object_id) AS SchemaName,
+       OBJECT_NAME(rg.object_id) AS TableName,
+       i.name AS IndexName,
+       i.type_desc AS IndexType,
+       rg.partition_number,
+       rg.state_description,
+       COUNT(*) AS NumberOfRowgroups,
+       SUM(rg.total_rows) AS TotalRows,
+       SUM(rg.size_in_bytes) AS TotalSizeInBytes,
+       SUM(rg.deleted_rows) AS TotalDeletedRows
+FROM sys.column_store_row_groups AS rg INNER JOIN sys.indexes AS i ON i.object_id = rg.object_id AND i.index_id = rg.index_id
+GROUP BY rg.object_id,
+         i.name,
+         i.type_desc,
+         rg.partition_number,
+         rg.state_description
+ORDER BY TableName,
+         IndexName,
+         rg.partition_number;
+```
+
+Columnstore indexes need maintenance because of the following reasons:
+
+- **uncompressed rowgroups** - uncompressed rowgroups are B-tree structure which is slower than compressed rowgroups,
+- **deleted rows** - deletes in a columnstore are logical, rows are flagged as deleted, but they are not removed from the index,
+- **undersized rowgroups** - the ideal number of rows in a rowgroup is 1 million.
+
+### Effects of Rebuild and Reorganize on Columnstore Indexes
+
+
+
 ## 5. Maintaining Statistics
+
+> Statistics are used by the query optimizer to determine the best way to execute a query.
+
+### What are Statistics
+
+### Why Statistics Need Maintenance
+
+### How Statistics Get Updated
 
 ## Summary

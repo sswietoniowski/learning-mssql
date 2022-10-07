@@ -360,3 +360,9 @@ compresses all CLOSED rowgroups. Removes deleted rows if > 10% rows in a rowgrou
 ### How Statistics Get Updated
 
 ## Summary
+
+More info about index maintenance can be found [here](https://learn.microsoft.com/en-us/sql/relational-databases/indexes/reorganize-and-rebuild-indexes?view=sql-server-ver15).
+
+More info about statistics maintenance can be found [here](https://learn.microsoft.com/en-us/sql/relational-databases/statistics/statistics?view=sql-server-ver15).
+
+Ola Hallengren maintenance scripts can be found [here](https://ola.hallengren.com/sql-server-index-and-statistics-maintenance.html).

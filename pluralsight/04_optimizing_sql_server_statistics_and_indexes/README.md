@@ -185,6 +185,92 @@ GROUP BY i.object_id,
 
 ## 3. Maintaining Rowstore Indexes
 
+In case of rowstore indexes our main concern is fragmentation.
+
+### Causes of Indexes Fragmentation
+
+Why do we need to maintain indexes?
+
+- to improve query performance,
+- to improve data modification performance.
+
+Index fragmentation is caused by:
+
+- `INSERT` and `UPDATE` operations,
+- `DELETE` operations.
+
+Ideal Index:
+
+- leaf level pages are full and leaf level pages are ordered.
+
+Page Split Causes Fragmentation:
+
+- `INSERT` and `UPDATE` operations.
+
+Same is true for page deleted.
+
+As a result we would have a fragmented index:
+
+- leaf level pages are no longer full and leaf level pages are out of order (physical order doesn't match logical order).
+
+That is why we need to perform index maintenance to restore its proper order.
+
+### Effects of Fragmentation
+
+Fragmentation effects:
+
+- performance (degraded) - affects **large** range scans from **disk** (read-ahead is not possible),
+  this problem is mostly visible on an OLAP system or the one with limited memory, it is relatively unlikely to see it on an OLTP system,
+- space (increased) - partially empty pages means index takes up more space and thus it can cause higher memory usage.
+
+In reality fragmentation isn't nearly as severe as is commonly believed.
+
+### Identifying Fragmented Indexes
+
+To identify fragmented indexes we can use:
+
+```sql
+SELECT OBJECT_SCHEMA_NAME(i.object_id) AS SchemaName, OBJECT_NAME(i.object_id) TableName,
+    i.name,
+    ips.partition_number,
+    ips.index_type_desc,
+    ips.index_level,
+    ips.avg_fragmentation_in_percent,
+    ips.page_count,
+    ips.avg_page_space_used_in_percent
+FROM sys.indexes i
+    INNER JOIN sys.dm_db_index_physical_stats(DB_ID(), NULL, NULL, NULL, 'Limited') ips
+        ON ips.object_id = i.object_id AND ips.index_id = i.index_id
+WHERE ips.page_count > 1000
+```
+
+It is important to understand that `sys.dm_db_index_physical_stats` is not really a view, but it would
+analyze the index and return the results. That is why it is important to use `LIMITED` option.
+
+Important columns in the results:
+
+- `avg_fragmentation_in_percent` - average fragmentation in percent,
+- `avg_page_space_used_in_percent` - average page space used in percent.
+
+### Fixing Fragmentation
+
+To fix fragmentation we can use:
+
+- `REORGANIZE` - reorganizes the index (shuffles the index pages back into order),
+- `REBUILD` - rebuilds the index (recreates index, so it would take quite a long time to complete and can have significant impact on the transaction log).
+
+To reorganize an index we can use:
+
+```sql
+ALTER INDEX <index_name> ON <table_name> REORGANIZE;
+```
+
+To rebuild an index we can use:
+
+```sql
+ALTER INDEX <index_name> ON <table_name> REBUILD;
+```
+
 ## 4. Maintaining Columnstore Indexes
 
 ## 5. Maintaining Statistics

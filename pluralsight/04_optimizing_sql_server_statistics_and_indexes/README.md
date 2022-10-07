@@ -275,6 +275,10 @@ Common industry practice is to rebuild indexes on a regular basis (e.g. once a w
 
 If fragmentation is between 10 and 30% we can use `REORGANIZE` to fix it. If it is above 30% we should use `REBUILD`.
 
+We can perform index maintenance using "Index Maintenance Wizard" in SSMS (not recommended).
+
+We might consider something better like Ola Hallengren's scripts.
+
 ## 4. Maintaining Columnstore Indexes
 
 ## 5. Maintaining Statistics

@@ -76,9 +76,36 @@ Compared to SQL Profiler, Extended Events are:
 
 We know how to gather query plans, now its time to analyze them. In this module, you will learn how to identify poorly performing query plan operators.
 
+### What is a Query Execution Plan?
+
+> A query execution plan is a visual representation of operations performed by SQL Server
+> engine to return the valid data for the query.
+
 ### Interpreting Execution Plans
 
+While interpreting a query plan:
+
+- read it from right to left,
+- look at operators' costs,
+- see the data flow,
+- look for warnings,
+- look for suggestions/hints,
+- query cost in batch.
+
+Also add to the picture:
+
+- statistics IO,
+- statistics TIME.
+
 ### Slow Performing Operators
+
+Main operators that we should look for are:
+
+1. **Table Scan** - not bad per se, but we would rather want to see a **Seek** operator,
+2. **Index Scan** - same as above,
+3. **Parallelism** - again, not bad per se, but why we need to process so much data in parallel?
+4. **Sort** - we should avoid sorting if possible, but sometimes it is necessary, it is possible that sorting is added just for merging data, also we should look for **Sort Spill** operator,
+5. **Implicit Conversion** - we should avoid situations in which that problem can happen because that would prevent optimizer from using indexes efficiently.
 
 ## 3. Create Efficient Query Plans Using Query Store
 

@@ -74,6 +74,12 @@ Compared to SQL Profiler, Extended Events are:
 
 ## 2. Identify Poorly Performing Query Plan Operators
 
+We know how to gather query plans, now its time to analyze them. In this module, you will learn how to identify poorly performing query plan operators.
+
+### Interpreting Execution Plans
+
+### Slow Performing Operators
+
 ## 3. Create Efficient Query Plans Using Query Store
 
 ## 4. Compare Estimated and Actual Query Plans and Related Metadata

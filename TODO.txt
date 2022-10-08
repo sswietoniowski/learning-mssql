@@ -7,6 +7,7 @@ W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem
 + Managing SQL Server Database Concurrency 4h
 + Optimizing SQL Server Statistics and Indexes 4h
 (I) Analyzing SQL Server Query Plans: SO, ND
+(I) Querying Data Using T-SQL: ND
 
 2022-10-10 - 2022-11-06 
 
@@ -16,9 +17,8 @@ T1
 
 (I) Managing SQL Server Database Performance: PN, WT, ŚR
 (I) Handling Errors in T-SQL: CZW, PT
-(I) Querying Data Using T-SQL: SO
-(O) T-SQL Data Manipulation Playbook
-(I) SQL Server: Introduction to Extended Events: ND
+(O) T-SQL Data Manipulation Playbook: SO
+(I) SQL Server: Introduction to Extended Events: SO, ND
 
 T2
 
@@ -45,11 +45,11 @@ T4
 (O) SQL Server: Introduction to Extended Events
 (O) SQL Server: Using SentryOne Plan Explorer
 
-Materiały na D3 i D4 (SO, ND)
+Materiały na D3
 
 2022-11-07 - 2022-11-18
 
-1,5 tygodnia - czas na dopracowanie materiałów
+1,5 tygodnia - czas na dopracowanie materiałów + materiały na D4
 
 2022-11-19 - 2022-11-27
 

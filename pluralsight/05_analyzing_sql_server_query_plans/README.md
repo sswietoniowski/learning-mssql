@@ -109,6 +109,16 @@ Main operators that we should look for are:
 
 ## 3. Create Efficient Query Plans Using Query Store
 
+### What is a Query Store?
+
+### Query Store Setup & Configuration
+
+### 3 Important Query Stores
+
+### Query Store Reports
+
+### Resolving Parameter Sniffing with Query Store
+
 ## 4. Compare Estimated and Actual Query Plans and Related Metadata
 
 ## 5. Configure Azure SQL Database Performance Insight

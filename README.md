@@ -66,4 +66,6 @@ Some useful tools & other resources:
 - [Kimberly L. Tripp](https://www.sqlskills.com/blogs/kimberly/),
 - [Jonathan Kehayias](https://www.sqlskills.com/blogs/jonathan/),
 - [Tim Radney](https://www.sqlskills.com/blogs/tim/),
-- [Gail Shaw](http://sqlinthewild.co.za).
+- [Gail Shaw](http://sqlinthewild.co.za),
+- [Pinal Dave](https://blog.sqlauthority.com),
+- [Klaus Aschenbrenner](https://www.sqlpassion.at/).

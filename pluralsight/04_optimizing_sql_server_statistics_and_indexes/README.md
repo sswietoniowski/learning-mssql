@@ -283,7 +283,7 @@ We might consider something better like Ola Hallengren's scripts.
 
 Columnstore indexes are quite different from rowstore indexes. So they require different maintenance.
 
-### Why Columnstore Indexes Need Maintenance
+### Why Columnstore Indexes Need Maintenance?
 
 Main reason why we need to maintain columnstore indexes is because of the deltastore and deleted list which are used to store the changes to the data.
 
@@ -353,7 +353,7 @@ compresses all CLOSED rowgroups. Removes deleted rows if > 10% rows in a rowgrou
 
 > Statistics are used by the query optimizer to determine the best way to execute a query.
 
-### What are Statistics
+### What are Statistics?
 
 Statistics are:
 
@@ -366,7 +366,7 @@ Statistics are very important for the query optimizer. They are used to determin
 That includes estimated rows affected and data sizes for a given query. Thus in result allow optimizer to choose appropriate
 operators for the number of rows and calculate memory needed to run query.
 
-### Why Statistics Need Maintenance
+### Why Statistics Need Maintenance?
 
 Over time statistics can become inaccurate. This can happen because of the data changes: inserts, updates, deletes, etc.
 
@@ -383,7 +383,7 @@ To identify statistics that need maintenance we can use:
 DBCC SHOW_STATISTICS (NULL, NULL, NULL, NULL, 'LIMITED');
 ```
 
-### How Statistics Get Updated
+### How Statistics Get Updated?
 
 Normally statistics are updated automatically by SQL Server.
 

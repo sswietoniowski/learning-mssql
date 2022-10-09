@@ -7,7 +7,6 @@ W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem
 + Managing SQL Server Database Concurrency 4h
 + Optimizing SQL Server Statistics and Indexes 4h
 + Analyzing SQL Server Query Plans 4h
-(O) Querying Data Using T-SQL
 
 2022-10-10 - 2022-11-06 
 
@@ -15,6 +14,7 @@ W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem
 
 T1
 
+(O) Querying Data Using T-SQL
 (I) Managing SQL Server Database Performance: PN, WT, ŚR
 (I) Handling Errors in T-SQL: CZW, PT
 (O) T-SQL Data Manipulation Playbook: SO

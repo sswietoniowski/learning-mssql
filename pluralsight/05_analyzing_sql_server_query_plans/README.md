@@ -179,6 +179,8 @@ We can use query store to force a query plan for a specific set of parameters.
 
 ### What is Live Query Statistics?
 
+### Analyze Execution Plan
+
 ## 5. Configure Azure SQL Database Performance Insight
 
 ## Summary

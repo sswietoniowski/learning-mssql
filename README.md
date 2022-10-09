@@ -42,7 +42,9 @@ Also used these (paid) courses & books:
 - [SQL Server: Introduction to Extended Events](https://app.pluralsight.com/library/courses/sqlserver-basicxevents/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/sqlserver-basicxevents/exercise-files),
 - [SQL Server: Using SentryOne Plan Explorer](https://app.pluralsight.com/library/courses/sqlserver-using-sentryone-plan-explorer/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/sqlserver-using-sentryone-plan-explorer/exercise-files),
 - [SQL Server: Introduction to Query Store](https://app.pluralsight.com/library/courses/sqlserver-query-store-introduction/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/sqlserver-query-store-introduction/exercise-files),
-- [Solving Real World Problems with SQL Server 2016 Query Store](https://app.pluralsight.com/library/courses/solving-real-world-problems-sql-server-2016-query-store/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/solving-real-world-problems-sql-server-2016-query-store/exercise-files).
+- [Solving Real World Problems with SQL Server 2016 Query Store](https://app.pluralsight.com/library/courses/solving-real-world-problems-sql-server-2016-query-store/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/solving-real-world-problems-sql-server-2016-query-store/exercise-files),
+- [Troubleshooting SQL Server Performance Problems](https://app.pluralsight.com/library/courses/troubleshooting-sql-server-performance-problems/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/troubleshooting-sql-server-performance-problems/exercise-files),
+- [Managing SQL Server Database Maintenance](https://app.pluralsight.com/library/courses/managing-sql-server-database-maintenance/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/managing-sql-server-database-maintenance/exercise-files).
 
 ## Useful Tools & Other Resources
 

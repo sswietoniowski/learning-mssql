@@ -5,9 +5,9 @@ W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem
 + Designing and Implementing SQL Server Tables and Views 4h
 + Designing and Implementing SQL Server Database Indexes 4h
 + Managing SQL Server Database Concurrency 4h
-(I) Optimizing SQL Server Statistics and Indexes: PT
-(I) Analyzing SQL Server Query Plans: SO
-(I) Handling Errors in T-SQL: ND
++ Optimizing SQL Server Statistics and Indexes 4h
+(I) Analyzing SQL Server Query Plans: SO, ND
+(I) Querying Data Using T-SQL: ND
 
 2022-10-10 - 2022-11-06 
 
@@ -16,40 +16,39 @@ W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem
 T1
 
 (I) Managing SQL Server Database Performance: PN, WT, ŚR
-(I) Querying Data Using T-SQL: CZW
-(O) T-SQL Data Manipulation Playbook: PT
-
-Materiały na D1 (SO, ND)
+(I) Handling Errors in T-SQL: CZW, PT
+(O) T-SQL Data Manipulation Playbook: SO
+(I) SQL Server: Introduction to Extended Events: SO, ND
 
 T2
 
-(I) SQL Server: Analyzing Query Performance for Developers: PN, WT, ŚR
+(I) SQL Server: Analyzing Query Performance for Developers: PN, WT
+(I) SQL Server: Introduction to Query Store: ŚR
 (O) Combining and Filtering Data with T-SQL 2019: CZW
 (O) Querying JSON, XML, and Temporal Data with T-SQL: PT
 
-Materiały na D2 (SO, ND)
+Materiały na D1 (SO, ND)
 
 T3
 
-(I) SQL Server: Indexing for Performance
-(I) Managing Azure SQL Server Database Performance
-(O) Programming SQL Server Database Stored Procedures
-(O) Programming SQL Server Database Triggers and Functions
+(I) SQL Server: Indexing for Performance: PN, WT
+(I) Managing Azure SQL Server Database Performance: ŚR
+(O) Programming SQL Server Database Stored Procedures: CZW
+(O) Programming SQL Server Database Triggers and Functions: PT
 
-Materiały na D3 (SO, ND)
+Materiały na D2 (SO, ND)
 
 T4
 
-(I) SQL Server: Index Fragmentation Internals, Analysis, and Solutions 
-(O) Using Memory-optimized Tables and Native Stored Procedures
-(O) SQL Server: Introduction to Extended Events
-(O) SQL Server: Using SentryOne Plan Explorer
+(I) SQL Server: Index Fragmentation Internals, Analysis, and Solutions: PN, WT
+(O) Using Memory-optimized Tables and Native Stored Procedures: ŚR
+(O) SQL Server: Using SentryOne Plan Explorer: CZW
 
-Materiały na D4 (SO, ND)
+Materiały na D3 (PT, SO, ND)
 
 2022-11-07 - 2022-11-18
 
-1,5 tygodnia - czas na dopracowanie materiałów
+1,5 tygodnia - czas na dopracowanie materiałów + materiały na D4
 
 2022-11-19 - 2022-11-27
 

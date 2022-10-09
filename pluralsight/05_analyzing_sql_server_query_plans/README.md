@@ -109,17 +109,75 @@ Main operators that we should look for are:
 
 ## 3. Create Efficient Query Plans Using Query Store
 
+Query Store is a new feature in SQL Server 2016 that helps us to create efficient query plans. In this module, you will learn how to create efficient query plans using Query Store.
+
 ### What is a Query Store?
+
+A query store tracks query plans, statistics and historical data to help diagnose performance degradation of the queries over time.
+
+Query store:
+
+- database level feature,
+- available in all editions,
+- helps find performance regression,
+- identify resource intensive queries,
+- query plan and execution history,
+- forcing query plans.
 
 ### Query Store Setup & Configuration
 
+To configure query store we need to:
+
+1. enable query store,
+2. configure query store retention,
+3. configure query store max size.
+
+To verify that query store is enabled we can use:
+
+```sql
+SELECT name, is_query_store_on
+FROM sys.databases
+```
+
 ### 3 Important Query Stores
+
+There are three important query stores:
+
+1. **plan store** - stores query plans,
+2. **runtime stats store** - stores runtime statistics,
+3. **wait stats store** - stores wait stats data.
 
 ### Query Store Reports
 
+There are many reports that we can use to analyze query store data:
+
+- regressed queries,
+- overall resource consumption,
+- top resource consuming queries,
+- queries with forced plan,
+- queries with high variation,
+- query wait statistics,
+- tracked queries.
+
 ### Resolving Parameter Sniffing with Query Store
 
+We can use query store reports to discover that certain query has very different execution stats due to parameter sniffing.
+
+> Parameter sniffing is a problem that occurs when a query plan is generated for a specific set of parameters and then the same query is executed with different parameters.
+
+Problem statement:
+
+> How to get optimal performance from a query at all the time with all the parameters?
+
+We can use query store to force a query plan for a specific set of parameters.
+
 ## 4. Compare Estimated and Actual Query Plans and Related Metadata
+
+### What is an Estimated Execution Plan?
+
+### What is and Actual Execution Plan?
+
+### What is Live Query Statistics?
 
 ## 5. Configure Azure SQL Database Performance Insight
 

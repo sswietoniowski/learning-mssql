@@ -244,3 +244,5 @@ You can configure:
 ## Summary
 
 In this course, you learned how to analyze query plans. You learned how to identify poorly performing query plan operators. You learned how to create efficient query plans using Query Store. You learned how to compare estimated and actual query plans and related metadata. You learned how to configure Azure SQL Database Performance Insight.
+
+> When there is a SQL Server **performance issue**, our primary is to find the **root cause** of the slowness.

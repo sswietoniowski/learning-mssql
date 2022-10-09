@@ -216,4 +216,31 @@ To analyze execution plan we can use in SSMS:
 
 ## 5. Configure Azure SQL Database Performance Insight
 
+It is possible to configure Azure SQL Database Performance Insight. In this module, you will learn how to do that.
+
+### Query Performance Insight
+
+> Query Performance Insight is a feature of Azure SQL Database that helps us to identify and resolve performance issues.
+
+Query performance insight provides deeper understanding of the database resource consumption and
+details on inefficient queries.
+
+Query performance insight provides:
+
+- DTU consumption ($$$),
+- top queries by CPU, duration, execution,
+- history of resource utilization,
+- performance recommendations,
+- requires Query Store.
+
+### Going Beyond Query Plans on Azure
+
+You can configure:
+
+- automatic tuning,
+- intelligent insights,
+- Azure SQL Analytics.
+
 ## Summary
+
+In this course, you learned how to analyze query plans. You learned how to identify poorly performing query plan operators. You learned how to create efficient query plans using Query Store. You learned how to compare estimated and actual query plans and related metadata. You learned how to configure Azure SQL Database Performance Insight.

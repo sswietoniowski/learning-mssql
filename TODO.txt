@@ -6,8 +6,8 @@ W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem
 + Designing and Implementing SQL Server Database Indexes 4h
 + Managing SQL Server Database Concurrency 4h
 + Optimizing SQL Server Statistics and Indexes 4h
-(I) Analyzing SQL Server Query Plans: SO, ND
-(I) Querying Data Using T-SQL: ND
++ Analyzing SQL Server Query Plans 4h
+(O) Querying Data Using T-SQL
 
 2022-10-10 - 2022-11-06 
 

@@ -12,4 +12,5 @@ There are the following sub-directories:
 - [06_handling_errors_in_t-sql](06_handling_errors_in_t-sql/),
 - [07_querying_data_using_t-sql](07_querying_data_using_t-sql),
 - [08_handling_errors_in_t-sql](06_handling_errors_in_t-sql/),
-- [09_t-sql_data_manipulation_playbook](09_t-sql_data_manipulation_playbook),
+- [09_t-sql_data_manipulation_playbook](09_t-sql_data_manipulation_playbook/),
+- [10_sql_server_introduction_to_extended_events](10_sql_server_introduction_to_extended_events/).

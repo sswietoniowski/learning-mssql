@@ -1,0 +1,30 @@
+*** Working with the T-SQL Data Manipulation Language ***
+Instructions and snippets to follow along the WHERE demo, are included below.
+
+1. Open SQL Server Management Studio and connect to the database server where you restored or created the database.
+
+2. Click on *tsql-dml* within the Object Explorer and click on New Query.
+
+3. Make sure that it is the currently selected database in the dropdown at the top.
+
+4. Execute the following query to get all the Posts without any filter:
+	SELECT * FROM Posts
+
+5. Then filter them by their score:
+	SELECT * FROM Posts
+	WHERE 
+		Score > 30
+
+6. We can try a different query. This one shows different WHERE filters available:
+	SELECT * FROM Posts
+	WHERE 
+		/* All Posts with a Score greater than 50 */
+		Score > 30 
+		/* All Posts that include the word machine-learning anywhere within their Tags */
+		AND Tags LIKE '%machine-learning%'
+		/* All Posts where creation year is 2014, 2015 or 2018 */
+		AND YEAR(CreationDate) IN (2014, 2015, 2018)
+		/* All Posts that contain at least one comment */
+		AND EXISTS (SELECT Id FROM Comments WHERE PostId = Posts.Id)
+		/* All Posts with a Favorite Count Between 40 and 100 */
+		AND FavoriteCount BETWEEN 40 AND 100

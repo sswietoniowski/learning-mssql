@@ -1,0 +1,11 @@
+*** Creating the Database for This Training ***
+
+Restoring from a Backup
+STEP 1: Open your MS SQL Server Management Studio and connect to your database.
+STEP 2: Select the database and Right-click >> Tasks >> Restore >> Database:
+STEP 3: The “Restore Database” window will display. Select “From device” mentioned below the “Source for restore” and click the button in front of that to specify the file location:
+STEP 4: Select the option “Backup media as File” and click on the Add button to add the backup file location.
+STEP 5: Select the backup file you want to restore and click the OK button.
+That’s it! Now you have restored your SQL server database successfully with confirmation message “The restoration of database ‘SQLDatabaseName’ completed successfully.“.
+
+Creating the Database Using a SQL Script

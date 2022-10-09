@@ -1,0 +1,308 @@
+*** Adding Data Using T-SQL Statements ***
+Instructions and snippets to follow along and learn how to add data, are included below.
+
+- An Insert Statement with Columns and Values
+We are going to perform a basic insert statement using the SQL INSERT template.
+
+Just to get a baseline, count the number of records in the Users table:
+    SELECT count(*) as Total FROM Users
+
+- A Basic INSERT Statement With All Columns and Values
+In this sample we will insert a new record to the Users table, taking advantage of the NULL and DEFAULT values predefined when the table was created. 
+
+Let me show you a tip for when you are inserting data from SQL Server Management Studio. Right click on your table and select Script Table as > INSERT into > New Query Editor Window.
+
+SSMS has created a basic template that you can use to add data. Simply replace the values with what you want to insert into the table. You can also remove altogether the list of columns, and only provide the values if and only if you include all values and they are in order. (Just delete the columns and fill in the blanks below)
+
+In this particular case I will delete the columns, and remove the ID. Why? I will show you in a minute. Let's insert a record:
+
+    INSERT INTO [dbo].[Users] 
+        ([Reputation]
+        , [CreationDate]
+        , [DisplayName]
+        , [LastAccessDate]
+        , [WebsiteUrl]
+        , [Location]
+        , [AboutMe]
+        , [Views]
+        , [UpVotes]
+        , [DownVotes]
+        , [ProfileImageUrl]
+        , [AccountId]) 
+    VALUES 
+        (1
+        , CAST(N'2016-06-22T17:35:14.680' AS DateTime)
+        , N'xavier-morera'
+        , CAST(N'2016-06-22T17:35:14.680' AS DateTime)
+        , N'www.xaviermorera.com'
+        , N'Costa Rica'
+        , NULL
+        , 0
+        , 0
+        , 0
+        , N'http://www.xaviermorera.com/wp-content/uploads/2016/06/xavier-morera-150x150.jpg'
+        , 17056189)
+
+When ready, click on Execute and wait for the confirmation message.
+
+Let's confirm that the number of Users has increased by one:
+    SELECT count(*) as Total FROM Users
+
+Let's look at the record:
+    SELECT * FROM Users where AccountID = 17056189
+
+- An Insert Statement with All Values
+We are going to perform a basic insert statement without column names, using the SQL INSERT template.
+
+We just used an insert query like the one below, however I have modified the DisplayName and AccountId. Let's add a new record but without specifying the columns:
+    INSERT INTO [dbo].[Users] 
+        ([Reputation]
+        , [CreationDate]
+        , [DisplayName]
+        , [LastAccessDate]
+        , [WebsiteUrl]
+        , [Location]
+        , [AboutMe]
+        , [Views]
+        , [UpVotes]
+        , [DownVotes]
+        , [ProfileImageUrl]
+        , [AccountId]) 
+    VALUES 
+        (1
+        , CAST(N'2016-06-22T17:35:14.680' AS DateTime)
+        , N'steve-morera'
+        , CAST(N'2016-06-22T17:35:14.680' AS DateTime)
+        , NULL
+        , N'Costa Rica'
+        , NULL
+        , 0
+        , 0
+        , 0
+        , N'http://www.xaviermorera.com/wp-content/uploads/2016/06/xavier-morera-150x150.jpg'
+        , 17056190)
+
+However, we can remove the columns as we are including all of them and they are in order. We can then leave only the values.
+    INSERT [dbo].[Users] 
+    VALUES 
+        (1
+        , CAST(N'2016-06-22T17:35:14.680' AS DateTime)
+        , N'steve-morera'
+        , CAST(N'2016-06-22T17:35:14.680' AS DateTime)
+        , NULL
+        , N'Costa Rica'
+        , NULL
+        , 0
+        , 0
+        , 0
+        , N'http://www.xaviermorera.com/wp-content/uploads/2016/06/xavier-morera-150x150.jpg'
+        , 17056190)
+
+Let's check it:
+    SELECT * FROM Users WHERE AccountId = 17056190
+
+- An Insert Statement with NULL and DEFAULT
+We are going to perform a basic insert statement taking advantage of NULL and DEFAULT values. Now we are going to insert but specifying only a few columns, let's use only the NOT NULL:
+
+    INSERT INTO [dbo].[Users] 
+        ([Reputation]
+        , [CreationDate]
+        , [DisplayName]
+        , [LastAccessDate]
+        , [WebsiteUrl]
+        , [Location]
+        , [AboutMe]
+        , [Views]
+        , [UpVotes]
+        , [DownVotes]
+        , [ProfileImageUrl]
+        , [AccountId]) 
+    VALUES 
+        (1
+        , CAST(N'2016-06-22T17:35:14.680' AS DateTime)
+        , N'steve-towers'
+        , CAST(N'2016-06-22T17:35:14.680' AS DateTime)
+        , NULL
+        , N'Costa Rica'
+        , NULL
+        , 0
+        , 0
+        , 0
+        , N'http://www.xaviermorera.com/wp-content/uploads/2016/06/xavier-morera-150x150.jpg'
+        , 17056191)
+
+Our query will end up looking like this one:
+    INSERT INTO [dbo].[Users] 
+        ([Reputation]
+        , [CreationDate]
+        , [DisplayName]
+        , [LastAccessDate]
+        , [Views]
+        , [UpVotes]
+        , [DownVotes]
+        , [AccountId]) 
+    VALUES 
+        (1
+        , CAST(N'2016-06-22T17:35:14.680' AS DateTime)
+        , N'steve-towers'
+        , CAST(N'2016-06-22T17:35:14.680' AS DateTime)
+        , 0
+        , 0
+        , 0
+        , 17056191)
+
+And review:
+    SELECT * FROM Users WHERE AccountId = 17056191
+
+Let's remove one more column, Views:
+    INSERT INTO [dbo].[Users] 
+        ([Reputation]
+        , [CreationDate]
+        , [DisplayName]
+        , [LastAccessDate]
+        , [UpVotes]
+        , [DownVotes]
+        , [AccountId]) 
+    VALUES 
+        (1
+        , CAST(N'2016-06-22T17:35:14.680' AS DateTime)
+        , N'steve-towers'
+        , CAST(N'2016-06-22T17:35:14.680' AS DateTime)
+        , 0
+        , 0
+        , 17056192)
+
+This keeps working because Views has a default value constraint:
+    SELECT * FROM Users WHERE AccountId = 17056192
+
+You can check that constraint clicking the database, table Users, Constraints, DF_Users_Views_... and select: Script Constraint as > CREATE To > New Query Editor Window 
+
+- An Insert Statement with an Identity
+We are going to perform an insert statement specifying the id explicitly. Let's see first which ones we have inserted so far.
+    SELECT Id, DisplayName, AccountId FROM Users WHERE AccountId >=  17056189
+
+If you see the output, we can see that the Id is sequential. That is because it is the identity. Let's try to insert it explicitly, first getting the top value:
+    SELECT max(AccountId) FROM Users
+
+    SELECT max(Id) as Max_Id FROM Users
+
+Replace the values and get something like this:
+    INSERT INTO [dbo].[Users] 
+        ([Id]
+        ,[Reputation]
+        , [CreationDate]
+        , [DisplayName]
+        , [LastAccessDate]
+        , [UpVotes]
+        , [DownVotes]
+        , [AccountId]) 
+    VALUES 
+        (75303
+        ,1
+        , CAST(N'2016-06-22T17:35:14.680' AS DateTime)
+        , N'xavier-identity'
+        , CAST(N'2016-06-22T17:35:14.680' AS DateTime)
+        , 0
+        , 0
+        , 17056193)
+
+After we execute it, we get the following error:
+    Msg 544, Level 16, State 1, Line 1
+    Cannot insert explicit value for identity column in table 'Users' when IDENTITY_INSERT is set to OFF.
+
+Add the following lines to the query in order to allow the identity insert:
+    SET IDENTITY_INSERT Users ON
+
+    INSERT INTO [dbo].[Users] 
+        ([Id]
+        ,[Reputation]
+        , [CreationDate]
+        , [DisplayName]
+        , [LastAccessDate]
+        , [UpVotes]
+        , [DownVotes]
+        , [AccountId]) 
+    VALUES 
+        (75303
+        ,1
+        , CAST(N'2016-06-22T17:35:14.680' AS DateTime)
+        , N'xavier-identity'
+        , CAST(N'2016-06-22T17:35:14.680' AS DateTime)
+        , 0
+        , 0
+        , 17056193)
+
+    SET IDENTITY_INSERT Users OFF
+
+To confirm, we are going to execute again both statements:
+    SELECT Id, DisplayName, AccountId FROM Users WHERE AccountId >= 17056189
+
+    GO
+
+    SELECT max(Id) as Max_Id FROM Users
+
+- Demo: An Insert Statement with Constraints
+We are going to perform and insert statement in a table with foreign keys. I am going to insert a comment with a typo in the user id.
+    SELECT TOP 10 * FROM Comments
+
+    GO
+
+    SELECT * FROM Posts WHERE Id = 5
+
+    SELECT max(Id) FROM Posts
+
+We are going to use the INSERT To Template again, so: Click on the Table Comments > Script Table as > INSERT To > New Query Editor Window. Filling up the blanks, the query should look like this: 
+    INSERT INTO [dbo].[Comments]
+            ([PostId]
+            ,[Score]
+            ,[Text]
+            ,[CreationDate]
+            ,[UserDisplayName]
+            ,[UserId])
+        VALUES
+            (5
+            ,0
+            ,N'This question is offtopic'
+            ,CAST(N'2019-07-22T17:35:14.680' AS DateTime)
+            ,N'xavier-morera'
+            ,75298000)
+
+We add a few zeros at the UserId because we want to violate the constraint. If I run, this is what I was expecting: 
+    Msg 547, Level 16, State 0, Line 4
+    The INSERT statement conflicted with the FOREIGN KEY constraint "FK_USERID_COMMENTS". The conflict occurred in database "tsql-dml", table "dbo.Users", column 'Id'.
+    The statement has been terminated.
+
+You can check which constraints affect your table expanding your table and clicking keys. Fix the UserId and execute it again.
+    INSERT INTO [dbo].[Comments]
+            ([PostId]
+            ,[Score]
+            ,[Text]
+            ,[CreationDate]
+            ,[UserDisplayName]
+            ,[UserId])
+        VALUES
+            (5
+            ,0
+            ,N'This question is offtopic'
+            ,CAST(N'2019-07-22T17:35:14.680' AS DateTime)
+            ,N'xavier-morera'
+            ,75298)
+
+Let's confirm by running this query:
+    SELECT * FROM Comments WHERE UserDisplayName = 'xavier-morera'
+
+- Adding Multiple Records from a Data File with BULK INSERT
+We are going to insert more than 1 record at once using BULK INSERT. Let's check how many Comments I have now.
+    SELECT * FROM Comments WHERE UserDisplayName = 'xavier-morera'
+
+Inserts the data contained in a CSV file into the Table Comments. Columns not specified in the CSV file take their DEFAULT values.
+    BULK INSERT Comments
+    FROM 'c:\tsqldml\comments.csv'
+    WITH (
+        FIRSTROW = 2,
+        FORMAT='CSV'
+    );
+
+Let's confirm it.
+    SELECT * FROM Comments WHERE UserDisplayName = 'xavier-morera'
+    

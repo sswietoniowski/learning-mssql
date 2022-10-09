@@ -10,4 +10,6 @@ There are the following sub-directories:
 - [04_optimizing_sql_server_statistics_and_indexes](04_optimizing_sql_server_statistics_and_indexes/),
 - [05_analyzing_sql_server_query_plans](05_analyzing_sql_server_query_plans/),
 - [06_handling_errors_in_t-sql](06_handling_errors_in_t-sql/),
-- [07_querying_data_using_t-sql](07_querying_data_using_t-sql).
+- [07_querying_data_using_t-sql](07_querying_data_using_t-sql),
+- [08_handling_errors_in_t-sql](06_handling_errors_in_t-sql/),
+- [09_t-sql_data_manipulation_playbook](09_t-sql_data_manipulation_playbook),

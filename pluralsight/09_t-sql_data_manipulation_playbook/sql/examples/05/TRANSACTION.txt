@@ -1,0 +1,97 @@
+*** Maintaining Data Integrity with Transactions ***
+Instructions and snippets to follow along and learn how to use transactions are included below.
+
+- Creating Transactions Using BEGIN and COMMIT
+Delete a user with Posts using a transaction to ensure the integrity of the database
+	SELECT * FROM Users WHERE DisplayName = 'xavier-morera';
+
+	SELECT * FROM Posts WHERE OwnerUserId = 75298;
+
+	SELECT OwnerUserId, Count(OwnerUserId) AS TotalPosts FROM Posts GROUP BY OwnerUserId ORDER BY TotalPosts DESC
+
+	BEGIN TRANSACTION;
+
+	UPDATE Posts SET
+		OwnerUserId = 75298,
+		OwnerDisplayName = 'xavier-morera'
+	WHERE OwnerUserId = 836;
+
+	UPDATE Comments SET
+		UserId = 75298,
+		UserDisplayName = 'xavier-morera'
+	WHERE UserId = 836;
+
+	COMMIT TRANSACTION;
+
+	SELECT * FROM Posts WHERE OwnerUserId = 75298;
+
+- Querying Data Locked in a Transaction with NOLOCK
+Query a Table while a transaction is locking the table 
+	BEGIN TRANSACTION;
+
+	UPDATE Posts SET
+		OwnerDisplayName = 'xmorera'
+	WHERE OwnerUserId = 75298;
+
+	UPDATE Comments SET
+		UserDisplayName = 'xmorera'
+	WHERE UserId = 75298;
+
+Execute a select when the table is locked by a transaction
+	SELECT * FROM Posts 
+	WHERE OwnerUserId = 75298;
+
+Execute a select ignoring the lock of the transaction, this shows the last stable state of the table: 
+	SELECT * FROM Posts 
+	WITH (NOLOCK)
+	WHERE OwnerUserId = 75298;
+
+	COMMIT TRANSACTION;
+
+- Undoing Transactions Using ROLLBACK
+Discard the changes made by a transaction before committing them using ROLLBACK 
+	BEGIN TRANSACTION insert_another_user  
+
+	INSERT INTO Users (DisplayName, Location, AboutMe) 
+		VALUES ('another-tsql-user', 'San Jose, Costa Rica', 'This user will never exist!');
+		
+	ROLLBACK TRAN insert_another_user; 
+
+This won't return anything because we ROLLBACK the transaction:
+	SELECT * FROM Users WHERE DisplayName = 'another-tsql-user'
+
+- Partially Undoing Transactions using Savepoints
+Revert changes and going back using multiple SAVE POINTS and partially ROLLBACK the transaction 
+
+This will delete every comment related with python and java, revert the second deletion and delete every comment related with c++:
+IMPORTANT! Execute each line separately.
+
+	BEGIN TRAN;
+
+	DELETE FROM Comments WHERE Comments.Text LIKE '%python%';
+
+	SAVE TRAN del_python;
+
+	DELETE FROM Comments WHERE Comments.Text LIKE '%java%';
+
+	SAVE TRAN del_java;
+
+	SELECT * FROM Comments WHERE Comments.Text LIKE '%python%' OR Comments.Text LIKE '%java%';
+
+At this point let's assume that I am required to delete all comments related with c++ and preserve all of them related with java. 
+	SELECT * FROM Comments WHERE Comments.Text LIKE '%python%' OR Comments.Text LIKE '%c++%';
+
+Go back to the point after we delete all the comments related with python: 
+	ROLLBACK TRAN del_python;
+
+	DELETE FROM Comments WHERE Comments.Text LIKE '%c++%';
+
+	SELECT * FROM Comments WHERE Comments.Text LIKE '%python%' OR Comments.Text LIKE '%c++%';
+
+	COMMIT TRAN;
+
+Comments related with java are still there: 
+	SELECT * FROM Comments WHERE Comments.Text LIKE '%java%';
+
+Comments related with python/c++ have been removed:
+	SELECT * FROM Comments WHERE Comments.Text LIKE '%python%' OR Comments.Text LIKE '%c++%';

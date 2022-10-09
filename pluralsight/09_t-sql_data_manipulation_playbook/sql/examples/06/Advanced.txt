@@ -1,0 +1,222 @@
+*** Using Advanced T-SQL Techniques ***
+Instructions and snippets to follow along and learn how to use advanced T-SQL techniques are included below.
+
+- Using INSERT with Multiple Values
+Insert multiple row values in one INSERT sentence:
+	SELECT * FROM Comments WHERE PostId = 10
+
+Using INSERT with Multiple Values
+	INSERT INTO [dbo].[Comments]
+			([PostId]
+			,[Score]
+			,[Text]
+			,[CreationDate]
+			,[UserDisplayName]
+			,[UserId])
+		VALUES
+			(10
+			,0
+			,N'This is one comment'
+			,CAST(N'2019-07-22T17:35:14.680' AS DateTime)
+			,N'xavier-morera'
+			,24),
+			(10
+			,0
+			,N'This is a second comment'
+			,CAST(N'2019-07-22T17:35:14.680' AS DateTime)
+			,N'xavier-morera'
+			,24),
+			(10
+			,0
+			,N'And even a third'
+			,CAST(N'2019-07-22T17:35:14.680' AS DateTime)
+			,N'xavier-morera'
+			,24)
+
+- SELECT within an INSERT Statement
+	SELECT Id, Reputation, CreationDate, DisplayName
+		FROM Users
+		WHERE Users.Reputation > 5000
+
+List tables
+	SELECT Distinct TABLE_NAME FROM information_schema.TABLES
+
+Create a new table for Employees: 
+	CREATE TABLE Employees (
+		Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+		Reputation INT NOT NULL DEFAULT 0,
+		CreationDate DATETIME NOT NULL DEFAULT GETDATE(),
+		DisplayName VARCHAR(255) NOT NULL,
+		Salary INT,
+		JobTitle VARCHAR(255),
+		Boss INT,
+		Department VARCHAR(255)
+	);
+
+Enable the insert with a specific Id:
+	SET IDENTITY_INSERT Employees ON
+
+Insert users with a reputation higher than 5000 into the new table employees: 
+	INSERT INTO Employees (Id, Reputation, CreationDate, DisplayName, Salary)
+		SELECT Id, Reputation, CreationDate, DisplayName, 0
+		FROM Users
+		WHERE Users.Reputation > 5000
+
+	SET IDENTITY_INSERT Employees OFF
+
+	SELECT * FROM Employees
+
+- Using SELECT to Retrieve a Specific Field in an INSERT
+Insert a record using SELECT statements to get the VALUES we need. 
+
+Get the id of the Post with the title 'Parallel and distributed computing':
+	SELECT Id FROM Posts WHERE Title = 'Parallel and distributed computing'
+
+Get the id of the User xavier-morera:
+	SELECT Id FROM Users WHERE DisplayName = 'xavier-morera'
+
+	INSERT INTO Comments (CreationDate, PostId, Score, Text, UserDisplayName, UserId) 
+	VALUES (
+		GETDATE(),
+		(SELECT Id FROM Posts WHERE Title = 'Parallel and distributed computing'),
+		0,
+		'I am the last comment!',
+		'xavier-morera',
+		(SELECT Id FROM Users WHERE DisplayName = 'xavier-morera')
+		);
+
+Check the recently inserted record:
+	SELECT * FROM Comments WHERE UserDisplayName = 'xavier-morera' ORDER BY CreationDate DESC;
+
+- Retrieving Records on INSERT Using the OUTPUT Clause
+Use the clause OUTPUT to retrieve the id of the recently inserted record:
+	INSERT INTO Posts (PostTypeId, Body, OwnerUserId, OwnerDisplayName, Title)
+	OUTPUT INSERTED.Id
+	VALUES (1,'This is a Post!',75298,'xavier-morera','This is a Post Title!');
+
+Just to confirm 
+	SELECT * FROM Posts WHERE Id = 53077
+
+Use the clause OUTPUT to retrieve information about the recently modified records:
+	UPDATE Posts SET
+	Score += FavoriteCount	
+	WHERE FavoriteCount > 50
+
+Run it again but this time using the clause OUTPUT:
+	UPDATE Posts SET
+	Score += FavoriteCount
+	OUTPUT Inserted.Id, Inserted.Title, Inserted.Score
+	WHERE FavoriteCount > 50
+
+Retrieving deleted records using the OUTPUT clause
+	SELECT * FROM Users WHERE DisplayName like '%darth%';
+
+Delete users who do not have Posts or Badges:
+	DELETE TOP(3) FROM Users
+	OUTPUT DELETED.*
+	FROM Users
+		LEFT JOIN Posts ON Users.Id = Posts.OwnerUserId
+		LEFT JOIN Badges ON Users.Id = Badges.UserId
+	WHERE DisplayName like '%darth%' AND
+		Posts.OwnerUserId IS NULL AND Badges.UserId IS NULL
+
+	SELECT * FROM Users WHERE DisplayName LIKE '%darth%' 
+
+- Utilizing MERGE to Perform Operations on a Target Table
+Updating and deleting records using the MERGE clause
+
+Create the Source and Target Tables:
+	CREATE TABLE CommentsSource (
+		Id INT NOT NULL PRIMARY KEY,
+		PostId INT NOT NULL,
+		Score INT NOT NULL DEFAULT 0,
+		Text VARCHAR(MAX) NOT NULL,
+		CreationDate DATETIME NOT NULL DEFAULT GETDATE(),
+		UserDisplayName VARCHAR(255),
+		UserId INT
+	);
+
+	CREATE TABLE CommentsTarget (
+		Id INT NOT NULL PRIMARY KEY,
+		PostId INT NOT NULL,
+		Score INT NOT NULL DEFAULT 0,
+		Text VARCHAR(MAX) NOT NULL,
+		CreationDate DATETIME NOT NULL DEFAULT GETDATE(),
+		UserDisplayName VARCHAR(255),
+		UserId INT
+	);
+
+INSERT every Comment except those related with python:
+	INSERT INTO CommentsSource
+		(Id,PostId,Score,Text,CreationDate,UserDisplayName,UserId)
+		SELECT Id,PostId,Score,Text,CreationDate,UserDisplayName,UserId
+		FROM Comments EXCEPT 
+			(SELECT Id,PostId,Score,Text,CreationDate,UserDisplayName,UserId
+			FROM Comments WHERE Text LIKE '%python%');
+
+INSERT every Comment except those related with java:
+	INSERT INTO CommentsTarget
+		(Id,PostId,Score,Text,CreationDate,UserDisplayName,UserId)
+		SELECT Id,PostId,Score,Text,CreationDate,UserDisplayName,UserId
+		FROM Comments EXCEPT 
+			(SELECT Id,PostId,Score,Text,CreationDate,UserDisplayName,UserId
+			FROM Comments WHERE Text LIKE '%java%');
+
+
+	SELECT * FROM CommentsSource WHERE Text LIKE '%python%';
+	SELECT * FROM CommentsTarget WHERE Text LIKE '%java%';
+
+	SELECT * FROM CommentsSource WHERE Text LIKE '%java%';
+	SELECT * FROM CommentsTarget WHERE Text LIKE '%python%';
+
+Insert different comments from Source into Target.
+Delete every different comment that is inside Target but not in Source:
+
+	MERGE CommentsTarget USING CommentsSource ON (CommentsTarget.Text = CommentsSource.Text)
+
+		WHEN NOT MATCHED BY TARGET THEN	
+			INSERT (Id,PostId,Score,Text,CreationDate,UserDisplayName,UserId)
+			VALUES (
+				CommentsSource.Id,
+				CommentsSource.PostId,
+				CommentsSource.Score,
+				CommentsSource.Text,
+				CommentsSource.CreationDate,
+				CommentsSource.UserDisplayName,
+				CommentsSource.UserId
+			)
+		
+		WHEN NOT MATCHED BY SOURCE THEN 		
+			DELETE;
+
+At this point:
+Target and Source should have java related comments
+And no record should have python related comments 
+
+	SELECT * FROM CommentsSource WHERE Text LIKE '%python%';
+	SELECT * FROM CommentsTarget WHERE Text LIKE '%java%';
+
+	SELECT * FROM CommentsSource WHERE Text LIKE '%java%';
+	SELECT * FROM CommentsTarget WHERE Text LIKE '%python%';
+
+
+- BULK INSERT Using a Format File with bcp
+BULK INSERT using a user-specified format file. In this sample, we are going to specify our own format in order to insert multiple records no matter the extension of the source file.
+
+Get the Database table format file. This file specifies the exact format of a specific table.
+
+Execute in the command prompt: 
+	bcp [tsql-dml].dbo.Comments format nul -c -f comments-format.fmt -t, -T
+
+Note how the file has dollars as separators and the order of the columns in the .dsv file is different as the database table.
+
+Delete previously inserted comments with BULK INSERT: 
+	DELETE FROM Comments WHERE Text LIKE '%This is a comment%'
+
+After modifying the .ftm format file, we just need to execute the following statement:  
+	BULK INSERT Comments
+	FROM 'F:\tsql\comments.dsv' with
+	(FORMATFILE='F\tsql\comments-format.fmt');
+
+This will insert the information inside any file because using the generated format file, the database engine could understand any data source.
+	SELECT * FROM Comments WHERE UserDisplayName = 'xavier-morera' AND TEXT LIKE 'This is a comment%'

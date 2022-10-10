@@ -22,7 +22,7 @@ T2
 
 (I) SQL Server: Analyzing Query Performance for Developers: PN, WT
 (I) SQL Server: Introduction to Query Store: ŚR
-(O) Handling Errors in T-SQL: CZW
+(I) Handling Errors in T-SQL: CZW
 (O) Combining and Filtering Data with T-SQL 2019: PT
 (O) T-SQL Data Manipulation Playbook
 

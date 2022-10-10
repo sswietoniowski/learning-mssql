@@ -37,8 +37,9 @@ Layered approach (from the outside):
 - database,
 - query.
 
-Infrastructure layers:
+How to start troubleshooting:
 
+- identify the problem,
 - targeted troubleshooting,
 - drill-down/top-down,
 - choose the layer(s) directly to optimize.

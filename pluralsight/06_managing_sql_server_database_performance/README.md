@@ -421,7 +421,62 @@ How to alleviate tempdb IO bottlenecks?
 
 ### Autogrowth Settings
 
+Database instant file initialization configuration changes require a service restart to take effect.
+
+In SQL2016+ information about instant file initialization will be available in the ERRORLOG file.
+
+> Database Instant File Initialization: enabled. For security and performance considerations...
+
+Also we can check (`instant_file_initialization`):
+
+```sql
+select * from sys.dm_server_services;
+```
+
+Also we can check security policies to verify that the SQL Server account has the required permissions to perform volume maintenance tasks (that is "Perform volume maintenance tasks" policy).
+
+To verify autogrowth settings we can use (`max_size`, `growth`, `is_percent_growth`):
+
+```sql
+select * from sys.master_files;
+```
+
+We can do that for a particular database:
+
+```sql
+select * from sys.database_files;
+```
+
+Default 10% is not a good idea, it is better to define our own fixed autogrowth settings.
+
+Example of fixed growth setting: 8192 \* 8 KB = 65536 KB = 64 MB.
+
 ### Tempdb Configuration
+
+In SQL2016+ TF1117 and TF1118 are enabled by default.
+
+In older versions by default you would have one data file and one log file in a newer versions that
+would be configured more reasonably.
+
+Number of tempdb data files when having 8 or less schedulers = no. of schedulers.
+Number of tempdb data files when having more than 8 schedulers = 8.
+Do not add more data files than logical processors and monitor impact.
+
+To check number of schedulers:
+
+```sql
+select * from sys.dm_os_schedulers;
+```
+
+To check number of logical processors:
+
+```sql
+select * from sys.dm_os_sys_info;
+```
+
+While number of files would be OK, the size of the files is not and should be pre-sized.
+
+KB2154845 to read on addressing tempdb contention and recommended number of tempdb data files.
 
 ## 5. Configuring SQL Server in Azure
 

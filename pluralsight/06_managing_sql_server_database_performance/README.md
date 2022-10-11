@@ -123,7 +123,70 @@ SQL Server performance optimization is more like an art.
 
 ### Server Health Check
 
+It is important to have some kind of a server health check repository.
+
+When do you need a server health check?
+
+- after installing SQL Server,
+- before going into production,
+- regularly as part of operations and maintenance.
+
+What do you verify in a server health check?
+
+- host environment (hardware, OS),
+- SQL Server configuration,
+- database settings,
+- SQL Server ERRORLOG files,
+- scheduled jobs,
+- custom (something that is specific to a particular environment).
+
 ### Memory Settings
+
+Configuration SQL Server memory settings:
+
+- max server memory,
+- min server memory,
+- lock pages in memory.
+
+Review other server configuration settings:
+
+- optimize for ad hoc workloads,
+- max degree of parallelism,
+- cost threshold for parallelism.
+
+SQL Server ERRORLOG files.
+
+Buffer pool memory sizing.
+
+SQL Server VM Memory Settings Example:
+
+- VM RAM,
+- max server memory,
+- VM reserved memory,
+- min server memory.
+
+System Data Collection Method Examples:
+
+- system information,
+  - method: ERRORLOG files and @@version, sys.dm_os_sys_info, sys.dm_os_schedulers, msinfo32 (Windows)
+- errors and exceptions:
+  - ERRORLOG files, event logs (Windows),
+- memory dumps:
+  - sys.dm_server_memory_dumps, ERRORLOG files,
+- database corruption:
+  - DBCC CHECKDB job failures,
+  - msdb..sysjobhistory,
+  - msdb..suspect_pages.
+- SQL Server performance counters:
+  - sys.dm_os_performance_counters,
+- wait statistics:
+  - sys.dm_os_wait_stats, sys.dm_exec_session_wait_stats,
+- database file IO:
+  - sys.dm_io_virtual_file_stats,
+- system level bottlenecks:
+  - ERRORLOG files,
+- missing indexes and index usage:
+  - sys.dm_db_missing_index_groups, sys.dm_db_missing_index_details, sys.dm_db_index_usage_stats, sys.dm_db_index_group_stats.
 
 ### Parallelism Settings
 
@@ -131,9 +194,102 @@ SQL Server performance optimization is more like an art.
 
 ## 4. Optimizing Tempdb and User Database File Configuration
 
+Server health check items:
+
+- tempdb file configuration:
+  - number of data files,
+  - sizing of data files,
+- trace flags depending on major version:
+  - TF1118,
+  - TF1117,
+- database instant file initialization,
+- file autogrowth settings.
+
+Additional external factors:
+
+- storage configuration and tiers,
+- data, transaction log, and tempdb file separation onto different drives/disks,
+- drive formatting:
+  - 64 KB NTFS allocation unit size,
+- antivirus configuration:
+  - KB309422 to read for exclusion paths.
+
 ### Database File IO
 
+Database IO latency:
+
+- for data files (\*.mdf, \*.ndf) it is OK if < 25 ms,
+- for log files (\*.ldf) it is OK if < 5 ms.
+
+Database files on SSD storage:
+
+- use SSD storage for production workloads:
+  - average IO latency in the few milliseconds range,
+- if otherwise:
+  - storage properly configured or tiered,
+  - no SQL Server memory pressure,
+  - workload is optimized,
+  - index usage is optimal,
+  - other external factors do not interfere.
+
+Monitoring IO performance:
+
+- windows performance monitor (Perfmon):
+  - LogicalDisk object counters,
+- SQL Server views:
+  - sys.dm_io_virtual_file_stats,
+- SQL Server wait statistics:
+  - PAGEIOLATCH_SH,
+  - PAGEIOLATCH_EX,
+  - WRITELOG.
+
 ### Instant File Initialization and Tempdb Bottlenecks
+
+Database file zero initialization.
+
+Database instant file initialization:
+
+- no zero initialization on:
+
+  - create,
+  - autogrow,
+  - restore.
+
+- applies to the data files only:
+  - log files are always zeroed,
+- perform volume maintenance tasks security policy,
+- evaluate security considerations.
+
+Tempdb performance factors:
+
+- IO - read/write the data file(s) and the log file with varying IO sizes,
+- internal allocation - SQL Server internal algorithms to allocate objects and manage metadata.
+
+How to measure these tempdb bottlenecks?
+
+- IO - subpar read/write latency values seen with Perfmon and sys.dm_io_virtual_file_stats on tempdb files and disk,
+- tempdb contention - PAGELATCH_UP, PAGELATCH_EX wait types, with bad average wait times and wait resources in tempdb.
+
+How to alleviate tempdb IO bottlenecks?
+
+- IO performance:
+  - use SSD storage,
+  - use multiple tempdb data files,
+  - separate tempdb files from all the rest,
+  - separate tempdb log files from data files,
+  - optimize autogrowth settings,
+  - database instant file initialization,
+  - optimize workload,
+  - resolve memory configuration problems,
+- tempdb contention:
+  - use SQL2016+,
+  - use TF1118 with pre-SQL2016 instances,
+  - use multiple tempdb data files,
+  - pre-size the tempdb data files,
+  - size all data files equally,
+  - configure fixed equal autogrow values,
+  - use TF1117 with pre-SQL2016 instances,
+  - optimize workload.
 
 ### Autogrowth Settings
 

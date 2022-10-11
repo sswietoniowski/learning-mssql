@@ -297,17 +297,178 @@ How to alleviate tempdb IO bottlenecks?
 
 ## 5. Configuring SQL Server in Azure
 
+Choosing a cloud SQL Server solution.
+
+Why choosing SQL Server in Azure?
+
+- cost,
+- operations,
+- availability,
+- modernization.
+
+Additional benefits of Azure SQL solutions:
+
+- security - Azure integrated security solutions,
+- scalability - upscaling and downscaling options, tiered offerings,
+- automatic tuning - automatic performance tuning options.
+
 ### SQL Server in Azure
+
+Three main SQL Server in Azure offerings:
+
+- IAAS - SQL Server VM - full-fledged instances just as if they were on-premise,
+- PAAS - Azure SQL Database - managed platform-as-a-service offering, no server instance,
+- PAAS - Managed Instance - managed platform-as-a-service offering, server instance available.
 
 ### SQL Server Virtual Machines
 
+Full-fledged server instances managed by you as if they were on-premise.
+
+What is applicable to on-premise is relevant here too:
+
+- planning and sizing,
+- deployment,
+- patching,
+- configuration,
+- performance optimization,
+- operations and maintenance.
+
 ### Creating SQL Server Virtual Machines and Sizing
+
+Tiered resources.
+
+Multiple VM series and sizes.
+
+Azure compute units (ACU).
+
+Tiered storage options.
+
+Azure VM series determines:
+
+- available VM sizes (vCPU and memory),
+- storage type supported (premium vs. standard),
+- CPU architecture and ACU,
+
+Azure VM size determines:
+
+- tempdb storage size (drive D),
+- maximum number of data disks,
+- disk performance (IOPS, throughput),
+- network bandwidth.
+
+What's best for SQL Server:
+
+- sizes for Windows virtual machines in Azure,
+- understand each series, limits and scales,
+- understand your workload to choose the best VM series and size,
+- SQL Server VM performance guidelines.
+
+SQL Server VM Azure checklist example:
+
+- choose the proper VM series and size,
+- do a platform health check,
+- use Premium (SSD) managed disks in production:
+  - choose proper storage tiers, P30 disks at minimum,
+  - configure storage caching properly,
+- optimize tempdb performance:
+  - move to local SSD (drive D) if needed.
 
 ### Azure SQL Database
 
+Main features:
+
+- single or elastic databases,
+- no physical server instance,
+- partial compatibility with on-premise,
+- Enterprise Edition features,
+- automatic tuning options,
+- tiered service.
+
+Managing Azure SQL Database performance:
+
+- built-in performance monitoring:
+  - performance overview,
+  - performance recommendations,
+  - intelligent insights,
+  - automatic tuning,
+- Query Store,
+- Azure SQL Database specific views:
+  - sys.dm_db_wait_stats.
+
+Azure SQL Database service tiers:
+
+- purchase models:
+  - vCore and DTU,
+- service tiers:
+  - DTU: Basic, Standard, Premium,
+  - vCore: general purpose, business critical, hyperscale.
+
+Single database resource limits:
+
+- resource limits within service tiers,
+- multiple compute sizes in a service tier:
+  - Standard tier: S0 to S12,
+- compute size comes with limits on:
+- maximum DTU,
+- maximum storage,
+- maximum concurrent workers and sessions,
+- tempdb size (number of data files, file sizes).
+
+Choosing a service tier:
+
+- [DTU calculator](https://dtucalculator.azurewebsites.net/),
+- [Data migration assistant (DMA)](https://learn.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-ver15).
+
 ### Elastic Pools
 
+Options:
+
+- single database: DTU/vCore,
+- elastic pool: eDTU/vCore.
+
+Azure SQL Database Elastic Scale.
+
+Elastic pool resource limits:
+
+- resource limits within service tiers,
+- multiple eDTU sizes in a service tier:
+  - Standard tier: 50 to 3000,
+- eDTU size comes within limits on:
+  - maximum storage per pool,
+  - maximum number of databases,
+  - minimum and maximum eDTU per database,
+  - tempdb size (number of data files, file sizes).
+
+Elastic pool utilization patterns:
+
+- use the 1.5x multiplier for elastic pools:
+  - sum of single database resources > eDTU x 1.5,
+  - eDTU cost = DTU x 1.5,
+  - peak DTU > average DTU x 1.5,
+- single database peaks mostly do not overlap,
+- two thirds of the pooled databases should peak to their resource limit at maximum,
+- count with storage requirements too.
+
+Elastic pool size estimation:
+
+- to estimate an elastic pool size in eDTU:
+  - (total number of databases) x (average DTU utilization per database),
+  - (number of concurrently peaking databases) x (peak DTU utilization per database),
+- whichever is larger of the above,
+- aggregate the storage requirement for all databases and see which eDTU size matches,
+- take the larger of eDTU sizes from above and use the Azure calculator for costs.
+
 ### Estimating Service Tiers and Sizes
+
+Azure SQL Database scaling options:
+
+- scale-up:
+  - move to a higher tier or compute size,
+- scale-down:
+  - move to a lower tier or compute size,
+- scale-out:
+  - report offloading to a read-only replica,
+  - database sharding with elastic database tools.
 
 ## 6. Troubleshooting and Baselining the Environment
 

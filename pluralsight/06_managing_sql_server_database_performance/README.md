@@ -543,7 +543,7 @@ What's best for SQL Server:
 
 - sizes for Windows virtual machines in Azure,
 - understand each series, limits and scales,
-- understand your workload to choose the best VM series and [size](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes),
+- understand your workload to choose the best VM [series](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/) and [size](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes),
 - SQL Server VM performance [guidelines](https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist?view=azuresql).
 
 SQL Server VM Azure checklist example:

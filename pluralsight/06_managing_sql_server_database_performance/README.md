@@ -97,14 +97,114 @@ SQL Server performance optimization is more like an art.
 
 ## 2. Understanding Key SQL Server Concepts
 
+### Major Versions and Compatibility Levels
+
+### Patch Levels and Servicing
+
+### Editions and Best Practices
+
+### Server Instances
+
+### Server Configuration Options
+
+### Database Configuration Options
+
+### Trace Flags
+
+### Tempdb
+
+### Transaction Log and Recovery Models
+
+### Memory Management and SQLOS
+
+### Wait Statistics and the Threading Model
+
 ## 3. Optimizing SQL Server Instance and Memory Configuration
+
+### Server Health Check
+
+### Memory Settings
+
+### Parallelism Settings
+
+### ERRORLOG Files
 
 ## 4. Optimizing Tempdb and User Database File Configuration
 
+### Database File IO
+
+### Instant File Initialization and Tempdb Bottlenecks
+
+### Autogrowth Settings
+
+### Tempdb Configuration
+
 ## 5. Configuring SQL Server in Azure
+
+### SQL Server in Azure
+
+### SQL Server Virtual Machines
+
+### Creating SQL Server Virtual Machines and Sizing
+
+### Azure SQL Database
+
+### Elastic Pools
+
+### Estimating Service Tiers and Sizes
 
 ## 6. Troubleshooting and Baselining the Environment
 
+### Troubleshooting and Baselining in SQL Server
+
+### Wait Statistics in Practice
+
+### IO and CPU Related Wait Type Patterns
+
+### OS, Locking, and Data Page Related Wait Type Patterns
+
+### Wait Statistics Patterns in Troubleshooting
+
+### Wait Statistics Analysis with Custom Query
+
+### IO Performance Troubleshooting with DMVs
+
+### IO Performance Analysis with Custom Query
+
+### Query Store
+
+### Using the Query Store for Query Performance Analysis
+
+### System_health Session Trace
+
+### Using the System_health Session Trace for Troubleshooting
+
+### Perfmon Traces
+
+### Interesting SQL Server Counters
+
+### Page Life Expectancy Patterns
+
+### Using and Analyzing Perfmon Traces
+
 ## 7. SQL Server 2019 Improvements
+
+### Database and Server Upgrade
+
+### Versions, Editions, and Patching
+
+### Setup
+
+### Tempdb Improvements
+
+### Query Store Improvements
+
+### Accelerated Database Recovery
+
+### Sequential Key Insert Optimization
+
+### Intelligent Query Processing
+
+### References
 
 ## Summary

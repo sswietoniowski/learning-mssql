@@ -14,8 +14,8 @@ W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem
 
 T1
 
-(I) Managing SQL Server Database Performance: PN, WT, ŚR, CZW
-(I) SQL Server: Introduction to Extended Events: PT, SO
+(I) Managing SQL Server Database Performance: PN, WT, ŚR, CZW, PT
+(I) SQL Server: Introduction to Extended Events: SO, ND
 (O) Querying Data Using T-SQL: ND
 
 T2

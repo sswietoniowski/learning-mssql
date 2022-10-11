@@ -148,22 +148,66 @@ Configuration SQL Server memory settings:
 - min server memory,
 - lock pages in memory.
 
+Buffer pool memory sizing.
+
+Single-instance dedicated `max server memory` formula:
+
+> physical memory - 4 GB (or 10% whichever is greater to leave some GBs for the OS) - (memory not controlled by `max server memory`).
+
+Hosting other services on the database servers reduces the scalability of the SQL Server instance,
+external memory pressure scenarios can happen.
+
+Use the `sp_configure` system stored procedure to set server configuration options to prevent potential UI data entry errors.
+
+To check memory configuration settings:
+
+```sql
+:CONNECT .\INSTANCE
+
+EXECUTE sp_configure 'show advanced options', 1;
+GO
+RECONFIGURE;
+GO
+EXECUTE sp_configure 'min server memory (MB)', 2048;
+GO
+EXECUTE sp_configure 'max server memory (MB)', 4096;
+GO
+RECONFIGURE;
+GO
+```
+
+KB2663912 to read on changes regarding what memory allocations besides the buffer pool the `min server memory (MB)` and `max server memory (MB)` settings control from SQL2012 onwards.
+
+SQL Server ERRORLOG files.
+
+Lock pages in memory - without it we might experience this error in an error log:
+
+> A significant part of SQL Server process memory has been paged out. This may result in a performance degradation. Duration: 0 seconds. Working set (KB): ..., committed (KB):..., memory utilization: 29%.
+
+To fix that we should grant `Lock pages in memory` permission to the SQL Server service account.
+
+Some would argue that this fix should be applied only if we're experienced these errors.
+
 Review other server configuration settings:
 
 - optimize for ad hoc workloads,
 - max degree of parallelism,
 - cost threshold for parallelism.
 
-SQL Server ERRORLOG files.
+To check if we're using `optimize for ad hoc workloads` we can use:
 
-Buffer pool memory sizing.
+```sql
+SELECT * FROM sys.configurations WHERE name = 'optimize for ad hoc workloads';
+```
+
+We can check if that is the case by verifying plan cache stats and focusing on 'ad-hoc' plans usage.
 
 SQL Server VM Memory Settings Example:
 
-- VM RAM,
-- max server memory,
-- VM reserved memory,
-- min server memory.
+- VM RAM (32 GB),
+- max server memory (28 GB),
+- VM reserved memory (14 GB),
+- min server memory (10 GB).
 
 System Data Collection Method Examples:
 
@@ -190,7 +234,91 @@ System Data Collection Method Examples:
 
 ### Parallelism Settings
 
+To check parallelism settings we can use:
+
+```sql
+select * from sys.configurations
+where name in ('max degree of parallelism', 'cost threshold for parallelism');
+```
+
+To know how many schedulers there are we can use:
+
+```sql
+select * from sys.dm_os_schedulers;
+```
+
+To change `max degree of parallelism` we can use:
+
+```sql
+:CONNECT .\INSTANCE
+
+EXECUTE sp_configure 'show advanced options', 1;
+GO
+RECONFIGURE;
+GO
+EXECUTE sp_configure 'max degree of parallelism', 4;
+-- let's assume that I have 8 schedulers, so I can set it to 4,
+-- by setting this value to 0 I can disable parallelism
+GO
+RECONFIGURE;
+GO
+```
+
+To know how to set MAXDOP we need to know our situation, for example Microsoft SharePoint is an
+example of major product having a MAXDOP = 1 prerequisite.
+
+Excessive parallelism shows up in wait statistics as CXPACKET waits with high wait
+counts and bad average wait times.
+Optimize the workload, optimize indexing and adjust parallelism settings but do not turn it off.
+
+Always review KB2806535 on how to preset server level MAXDOP depending on the hardware environment
+and SQL Server major version.
+
+In case of `cost threshold for parallelism` we can use:
+
+```sql
+:CONNECT .\INSTANCE
+
+EXECUTE sp_configure 'show advanced options', 1;
+GO
+RECONFIGURE;
+GO
+EXECUTE sp_configure 'cost threshold for parallelism', 100;
+GO
+RECONFIGURE;
+GO
+```
+
 ### ERRORLOG Files
+
+ERRORLOG files are the most important source of information about SQL Server instance health.
+
+ERRORLOG files are located in the SQL Server log directory.
+
+ERRORLOG files are rotated daily.
+
+ERRORLOG files are text files.
+
+It is a good practice to increase the number of ERRORLOG files.
+
+Just for testing, to create a stack dumps manually we can use DBCC STACKDUMP.
+
+Stack dumps are created in the SQL Server log directory.
+
+If I/O is a bottleneck you can see in your error log:
+
+> SQL Server encountered \<n> occurrence(s) of I/O requests taking longer than \<n> milliseconds to complete on file \<file name> in database \<database name>(\<database ID>). The OS file handle is \<file handle>. This may be a symptom of physical disk bottlenecks. Check related errors.
+
+Another message worth investigation is related to autogrowth:
+
+> Auto growth of the file \<file name> in database \<database name> took \<n> miLliseconds. Consider using ALTER DATABASE to set a smaller FILEGROWTH for this file.
+
+Also we can find in an error log certaint errors:
+
+> Error 823: The operating system returned error 21(The device is not ready.) to SQL Server during a read at offset 0x0000000000000000 in file 'C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA\master.mdf'. Additional messages in the SQL Server error log and system event log may provide more detail. This is a severe system-level error condition that threatens database integrity and must be corrected immediately. Complete a full database consistency check (DBCC CHECKDB). This error can be caused by many factors; for more information, see SQL Server Books Online.
+
+Always collect and analyze the ERRORLOG files within a server health check and begin the performance
+troubleshooting and optimization by looking for red flags.
 
 ## 4. Optimizing Tempdb and User Database File Configuration
 

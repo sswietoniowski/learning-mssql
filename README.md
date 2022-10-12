@@ -47,7 +47,7 @@ Also used these (paid) courses & books:
   - [Troubleshooting SQL Server Performance Problems](https://app.pluralsight.com/library/courses/troubleshooting-sql-server-performance-problems/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/troubleshooting-sql-server-performance-problems/exercise-files),
   - [Managing SQL Server Database Maintenance](https://app.pluralsight.com/library/courses/managing-sql-server-database-maintenance/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/managing-sql-server-database-maintenance/exercise-files),
 - other:
-  - [Pro SQL Server 2019 Administration: A Guide for the Modern DBA](https://learning.oreilly.com/library/view/pro-sql-server/9781484250891/) ▶️.
+  - [Pro SQL Server 2019 Administration: A Guide for the Modern DBA](https://learning.oreilly.com/library/view/pro-sql-server/9781484250891/) :arrow_forward:.
 
 ## Useful Tools & Other Resources
 

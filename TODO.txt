@@ -21,19 +21,19 @@ T1
 
 T2
 
-(I) Troubleshooting SQL Server Performance Problems: PN
-(I) SQL Server: Analyzing Query Performance for Developers: WT, ŚR
-(I) SQL Server: Introduction to Query Store: CZW
-(I) SQL Server: Introduction to Extended Events: PT
-(O) Programming SQL Server Database Stored Procedures: SO
+(I) SQL Server: Analyzing Query Performance for Developers: PN, WT
+(I) SQL Server: Introduction to Query Store: ŚR
+(I) SQL Server: Introduction to Extended Events: CZW
+(O) Programming SQL Server Database Stored Procedures: ND
 (O) Programming SQL Server Database Triggers and Functions: ND
 
-Materiały na D1 (SO, ND) V1
+Materiały na D1 (SO, ND)
 
 T3
 
 (I) SQL Server: Indexing for Performance: PN, WT, ŚR
-(O) Managing Azure SQL Server Database Performance: CZW
+(I) Troubleshooting SQL Server Performance Problems: CZW
+(O) Managing Azure SQL Server Database Performance
 (O) Querying JSON, XML, and Temporal Data with T-SQL: PT
 
 Materiały na D2 (SO, ND)

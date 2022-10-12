@@ -42,9 +42,10 @@ T4
 
 (I) Using Memory-optimized Tables and Native Stored Procedures: PN
 (I) SQL Server: Index Fragmentation Internals, Analysis, and Solutions: WT, ŚR
-(O) SQL Server: Using SentryOne Plan Explorer: CZW
+(I) Managing SQL Server Database Maintenance: CZW
+(O) SQL Server: Using SentryOne Plan Explorer: PT
 
-Materiały na D3 (PT, SO, ND)
+Materiały na D3 (SO, ND)
 
 2022-11-07 - 2022-11-18
 

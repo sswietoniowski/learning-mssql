@@ -691,20 +691,180 @@ Azure SQL Database scaling options:
 
 ### Database and Server Upgrade
 
+Supportability, security, performance and new features.
+
 ### Versions, Editions, and Patching
+
+SQL Server major versions:
+
+- SQL Server 2012 (11.0 v11),
+- SQL Server 2014 (12.0 v12),
+- SQL Server 2016 (13.0 v13),
+- SQL Server 2017 (14.0 v14),
+- SQL Server 2019 (15.0 v15).
+
+Database compatibility levels:
+
+- major version (supported compatibility levels):
+  - SQL2019: 150 140 130 120 110 100,
+  - SQL2017: 140 130 120 110 100,
+  - SQL2016: 130 120 110 100,
+  - SQL2014: 120 110 100,
+  - SQL2012: 110 100.
+
+Compatibility level impact on performance:
+
+| Compatibility Level 140              | Compatibility Level 150             |
+| ------------------------------------ | ----------------------------------- |
+| Cardinality Estimator (CE) v140      | Cardinality Estimator (CE) v150     |
+| Automatic tuning                     | Batch mode on rowstore              |
+| Adaptive joins for batch mode        | Memory grant feedback for row mode  |
+| Interleaved execution                | Scalar UDF inlining                 |
+| Memory grant feedback for batch mode | Table variable deferred compilation |
+
+Why does edition matter?
+
+- feature limitation,
+- scale and resource utilization limits,
+- licensing cost.
+
+SQL Server edition and [feature matrix](https://learn.microsoft.com/en-us/sql/sql-server/editions-and-components-of-sql-server-2019?view=sql-server-ver16):
+
+- Express (1 socket or 4 cores, 1.4 GB buffer pool memory),
+- Standard (4 sockets or 24 cores, 128 GB buffer pool memory),
+- Enterprise (unlimited sockets or cores, 128 GB buffer pool memory).
+
+SQL Server 2019 servicing.
+
+No service packs form SQL2017 onwards:
+
+- modern servicing model.
+
+CU18 for SQL Server 2019, more info [here](https://sqlserverbuilds.blogspot.com/).
 
 ### Setup
 
+Setup improvements:
+
+- server install,
+- configuration options,
+- recommended server configuration options.
+
+New setup options and features:
+
+- memory - recommended min and max server memory (MB) values,
+- MAXDOP - recommended max degree of parallelism,
+- licensing - server/cal licensing warning tied to the number of CPU cores.
+
 ### Tempdb Improvements
+
+Tempdb configuration and major versions:
+
+- SQL2012 - all manual with trace flags,
+- SQL2014 - all manual with trace flags,
+- SQL2016 - built-in improvements,
+- SQL2017 - built-in improvements,
+- SQL2019 - in-memory metadata.
+
+Previous tempdb improvements:
+
+- SQL2016 - multiple data files,
+- SQL2017 - large data file size.
+
+New tempdb server configuration option:
+
+- tempdb metadata memory-optimized:
+  - disabled by default (on-premises),
+- when to turn it on?
+  - tempdb-heavy workloads with tempdb metadata contention,
+  - PAGEIOLATCH waits in tempdb.
+
+Configuring tempdb metadata memory-optimized:
+
+```sql
+ALTER SERVER CONFIGURATION SET MEMORY_OPTIMIZED TEMPDB_METADATA = ON;
+GO
+SELECT SERVERPROPERTY('IsTempdbMetadataMemoryOptimized');
+GO
+```
 
 ### Query Store Improvements
 
+Custom capture policy for Query Store:
+
+- QUERY_CAPTURE_MODE,
+- QUERY_CAPTURE_POLICY.
+
+Using custom capture policy for Query Store:
+
+```sql
+ALTER DATABASE WorldWideImporters SET
+QUERY_STORE = ON
+(
+  OPERATION_MODE = READ_WRITE,
+  QUERY_CAPTURE_MODE = CUSTOM,
+  QUERY_CAPTURE_POLICY = (
+    STALE_CAPTURE_POLICY_THRESHOLD = 24 HOURS,
+    EXECUTION_COUNT = 30,
+    TOTAL_COMPILE_CPU_TIME_MS = 1000,
+    TOTAL_EXECUTION_CPU_TIME_MS = 100)
+);
+GO
+```
+
 ### Accelerated Database Recovery
+
+Standard database recovery:
+
+- database recovery, rollback, log truncation.
+
+Accelerated database recovery setting:
+
+- disabled by default (on-premises).
+
+Configuring accelerated database recovery:
+
+```sql
+ALTER DATABASE WorldWideImporters
+SET ACCELERATED_DATABASE_RECOVERY = ON;
+GO
+SELECT name, is_accelerated_database_recovery_on FROM sys.databases;
+GO
+```
+
+Accelerated database recovery advantages:
+
+- faster database recovery,
+- faster transaction rollback,
+- aggressive log truncation,
+- improved database availability.
 
 ### Sequential Key Insert Optimization
 
+Sequential key insert bottleneck (PAGEIOLATCH_EX contention).
+
+Optimizing for sequential key inserts:
+
+- OPTIMIZE_FOR_SEQUENTIAL_KEY = ON,
+  - index option.
+
+Using the new index option:
+
+```sql
+CREATE INDEX IX_SalesOrderHeader_SalesOrderID
+ON Sales.SalesOrderHeader(SalesOrderID)
+WITH (OPTIMIZE_FOR_SEQUENTIAL_KEY = ON);
+GO
+```
+
 ### Intelligent Query Processing
 
-### References
+Intelligent query processing:
+
+- batch mode on rowstore,
+- memory grant feedback for row mode,
+- scalar UDF inlining,
+- table variable deferred compilation,
+- APPROX_COUNT_DISTINCT.
 
 ## Summary

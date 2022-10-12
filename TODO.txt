@@ -23,8 +23,8 @@ T2
 (I) SQL Server: Analyzing Query Performance for Developers: PN, WT
 (I) SQL Server: Introduction to Query Store: ŚR
 (I) SQL Server: Introduction to Extended Events: CZW
-(O) Programming SQL Server Database Stored Procedures: ND
-(O) Programming SQL Server Database Triggers and Functions: ND
+(O) Programming SQL Server Database Stored Procedures: PT
+(O) Programming SQL Server Database Triggers and Functions: PT
 
 Materiały na D1 (SO, ND)
 

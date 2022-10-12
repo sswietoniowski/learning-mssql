@@ -15,7 +15,6 @@ W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem
 T1
 
 (I) Managing SQL Server Database Performance: PN, WT, ŚR, CZW, PT
-(I) Handling Errors in T-SQL: SO
 (O) Querying Data Using T-SQL: ND
 (O) T-SQL Data Manipulation Playbook: ND
 
@@ -43,7 +42,8 @@ T4
 (I) Using Memory-optimized Tables and Native Stored Procedures: PN
 (I) SQL Server: Index Fragmentation Internals, Analysis, and Solutions: WT, ŚR
 (I) Managing SQL Server Database Maintenance: CZW
-(O) SQL Server: Using SentryOne Plan Explorer: PT
+(O) SQL Server: Using SentryOne Plan Explorer
+(O) Handling Errors in T-SQL
 
 Materiały na D3 (SO, ND)
 

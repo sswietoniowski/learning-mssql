@@ -15,33 +15,33 @@ W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem
 T1
 
 (I) Managing SQL Server Database Performance: PN, WT, ŚR, CZW, PT
-(I) SQL Server: Introduction to Extended Events: SO, ND
+(I) Handling Errors in T-SQL: SO
 (O) Querying Data Using T-SQL: ND
+(O) T-SQL Data Manipulation Playbook: ND
 
 T2
 
 (I) SQL Server: Analyzing Query Performance for Developers: PN, WT
 (I) SQL Server: Introduction to Query Store: ŚR
-(I) Handling Errors in T-SQL: CZW
-(O) Combining and Filtering Data with T-SQL 2019: PT
-(O) T-SQL Data Manipulation Playbook
+(I) SQL Server: Introduction to Extended Events: CZW
+(O) Programming SQL Server Database Stored Procedures: ND
+(O) Programming SQL Server Database Triggers and Functions: ND
 
 Materiały na D1 (SO, ND)
 
 T3
 
-(I) SQL Server: Indexing for Performance: PN, WT
-(O) Managing Azure SQL Server Database Performance: ŚR
-(O) Programming SQL Server Database Stored Procedures: CZW
-(O) Programming SQL Server Database Triggers and Functions: PT
-(O) Querying JSON, XML, and Temporal Data with T-SQL
+(I) SQL Server: Indexing for Performance: PN, WT, ŚR
+(I) Troubleshooting SQL Server Performance Problems: CZW
+(O) Managing Azure SQL Server Database Performance
+(O) Querying JSON, XML, and Temporal Data with T-SQL: PT
 
 Materiały na D2 (SO, ND)
 
 T4
 
-(I) SQL Server: Index Fragmentation Internals, Analysis, and Solutions: PN, WT
-(O) Using Memory-optimized Tables and Native Stored Procedures: ŚR
+(I) Using Memory-optimized Tables and Native Stored Procedures: PN
+(I) SQL Server: Index Fragmentation Internals, Analysis, and Solutions: WT, ŚR
 (O) SQL Server: Using SentryOne Plan Explorer: CZW
 
 Materiały na D3 (PT, SO, ND)

@@ -655,6 +655,8 @@ Azure SQL Database scaling options:
 
 ## 6. Troubleshooting and Baselining the Environment
 
+It is important to understand the environment and its performance baseline.
+
 ### Troubleshooting and Baselining in SQL Server
 
 Performance problems timeline:

@@ -657,35 +657,267 @@ Azure SQL Database scaling options:
 
 ### Troubleshooting and Baselining in SQL Server
 
+Performance problems timeline:
+
+- service startup data and time:
+- RCA,
+- intermittent,
+- persistent.
+
+Root cause analysis (RCA):
+
+- service startup date and time,
+- retention period (persisted data collections: system health, query store, error logs).
+
+Performance baselining:
+
+- months:
+  - system health,
+  - query store,
+  - error logs,
+
+Useful data:
+
+- wait statistics,
+- dynamic management views (DMVs),
+- query store,
+- system_health session trace,
+- Perfmon trace.
+
 ### Wait Statistics in Practice
+
+Wait statistics toolset:
+
+- `sys.dm_os_wait_stats`,
+- `sys.dm_db_wait_stats`,
+- `sys.dm_exec_session_wait_stats`
+- Query Store,
+- custom trace.
+
+Multi-level wait statistics:
+
+| Level                         | Method                         |
+| ----------------------------- | ------------------------------ |
+| Server instance               | sys.dm_os_wait_stats           |
+| Database (Azure SQL Database) | sys.dm_db_wait_stats           |
+| Session                       | sys.dm_exec_session_wait_stats |
+| Query                         | custom trace, Query Store      |
+
+Server-level wait statistics:
+
+`sys.dm_os_wait_stats`:
+
+- cumulative since last restart of server,
+- can be cleared manually too,
+
+Good for:
+
+- overall server health-check,
+- collecting server baselines,
+- identifying problem patterns and troubleshooting entry points.
+
+Use custom query to collect and analyze.
+
+A widely used wait statistics [query](https://www.sqlskills.com/blogs/paul/wait-statistics-or-please-tell-me-where-it-hurts/).
+
+Used for server level waits analysis.
+
+It should be part of your toolset every time!
+
+What it does:
+
+- shows the prevalent waits only,
+- calculates average wait times,
+- excludes benign waits.
 
 ### IO and CPU Related Wait Type Patterns
 
+Common IO and CUP wait types:
+
+- **PAGEIOLATCH_XX** - IO wait when reading pages from disk in SH or EX mode,
+- **WRITELOG** - IO wait when writing the transaction log,
+- **CXPACKET** - parallelism is present,
+- **SOS_SCHEDULER_YIELD** - persistent CPU utilization.
+
 ### OS, Locking, and Data Page Related Wait Type Patterns
+
+Common OS, locking, and data page related wait types:
+
+- **PREEMPTIVE_OS_WRITEFILEGATHER** - NTFS zero file initialization,
+- **PREEMPTIVE_OS_AUTHENTICATIONOPS** - DC authentication,
+- **LCK_M_S** - waiting to acquire shared locks,
+- **LCK_M_X**, **LCK_M_IX** - waiting to acquire exclusive locks,
+- **PAGELATCH_SH** - waiting to access data pages in-memory for read,
+- **PAGEIOLATCH_EX**, **PAGEIOLATCH_UP** - waiting to access data pages in-memory for modification.
 
 ### Wait Statistics Patterns in Troubleshooting
 
+Pattern changes example:
+
+| Before           | After               |
+| ---------------- | ------------------- |
+| CXPACKET         | SOS_SCHEDULER_YIELD |
+| WRITELOG         | LCK_M_S             |
+| PAGEIOLATCH_EX   | WRITELOG            |
+| BACKUPIO         | LCK_M_IX            |
+| OLEDB            | PAGELATCH_EX        |
+| ASYNC_NETWORK_IO | ASYNC_NETWORK_IO    |
+| LCK_M_S          | CXPACKET            |
+| LCK_M_IX         | PAGEIOLATCH_SH      |
+
 ### Wait Statistics Analysis with Custom Query
+
+Understanding wait statistics results:
+
+- waits are normal, filter out good waits,
+- focus on the prevalent waits types, wait counts and average wait times,
+- there are hundreds of wait types, only a dozen or two will show up as prevalent,
+- look for changes in patterns,
+- look for red flag or poison waits:
+  - THREADPOOL,
+  - RESOURCE_SEMAPHORE.
+
+Comprehensive wait statistics libraries:
+
+- [Microsoft](https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?view=sql-server-ver15),
+- [SQLSkills](https://www.sqlskills.com/help/waits/).
+
+Get production samples and get familiars with patterns:
+
+- don't focus on memorizing all the wait types.
 
 ### IO Performance Troubleshooting with DMVs
 
+DMVs provide internal version of specific (diagnostic) data.
+
+DMVs for many areas:
+
+- SQLOS: `sys.dm_os_wait_stats`,
+- IO: `sys.dm_io_virtual_file_stats`,
+- databases,
+- indexes,
+- server instance,
+- transactions.
+
+A widely used IO statistics [query](https://www.sqlskills.com/blogs/paul/how-to-examine-io-subsystem-latencies-from-within-sql-server/).
+
+Used for database file level IO statistics.
+
+It should be part of your toolset every time!
+
+What it does:
+
+- uses `sys.dm_io_virtual_file_stats`,
+- calculates latency values and averages.
+
 ### IO Performance Analysis with Custom Query
+
+Using custom script for file level IO statistics data collection and analysis.
 
 ### Query Store
 
+Query Store availability:
+
+- on-premise or IaaS:
+  - turned off by default,
+- Azure SQL Database:
+  - turned on by default.
+
+Query Store:
+
+- persistent store at database level,
+- flight-recorder of query plans and runtime statistics,
+- query wait statistics added in SQL2017,
+- used for:
+  - tracking query performance over time,
+  - tracking query plan changes over time,
+  - addressing query plan regression,
+  - helping developers in query optimization.
+
 ### Using the Query Store for Query Performance Analysis
+
+Using the Query Store in Azure SQL Database to track query performance.
 
 ### System_health Session Trace
 
+System_health session trace:
+
+- built-in extended event trace session,
+- trace files in the SQL Server log folder:
+  - system_health.xel,
+- collect for example:
+  - selected error numbers,
+  - CPU and memory related errors and problems,
+  - sp_server_diagnostics outputs,
+  - deadlock graphs.
+
 ### Using the System_health Session Trace for Troubleshooting
+
+Using the system_health session trace with an on-premise SQL Server instance.
+
+Using SSMS for trace analysis.
 
 ### Perfmon Traces
 
+Perfmon trace:
+
+- system and SQL Server object counters,
+- used for trend analysis and to see the details in context,
+- collect when the problem occurs or for baselining,
+- collect with:
+  - Windows Performance Monitor (all counters),
+  - `sys.dm_os_performance_counters` view (SQL Server cached counters).
+
+What to collect in a Perfmon Trace?
+
+- system objects and counters:
+  - Processor and memory,
+  - Logical Disk:
+    - Avg. disk sec/read,
+    - Avg. disk sec/write,
+- SQL Server objects and counters:
+  - Buffer Manager and Memory Manager,
+  - access methods,
+  - databases,
+  - general statistics and SQL statistics.
+
+Analyzing Perfmon Traces:
+
+- Windows Performance Monitor UI:
+  - manual analysis, to see all the details,
+- [PAL utility](https://github.com/clinthuffman/PAL):
+- PAL is very good for:
+  - quick analysis and overview,
+  - providing nice report with charts, explanations and thresholds.
+
 ### Interesting SQL Server Counters
+
+You might be interested in:
+
+- Buffer Manager:
+  - page life expectancy,
+- SQL Statistics:
+  - Batch requests/sec,
+- Access Methods:
+  - Full Scans/sec,
+- General Statistics:
+  - Processes blocked,
+- Memory Manager:
+  - Total server memory.
 
 ### Page Life Expectancy Patterns
 
+![Page life expectancy patterns](./images/06_01_page_life_expectancy_patterns.JPG)
+
 ### Using and Analyzing Perfmon Traces
+
+Creating a SQL Server Perfmon trace with Windows Performance Monitor.
+
+Using the PAL tool to analyze the Perfmon trace.
+
+Querying the `sys.dm_os_performance_counters` view.
+
+Using relog.exe to export the binary trace into a database for custom reporting.
 
 ## 7. SQL Server 2019 Improvements
 

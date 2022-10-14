@@ -17,7 +17,6 @@ T1
 + Managing SQL Server Database Performance: PN, WT, ŚR, CZW, PT 8h
 (O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA: SO
 (O) Querying Data Using T-SQL: ND
-(O) T-SQL Data Manipulation Playbook: ND
 
 T2
 
@@ -31,8 +30,8 @@ Materiały na D1 (SO, ND)
 
 T3
 
-(I) SQL Server: Indexing for Performance: PN, WT, ŚR
-(I) Troubleshooting SQL Server Performance Problems: CZW
+(I) SQL Server: Indexing for Performance: PN, WT
+(I) Troubleshooting SQL Server Performance Problems: ŚR
 (O) Managing Azure SQL Server Database Performance
 (O) Querying JSON, XML, and Temporal Data with T-SQL: PT
 
@@ -43,14 +42,16 @@ T4
 (I) Using Memory-optimized Tables and Native Stored Procedures: PN
 (I) SQL Server: Index Fragmentation Internals, Analysis, and Solutions: WT, ŚR
 (I) Managing SQL Server Database Maintenance: CZW
-(O) SQL Server: Using SentryOne Plan Explorer
-(O) Handling Errors in T-SQL
 
 Materiały na D3 (SO, ND)
 
 2022-11-07 - 2022-11-18
 
 1,5 tygodnia - czas na dopracowanie materiałów + materiały na D4
+
+(O) T-SQL Data Manipulation Playbook
+(O) SQL Server: Using SentryOne Plan Explorer
+(O) Handling Errors in T-SQL
 
 2022-11-19 - 2022-11-27
 

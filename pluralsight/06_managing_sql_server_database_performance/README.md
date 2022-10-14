@@ -400,7 +400,39 @@ Monitor and adjust.
 
 ### Transaction Log and Recovery Models
 
+Recovery models:
+
+- Simple - automatic log clearing: full and differential backups only,
+- Full - log clearing only with log backup: full, differential and log backups,
+- Bulk-logged.
+
+What is a transaction log:
+
+- .ldf file:
+  - each database has one and should have only one log file,
+- write-ahead logging mechanism:
+  - everything is a transaction,
+- ACID properties (Durability),
+- basic for database recovery.
+
+Transaction log management:
+
+- sequential write IO,
+- composed of VLF.
+
+Transaction log and performance:
+
+- do frequent enough log backups (in Full),
+- instant file initialization does not help,
+- use fixed and meaningful growth values, pre-size the file,
+- watch out for long running transactions,
+- do not shrink the file regularly,
+- importance of log IO performance:
+  - sequential write IO patterns.
+
 ### Memory Management and SQLOS
+
+
 
 ### Wait Statistics and the Threading Model
 

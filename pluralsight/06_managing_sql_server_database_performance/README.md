@@ -432,7 +432,48 @@ Transaction log and performance:
 
 ### Memory Management and SQLOS
 
+SQL Server resource management:
 
+- CPU/scheduling - serial and parallel plans, number of cores and performance,
+- memory - buffer pool, plan cache and query workspace,
+- IO - random and sequential read/write IO patterns.
+
+Plan cache memory.
+
+![Plan cache memory][images/02_01_plan_cache_memory.jpg]
+
+Plan cache memory and performance:
+
+- managed dynamically,
+- under throttling by SQL Server,
+- importance of solution design:
+  - can be bloated in size with adhoc plans,
+- `sys.dm_exec_cached_plans` view.
+
+Buffer pool memory usage.
+
+![Buffer pool memory usage][images/02_02_buffer_pool_memory_usage.jpg]
+
+Buffer pool memory sizing.
+
+Buffer pool memory and performance:
+
+- managed dynamically, can grow and shrink,
+- aim is to have a proper size to limit costly physical IO operations,
+- aim is to have a stable size,
+- server configuration options:
+  - min and max server memory,
+- `sys.dm_os_buffer_descriptors` view.
+
+Memory management and performance:
+
+- KB2663912 to read,
+- SQL Server uses many other types of memory allocations:
+  - plan cache,
+  - connections,
+  - query executions,
+  - external modules,
+- `sys.dm_os_memory_clerks` view.
 
 ### Wait Statistics and the Threading Model
 

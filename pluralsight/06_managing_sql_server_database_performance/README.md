@@ -99,9 +99,137 @@ SQL Server performance optimization is more like an art.
 
 ### Major Versions and Compatibility Levels
 
+SQL Server major versions:
+
+- SQL Server 2012 (11.0 v11),
+- SQL Server 2014 (12.0 v12),
+- SQL Server 2016 (13.0 v13),
+- SQL Server 2017 (14.0 v14),
+- SQL Server 2019 (15.0 v15).
+
+SQL Server product lifecycle:
+
+- RTM (start of life),
+- 5 years of mainstream support,
+- 5 years of extended support,
+- EOL (end of life).
+
+Database compatibility level:
+
+- will be presented in detail later,
+- it has impact on performance (example):
+  - 110 (Legacy Cardinality Estimation (CE) v70),
+  - 120 (New CE v120).
+
+Patch level and servicing example:
+
+- SQL Server 2016 SP1 CU1 (13.0.4001.0).
+
+To query server version use:
+
+```sql
+/*
+returns:
+major version,
+patch version,
+latest CU/KB article applied,
+edition,
+OS version,
+CPU architecture.
+
+example:
+*/
+SELECT @@VERSION AS [SQL Server Version];
+```
+
+To query detailed server version information with T-SQL use:
+
+```sql
+SELECT
+  SERVERPROPERTY('ProductBuild') AS BuildNumber,
+  SERVERPROPERTY('ProductLevel') AS VersionLevel,
+  SERVERPROPERTY('ProductMajorVersion') AS MajorVersion,
+  SERVERPROPERTY('ProductMinorVersion') AS MinorVersion,
+  SERVERPROPERTY('ProductUpdateLevel') AS UpdateLevel,
+  SERVERPROPERTY('ProductUpdateReference') AS UpdateReference,
+  SERVERPROPERTY('ProductVersion') AS ProductVersion;
+```
+
+Search the Microsoft Knowledge Base for the latest CU/KB article.
+
+How to use the KB articles:
+
+- search term site:support.microsoft.com
+
+KB article URL format.
+
+KB321185 to read.
+
 ### Patch Levels and Servicing
 
+Important servicing updates.
+
+No SP from SQL Server 2017 onwards.
+
+Service Pack still released for earlier versions.
+
+Proactive and ongoing patching with CUs.
+
+Why does the Major Version matter?
+
+- set of available features,
+- workload behavior,
+- troubleshooting, configuration and problem resolution options,
+- supportability and patching options.
+
+Why does the Patch Level matter?
+
+- security,
+- stability,
+- performance,
+- new features and behavior.
+
+What is included in a CU package:
+
+- bug fixes for multiple services,
+- performance fixes and improvements,
+- feature improvements,
+- security fixes and improvements.
+
 ### Editions and Best Practices
+
+SQL Server editions:
+
+- Express,
+- Web,
+- Standard,
+- Enterprise,
+- Developer.
+
+Why does the Edition matter?
+
+- feature limitations,
+- scale and resource utilization limits,
+- licensing costs.
+
+To check your edition use:
+
+```sql
+SELECT @@VERSION AS [Server_Version_Edition];
+SELECT SERVERPROPERTY('Edition') AS [Edition];
+/* reading the current SQL ERRORLOG header */
+EXEC sp_readerrorlog 0, 1, N'Copyright';
+```
+
+Version and edition best practices:
+
+- keep the major version supported:
+  - preferably within the mainstream support phase,
+- keep the patch level supported:
+  - patch proactively and regularly with SPs and CUs,
+  - set up retention policy and test,
+- use Developer edition for testing,
+- research the edition and feature matrix.
 
 ### Server Instances
 

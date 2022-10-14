@@ -233,7 +233,49 @@ Version and edition best practices:
 
 ### Server Instances
 
+What is and instance?
+
+- each instance is a separate SQL Server with:
+  - system and user databases,
+  - configuration,
+  - TCP port number,
+- multiple instances of the database service can be installed side-by-side on the same machine:
+  - one default instance and multiple named instances,
+  - can even mix major versions.
+
+Instances and performance optimization:
+
+- multi-instance deployments:
+  - create scalability problems,
+  - make performance troubleshooting and optimization more complex,
+  - make operations more complex,
+- consolidate with virtualization,
+- do not stack SQL Server instances in production:
+  - aim for one instance per server.
+
 ### Server Configuration Options
+
+Which settings to change from the default?
+
+- must change (?):
+  - max server memory,
+  - min server memory,
+  - max degree of parallelism (MAXDOP),
+  - cost threshold for parallelism,
+- might change:
+  - optimize for ad-hoc workload,
+- do not change:
+  - priority boost.
+
+Validate and pre-configure the instance for:
+
+- memory settings,
+- CPU configuration,
+- parallelism settings.
+
+Verify all settings in `sys.configurations`.
+
+Verify the SQL ERRORLOG files.
 
 ### Database Configuration Options
 

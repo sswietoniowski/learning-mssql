@@ -14,7 +14,7 @@ W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem
 
 T1
 
-(I) Managing SQL Server Database Performance: PN, WT, ŚR, CZW, PT
++ Managing SQL Server Database Performance: PN, WT, ŚR, CZW, PT 8h
 (O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA: SO
 (O) Querying Data Using T-SQL: ND
 (O) T-SQL Data Manipulation Playbook: ND

@@ -279,9 +279,124 @@ Verify the SQL ERRORLOG files.
 
 ### Database Configuration Options
 
+Information stored in:
+
+- `sys.databases`,
+- `sys.database_scoped_configurations` (SQL Server 2016+),
+
+Database SET options:
+
+- a fet SET options of interest:
+  - COMPATIBILITY_LEVEL,
+  - AUTO_CLOSE and AUTO_SHRINK,
+  - auto create and auto update statistic options,
+  - RECOVERY,
+  - AUTOMATIC_TUNING (SQL Server 2017+),
+- `sys.databases` view,
+- `sys.database_automatic_tuning_options` view,
+- `DATABASEPROPERTYEX` function.
+
+Database scoped configurations:
+
+- common scoped configuration options:
+  - MAXDOP,
+  - LEGACY_CARDINALITY_ESTIMATION,
+  - QUERY_OPTIMIZER_HOTFIXES,
+  - CLEAR_PROCEDURE_CACHE.
+
+Configuration hierarchy:
+
+- server configuration (`sp_reconfigure`),
+- database scoped configuration (`ALTER DATABASE SCOPED CONFIGURATION SET ...`),
+- query hint (`OPTION (...)`).
+
 ### Trace Flags
 
+What is a trace flag:
+
+- a switch to alter SQL Server behavior:
+  - referred as: TFnnnn (e.g: TF1118),
+- mostly designed for short-term troubleshooting by MS customer support:
+  - many should not be used in production,
+  - can cause serious problems,
+- but: a few are useful and have become the baseline or otherwise recommended,
+- can be set at:
+  - server level (global - `DBCC TRACEON(9481);` or as startup parameters (-T)),
+  - session level (per connection - `DBCC TRACEON(9481, -1);`),
+  - query level (per query - `OPTION (QUERYTRACEON 9481)`).
+
+Performance trace flag use cases:
+
+- common scenarios:
+  - optimize tempdb in pre-SQL2016 versions,
+  - turn on Query Optimization fixes,
+  - control the version of Cardinality Estimator to be used,
+  - control how and when statistics are being automatically updated,
+
+Worth investigating:
+
+- 4199,
+- 9481 and 2312.
+
+Since SQL2016+ trace flags are not encouraged.
+
+Useful code:
+
+```sql
+DBCC TRACESTATUS(-1); -- check all trace flags configured globally
+DBCC TRACEOFF(9481); -- turn off trace flag 9481 in the session
+DBCC TRACEOFF(9481, -1); -- turn off trace flag 9481 globally
+```
+
+Trace flags and performance:
+
+- TFs really can make a difference, pro and con,
+- it is hard to track the settings and the changed behaviors across different versions and scopes,
+- TF usage or the equivalent configuration must be justified and documented.
+
 ### Tempdb
+
+What is tempdb:
+
+- shared container to be used by everyone in the same server instance,
+- one tempdb database per instance,
+- you can explicitly create objects in it (#, ##),
+- SQL Server uses it for internal objects and certain features too,
+- reset with each service restart.
+
+Tempdb - what is it for?
+
+- temporary user objects:
+  - \# and \#\# tables,
+  - table variables,
+  - TVF return tables,
+- version store:
+  - RCSI and snapshot,
+  - triggers,
+  - always on AG read-only replicas,
+- internal structures:
+  - sorts,
+  - hash joins and aggregates,
+  - cursors,
+  - "spills".
+
+Tempdb performance factors:
+
+- IO - read/write the data file(s) and the log file with varying IO sizes,
+- internal allocation - SQL Server internal algorithms to allocate objects and manage metadata.
+
+Common tempdb performance problems due to:
+
+- slow storage,
+- memory bottlenecks,
+- configuration issues,
+- badly written applications.
+
+Plan with tempdb usage in-advance.
+
+Pre-configure.
+
+Monitor and adjust.
 
 ### Transaction Log and Recovery Models
 

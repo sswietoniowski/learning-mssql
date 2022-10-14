@@ -477,6 +477,48 @@ Memory management and performance:
 
 ### Wait Statistics and the Threading Model
 
+Scheduling types:
+
+- Windows OS: preemptive,
+- SQL Server: non-preemptive.
+
+SQL Server Scheduler: Overview.
+
+Info about the schedulers can be found in the `sys.dm_os_schedulers` view.
+
+Threading Model and Wait Times.
+
+![Threading Model and Wait Times](./images/02_03_threading_model_and_wait_times.JPG)
+
+![Threading Model and Wait Times - Example](./images/02_04_threading_model_and_wait_times_example.JPG)
+
+SUSPENDED: the waiter list:
+
+- multiple SPIDs waiting,
+- no order,
+- wait type assigned,
+- resource wait time calculated,
+- more info in the `sys.dm_os_waiting_tasks` view.
+
+Wait statistics:
+
+- server level,
+- database level (Azure SQL Database),
+- query level (Query Store 2017+),
+- custom (eg: session level),
+- more info in the `sys.dm_os_wait_stats` view.
+
+Wait statistics and performance:
+
+- troubleshooting and optimization entry points,
+- we know what SQL Server waits for and for how long:
+  - wait counts,
+  - wait types,
+  - maximum and average wait times,
+- wait types would be presented in the details later.
+
+Wait statistics is the basis for SQL Server performance troubleshooting and optimization.
+
 ## 3. Optimizing SQL Server Instance and Memory Configuration
 
 ### Server Health Check

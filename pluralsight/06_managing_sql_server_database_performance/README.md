@@ -440,7 +440,7 @@ SQL Server resource management:
 
 Plan cache memory.
 
-![Plan cache memory][./images/02_01_plan_cache_memory.jpg]
+![Plan cache memory](./images/02_01_plan_cache_memory.jpg)
 
 Plan cache memory and performance:
 
@@ -452,7 +452,7 @@ Plan cache memory and performance:
 
 Buffer pool memory usage.
 
-![Buffer pool memory usage][./images/02_02_buffer_pool_memory_usage.jpg]
+![Buffer pool memory usage](./images/02_02_buffer_pool_memory_usage.jpg)
 
 Buffer pool memory sizing.
 

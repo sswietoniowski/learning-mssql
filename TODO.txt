@@ -15,18 +15,18 @@ W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem
 T1
 
 + Managing SQL Server Database Performance 8h
-(O) Querying Data Using T-SQL: ND
 
 T2
 
+(O) Querying Data Using T-SQL: PN
+(I) SQL Server: Analyzing Query Performance for Developers: WT, ŚR
+(I) SQL Server: Introduction to Query Store: CZW
+(I) SQL Server: Introduction to Extended Events: PT
+(O) Programming SQL Server Database Stored Procedures: SO
+(O) Programming SQL Server Database Triggers and Functions: SO
 (O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA: PN-ND
-(I) SQL Server: Analyzing Query Performance for Developers: PN, WT
-(I) SQL Server: Introduction to Query Store: ŚR
-(I) SQL Server: Introduction to Extended Events: CZW
-(O) Programming SQL Server Database Stored Procedures: PT
-(O) Programming SQL Server Database Triggers and Functions: PT
 
-Materiały na D1 (SO, ND)
+Materiały na D1 (ND)
 
 T3
 

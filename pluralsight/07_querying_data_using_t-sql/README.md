@@ -6,13 +6,19 @@ Introduction to querying data using T-SQL.
 
 > T-SQL - Transact Query Language, a dialect of the SQL language used by Microsoft SQL Server.
 
+Useful on-line tools:
+
+- [db<>fiddle](https://dbfiddle.uk/) - a tool to test SQL queries online,
+- [SQL Fiddle](https://sqlfiddle.com/) - a tool to test SQL queries online.
+
 ## 2. Our First SELECT
 
 To write basic `SELECT` statements, we need to know the following:
 
 - `SELECT` - keyword to select data from a database,
 - `FROM` - keyword to specify the table from which to select data,
-- `WHERE` - keyword to filter the data.
+- `WHERE` - keyword to filter the data,
+- ... and more.
 
 To write `SELECT` alone we can use the following syntax:
 

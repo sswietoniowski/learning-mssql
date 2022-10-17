@@ -18,7 +18,7 @@ T1
 
 T2
 
-(O) Querying Data Using T-SQL: PN
++ Querying Data Using T-SQL 1h
 (I) SQL Server: Analyzing Query Performance for Developers: WT, ŚR
 (I) SQL Server: Introduction to Query Store: CZW
 (I) SQL Server: Introduction to Extended Events: PT

@@ -31,12 +31,12 @@ Materiały na D1 (PN, WT)
 (I) Troubleshooting SQL Server Performance Problems: ŚR
 (I) SQL Server: Automatic Tuning in SQL Server 2017 and Azure SQL Database: CZW
 (O) Programming SQL Server Database Stored Procedures: PT
-(O) Programming SQL Server Database Triggers and Functions: SO
-(O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA: ND
+(O) Programming SQL Server Database Triggers and Functions: PT
+(O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA
+
+Materiały na D2 (SO, ND)
 
 T4
-
-Materiały na D2 (PN, WT)
 
 (I) SQL Server: Indexing for Performance: ŚR
 (I) Using Memory-optimized Tables and Native Stored Procedures: CZW

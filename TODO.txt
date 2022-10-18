@@ -26,13 +26,14 @@ T2
 (O) Programming SQL Server Database Triggers and Functions: SO
 (O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA: PN-ND
 
-Materiały na D1 (ND)
+Materiały na D1 (praktyka) (ND)
 
 T3
 
-(I) SQL Server: Indexing for Performance: PN, WT
-(I) Troubleshooting SQL Server Performance Problems: ŚR
-(O) Managing Azure SQL Server Database Performance
+Materiały na D1 (teoria) (PN, WT)
+
+(I) SQL Server: Indexing for Performance: WT, ŚR
+(I) Troubleshooting SQL Server Performance Problems: CZW
 (O) Querying JSON, XML, and Temporal Data with T-SQL: PT
 
 Materiały na D2 (SO, ND)
@@ -56,6 +57,8 @@ Materiały na D3 (SO, ND)
 2022-11-19 - 2022-11-27
 
 1 tydzień na dopieszczenie wszystkiego :-)
+
+(O) Managing Azure SQL Server Database Performance
 
 Termin szkolenia (4 dni / 8h):
 

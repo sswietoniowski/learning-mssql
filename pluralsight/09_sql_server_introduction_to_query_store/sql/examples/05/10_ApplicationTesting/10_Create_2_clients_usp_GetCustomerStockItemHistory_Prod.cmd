@@ -1,0 +1,3 @@
+start /B Run_usp_GetCustomerStockItemHistory_Prod.cmd
+start /B Run_usp_GetCustomerStockItemHistory_Prod.cmd
+exit

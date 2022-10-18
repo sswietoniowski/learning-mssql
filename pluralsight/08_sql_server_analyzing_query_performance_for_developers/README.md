@@ -4,6 +4,52 @@ Introduction to analyzing query performance for developers.
 
 ## 1. Introduction
 
+Developer's responsibilities:
+
+- write code,
+- fix code (write more code).
+
+A developer's work doesn't end when the code is written. The code must be maintained and optimized.
+
+### Why We Need to Understand Query Execution?
+
+T-SQL is declarative.
+
+We need to understand what decisions were made by SQL Server:
+
+- every query has a query plan generated,
+- every query has execution metrics.
+
+### Course Objectives
+
+> Explain what information can be captured about a query and its execution from SQL Server.
+
+That includes:
+
+- query execution metrics,
+- using performance metrics,
+- query text and plan.
+
+> Provide an understanding of where to find information about query execution and what it means.
+
+Methods to capture information about query execution and performance interpreting query metrics.
+
+> Step through an execution plan and the information it provides.
+
+That includes:
+
+- how to read a query plan,
+- how to find information in a plan,
+- discuss what's not important in a plan.
+
+> Understand the information included in a query plan.
+
+Examine the most frequently-seen operators in a query plan.
+
+Examine how changes to a plan can affect query performance.
+
+Demonstrate additional, valuable information found within query plans.
+
 ## 2. Finding Information About Queries
 
 ### Introduction and Information About Queries
@@ -79,3 +125,5 @@ Introduction to analyzing query performance for developers.
 ### Generating Plan Warnings
 
 ## Summary
+
+---

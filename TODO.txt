@@ -19,22 +19,21 @@ T1
 T2
 
 + Querying Data Using T-SQL 1h
-(I) SQL Server: Analyzing Query Performance for Developers: WT, ŚR
-(I) SQL Server: Introduction to Query Store: CZW
-(I) SQL Server: Introduction to Extended Events: PT
-(O) Programming SQL Server Database Stored Procedures: SO
-(O) Programming SQL Server Database Triggers and Functions: SO
-(O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA: PN-ND
+(I) SQL Server: Analyzing Query Performance for Developers: WT, ŚR, CZW
+(I) SQL Server: Introduction to Query Store: PT
+(I) SQL Server: Introduction to Extended Events: SO
+(O) Programming SQL Server Database Stored Procedures: ND
 
 Materiały na D1 (praktyka) (ND)
 
 T3
 
-Materiały na D1 (teoria) (PN, WT)
+Materiały na D1 (PN, WT)
 
-(I) SQL Server: Indexing for Performance: WT, ŚR
+(I) SQL Server: Indexing for Performance: ŚR
 (I) Troubleshooting SQL Server Performance Problems: CZW
-(O) Querying JSON, XML, and Temporal Data with T-SQL: PT
+(O) Programming SQL Server Database Triggers and Functions: PT
+(O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA
 
 Materiały na D2 (SO, ND)
 
@@ -43,6 +42,7 @@ T4
 (I) Using Memory-optimized Tables and Native Stored Procedures: PN
 (I) SQL Server: Index Fragmentation Internals, Analysis, and Solutions: WT, ŚR
 (I) Managing SQL Server Database Maintenance: CZW
+(O) Querying JSON, XML, and Temporal Data with T-SQL: PT
 
 Materiały na D3 (SO, ND)
 

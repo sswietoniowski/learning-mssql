@@ -19,22 +19,22 @@ T1
 T2
 
 + Querying Data Using T-SQL 1h
-(I) SQL Server: Analyzing Query Performance for Developers: WT, ŚR, CZW
-(I) SQL Server: Introduction to Query Store: PT
-(I) SQL Server: Introduction to Extended Events: SO
-(I) SQL Server: Replacing Profiler with Extended Events: ND
+(I) SQL Server: Analyzing Query Performance for Developers: WT, CZW, PT
+(I) SQL Server: Introduction to Query Store: SO
+(I) SQL Server: Introduction to Extended Events: ND
 
 T3
 
-Materiały na D1 (PN, WT)
+Materiały na D1 (WT, ŚR)
 
-(I) Troubleshooting SQL Server Performance Problems: ŚR
-(I) SQL Server: Automatic Tuning in SQL Server 2017 and Azure SQL Database: CZW
-(O) Programming SQL Server Database Stored Procedures: PT
-(O) Programming SQL Server Database Triggers and Functions: PT
+(I) SQL Server: Replacing Profiler with Extended Events: PN
+(I) Troubleshooting SQL Server Performance Problems: CZW
+(I) SQL Server: Automatic Tuning in SQL Server 2017 and Azure SQL Database: PT
+(O) Programming SQL Server Database Stored Procedures: SO
+(O) Programming SQL Server Database Triggers and Functions: SO
 (O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA
 
-Materiały na D2 (SO, ND)
+Materiały na D2 (ND)
 
 T4
 

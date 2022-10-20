@@ -19,35 +19,37 @@ T1
 T2
 
 + Querying Data Using T-SQL 1h
-(I) SQL Server: Analyzing Query Performance for Developers: WT, ŚR, CZW
-(I) SQL Server: Introduction to Query Store: PT
-(I) SQL Server: Introduction to Extended Events: SO
+(I) SQL Server: Analyzing Query Performance for Developers: WT, PT
+(I) SQL Server: Introduction to Query Store: SO
 (I) SQL Server: Replacing Profiler with Extended Events: ND
 
 T3
 
-Materiały na D1 (PN, WT)
+(I) Troubleshooting SQL Server Performance Problems: PN
+(I) SQL Server: Automatic Tuning in SQL Server 2017 and Azure SQL Database: WT
 
-(I) Troubleshooting SQL Server Performance Problems: ŚR
-(I) SQL Server: Automatic Tuning in SQL Server 2017 and Azure SQL Database: CZW
+Materiały na D1 (ŚR, CZW)
+
+(O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA
+
 (O) Programming SQL Server Database Stored Procedures: PT
 (O) Programming SQL Server Database Triggers and Functions: PT
-(O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA
 
 Materiały na D2 (SO, ND)
 
 T4
 
-(I) SQL Server: Indexing for Performance: ŚR
-(I) Using Memory-optimized Tables and Native Stored Procedures: CZW
+(I) SQL Server: Indexing for Performance: PN
+(I) Using Memory-optimized Tables and Native Stored Procedures: WT
+(I) Managing SQL Server Database Maintenance: ŚR
 (O) SQL Server: Index Fragmentation Internals, Analysis, and Solutions
-(I) Managing SQL Server Database Maintenance: PT
+(O) SQL Server: Introduction to Extended Events
 
-Materiały na D3 (SO, ND)
+Materiały na D3 i D4 (CZW, PT, SO, ND)
 
 2022-11-07 - 2022-11-18
 
-1,5 tygodnia - czas na dopracowanie materiałów + materiały na D4
+1,5 tygodnia - czas na dopracowanie materiałów
 
 (O) Querying JSON, XML, and Temporal Data with T-SQL: PT
 (O) T-SQL Data Manipulation Playbook

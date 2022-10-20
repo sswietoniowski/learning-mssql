@@ -1,0 +1,240 @@
+*** Removing Data Using T-SQL Statements ***
+Instructions and snippets to follow along and learn how to remove data are included below.
+
+- Removing A Specific Record with DELETE
+	SELECT * FROM Comments WHERE PostId = 5
+
+	DELETE FROM Comments WHERE Id = 58867
+
+	SELECT * FROM Comments WHERE PostId = 5
+
+- Removing Multiple Records with DELETE
+Delete multiple comments that satisfy the clause WHERE
+	SELECT * FROM Comments WHERE UserDisplayName = 'xavier-morera'
+
+	DELETE FROM Comments WHERE UserDisplayName = 'xavier-morera'
+
+	SELECT * FROM Comments WHERE UserDisplayName = 'xavier-morera'
+
+Delete a range of rows
+	SELECT PostId, Count(PostId) as PostCount
+	FROM Comments 
+	GROUP BY PostId
+	ORDER BY PostCount DESC
+
+	SELECT * FROM Comments WHERE PostId = 25208
+
+Delete multiple comments at once
+	DELETE FROM Comments WHERE PostId = 25208
+	AND CreationDate > '2017-12-01'
+
+- Deleting Data Using JOINs
+Delete rows by querying information from another table
+	SELECT Count(Id) as CommentCount FROM Comments;
+
+	SELECT Count(Id) as NegativeScorePosts FROM Posts WHERE Score < 0;
+
+	DELETE FROM Comments
+	FROM Comments JOIN Posts ON Comments.PostId = Posts.Id 
+	WHERE Posts.Score < 0
+
+Re-execute the query and notice the total number of comments has changed
+	SELECT Count(Id) as CommentCount FROM Comments
+
+- Removing Data with Constraints and Cascade Deleting of Data
+Delete multiple records when the table has CASCADE DELETE set to true.
+
+Start by creating a copy of Posts table
+	CREATE TABLE PostsCopy (
+		Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+		CreationDate DATETIME NOT NULL DEFAULT GETDATE(),
+		Score INT NOT NULL DEFAULT 0,
+		ViewCount INT,
+		Title VARCHAR(500),
+		Tags VARCHAR(255)
+	);
+
+And a copy of Comments table
+Important: We defined a constraint with DELETE CASCADE
+	CREATE TABLE CommentsCopy (
+		Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+		UserId INT,
+		PostId INT NOT NULL,
+		Score INT NOT NULL DEFAULT 0,
+		Text VARCHAR(MAX) NOT NULL,
+		CreationDate DATETIME NOT NULL DEFAULT GETDATE(),
+		CONSTRAINT FK_POSTID_COMMENTSCOPY FOREIGN KEY(PostId) REFERENCES PostsCopy (Id) ON DELETE CASCADE
+	);
+
+We are going to copy all Posts, but please notice we are using IDENTITY_INSERT ON 
+	SET IDENTITY_INSERT PostsCopy ON;  
+	GO
+
+	INSERT PostsCopy (Id,CreationDate,Score,ViewCount,Title,Tags)
+		SELECT Id,CreationDate,Score,ViewCount,Title,Tags FROM Posts;
+
+	SET IDENTITY_INSERT PostsCopy OFF;  
+	GO
+
+Then we copy all Comments  
+	INSERT CommentsCopy (UserId, PostId, Score, Text, CreationDate)
+		SELECT UserId, PostId, Score, Text, CreationDate FROM Comments;
+
+Get the Post with the highest number of Comments
+	SELECT TOP(1) PostId, COUNT(PostId) AS [Number of Comments]
+	FROM [tsql-dml].[dbo].[Comments]
+	GROUP BY PostId
+	ORDER BY COUNT(PostId) DESC
+
+Review the comments from the user with highest number of comments 
+	SELECT * FROM CommentsCopy WHERE PostId = 30430;
+
+If we try to delete a table with a constraint and no cascade delete, we get an error.
+	DELETE Posts WHERE Posts.Id = 30430;
+
+Review all comments from this post 
+	SELECT * FROM CommentsCopy WHERE PostId = 30430;
+
+	SELECT * FROM PostsCopy WHERE Id = 30430;
+
+Now DELETE CASCADE  
+	DELETE PostsCopy WHERE PostsCopy.Id = 30430;
+
+
+Review all comments from this post have been deleted, by deleting the post
+	SELECT * FROM CommentsCopy WHERE PostId = 30430;
+		
+	SELECT * FROM PostsCopy WHERE Id = 30430;
+
+- Clearing Tables Using TRUNCATE and How It Differs from DELETE
+Differences between DELETE and TRUNCATE when deleting data
+Drop previously created tables
+
+	DROP TABLE CommentsCopy;
+	DROP TABLE PostsCopy;
+
+Create new tables 
+	CREATE TABLE PostsCopy (
+		Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+		CreationDate DATETIME NOT NULL DEFAULT GETDATE(),
+		Score INT NOT NULL DEFAULT 0,
+		ViewCount INT,
+		Title VARCHAR(500),
+		Tags VARCHAR(255)
+	);
+
+	CREATE TABLE CommentsCopy (
+		Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+		UserId INT,
+		PostId INT NOT NULL,
+		Score INT NOT NULL DEFAULT 0,
+		Text VARCHAR(MAX) NOT NULL,
+		CreationDate DATETIME NOT NULL DEFAULT GETDATE(),
+		CONSTRAINT FK_POSTID_COMMENTSCOPY FOREIGN KEY(PostId) REFERENCES PostsCopy (Id) ON DELETE CASCADE
+	);
+
+Populate the tables with data
+	SET IDENTITY_INSERT PostsCopy ON;  
+	GO
+	INSERT PostsCopy (Id,CreationDate,Score,ViewCount,Title,Tags)
+		SELECT Id,CreationDate,Score,ViewCount,Title,Tags FROM Posts;
+	SET IDENTITY_INSERT PostsCopy OFF;  
+	GO
+
+	INSERT CommentsCopy (UserId, PostId, Score, Text, CreationDate)
+		SELECT UserId, PostId, Score, Text, CreationDate FROM Comments;
+
+Check the number of Comments before DELETE
+	SELECT Count(*) AS TotalComments FROM CommentsCopy
+
+Also check the Highest Id of the table CommentsCopy
+	SELECT Max(Id) AS MaxIdentity FROM CommentsCopy
+
+Delete all the comments 
+	DELETE FROM CommentsCopy
+
+The delete has been executed successfully
+	SELECT * FROM CommentsCopy
+
+Insert only one row to prove that the DELETE query does not reset the Identity value
+	INSERT INTO [dbo].[CommentsCopy]
+			([PostId]
+			,[Score]
+			,[Text]
+			,[CreationDate]
+			,[UserId])
+		VALUES
+			(5
+			,0
+			,N'This question is offtopic'
+			,CAST(N'2019-07-22T17:35:14.680' AS DateTime)           
+			,75298)
+
+There is just one record, but the Table's identity value keeps untouched 
+	SELECT * FROM CommentsCopy
+
+We are going to repopulate the tables again to test the TRUNCATE statement
+Drop previously created tables
+
+	DROP TABLE CommentsCopy;
+	DROP TABLE PostsCopy;
+
+Create new tables, again
+	CREATE TABLE PostsCopy (
+		Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+		CreationDate DATETIME NOT NULL DEFAULT GETDATE(),
+		Score INT NOT NULL DEFAULT 0,
+		ViewCount INT,
+		Title VARCHAR(500),
+		Tags VARCHAR(255)
+	);
+
+	CREATE TABLE CommentsCopy (
+		Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+		UserId INT,
+		PostId INT NOT NULL,
+		Score INT NOT NULL DEFAULT 0,
+		Text VARCHAR(MAX) NOT NULL,
+		CreationDate DATETIME NOT NULL DEFAULT GETDATE(),
+		CONSTRAINT FK_POSTID_COMMENTSCOPY FOREIGN KEY(PostId) REFERENCES PostsCopy (Id) ON DELETE CASCADE
+	);
+
+Populate the tables with data, again
+	SET IDENTITY_INSERT PostsCopy ON;  
+	GO
+	INSERT PostsCopy (Id,CreationDate,Score,ViewCount,Title,Tags)
+		SELECT Id,CreationDate,Score,ViewCount,Title,Tags FROM Posts;
+	SET IDENTITY_INSERT PostsCopy OFF;  
+	GO
+
+	INSERT CommentsCopy (UserId, PostId, Score, Text, CreationDate)
+		SELECT UserId, PostId, Score, Text, CreationDate FROM Comments;
+
+Check the number of Comments before TRUNCATE 
+	SELECT Count(*) AS TotalComments FROM CommentsCopy
+
+Also check the Highest Id of the table CommentsCopy
+	SELECT Max(Id) AS MaxIdentity FROM CommentsCopy
+
+Delete all the comments
+	TRUNCATE TABLE CommentsCopy
+
+The delete has been executed successfully 
+	SELECT * FROM CommentsCopy
+
+Insert only one row to prove that the TRUNCATE query has reset the Identity value
+	INSERT INTO [dbo].[CommentsCopy]
+			([PostId]
+			,[Score]
+			,[Text]
+			,[CreationDate]
+			,[UserId])
+		VALUES
+			(5
+			,0
+			,N'This question is offtopic'
+			,CAST(N'2019-07-22T17:35:14.680' AS DateTime)           
+			,75298)
+
+There is just one record, but this time the Table's identity value has been reset
+	SELECT * FROM CommentsCopy

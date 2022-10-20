@@ -1,0 +1,49 @@
+*** Working with the T-SQL Data Manipulation Language ***
+Instructions and snippets to follow along in the SELECT demo, are included below.
+
+1. Open SQL Server Management Studio and connect to the database server where you restored or created the database.
+
+2. Click on *tsql-dml* within the Object Explorer and click on New Query.
+
+3. Make sure that it is the currently selected database in the dropdown at the top.
+
+4. Execute the following query:
+    SELECT * from Posts
+
+5. Let it run for a little bit and then stop execution by clicking on *Cancel Executing Query*. This "works", but it is less than ideal as it will return all rows and all columns. Let's try with another query.
+
+Side note: You may have noticed I do not use a semicolon at the end of the statement. Well, in other SQL implementations you use a semicolon. With T-SQL it is not generally required, but it can be a good practice–especially when you have a script with multiple statements.
+
+6. Please execute:
+    SELECT TOP 3 Id, Score, Title, Tags FROM Posts
+
+Now we have selected a set of specific columns from a particular table while limiting the number of results. 
+
+7. I included the entire query in a single line. I can execute more than one statement at a time. As a good practice, you can add a semicolon-which may be required in other implementations-and you can also use GO, which is a command recognized by SQL Server Management Studio to indicate that it should send the current batch of Transact-SQL statements.
+
+Also, you can use lines to divide longer queries, which helps for readability. Indentation is not required, but again it helps you understand and analyze the query.
+
+    SELECT TOP 3 Id, Score, Title, Tags FROM Posts;
+
+    GO
+
+    SELECT TOP 10 
+        Id, Score, Title, Tags
+    FROM Posts;
+
+Now, in the results, we can see the results for both queries. And talking about results, this is the Grid results, but if we wanted to, we could output to text by using the toolbar. Now our results are in text and aligned using spaces. The other option is to output to a file, which can help you share the results. But that's a little bit beyond the scope of our course, although it may come in handy to share or save results.
+
+8. And you can keep writing more complex queries like in this case which uses aliases, a function, uses a join, groups some of the results and filters them, and finally sorts them out... all this to select the post with more comments and display its owner with the title.
+
+    SELECT 
+        Users.DisplayName AS Author, 
+        Posts.Title AS In_Post, 
+        Count(*) AS Number_Comments
+    FROM Comments 
+        JOIN Users ON Comments.UserId = Users.Id 
+        JOIN Posts ON Comments.PostId = Posts.Id
+    GROUP BY PostId, Users.DisplayName, Posts.Title
+    HAVING Posts.Title IS NOT NULL
+    ORDER BY Number_Comments DESC
+
+Something that is quite important is the order in which SQL Server executes the statements, which is covered in the videos. 

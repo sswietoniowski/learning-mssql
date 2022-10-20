@@ -1,0 +1,95 @@
+*** Modifying Data Using T-SQL Statements ***
+Instructions and snippets to follow along and learn how to modify data, are included below.
+
+- Using UPDATE to Modify Data in One Row
+We are going to modify data in one row.
+	SELECT * FROM Users where DisplayName = 'Xavier'
+
+In this sample we are going to update the UpVotes and DownVotes of the user we created before which DisplayName is 'Xavier':
+	UPDATE Users SET
+		UpVotes = 10,
+		DownVotes = 5
+		WHERE DisplayName = 'Xavier';
+
+- Using UPDATE to Modify Data in Multiple Rows
+We are going to modify data in multiple rows. Update all xavier's to set views to 100.
+	SELECT * FROM Users where DisplayName LIKE '%xavier%';
+
+	GO
+
+	UPDATE Users SET
+		Views = 100
+		WHERE DisplayName LIKE '%Xavier%';
+
+To confirm, execute:
+	SELECT * FROM Users where DisplayName like '%xavier%'
+
+- Retrieving Number of Affected Rows with @@Rowcount
+We are going to retrieve the number of affected rows using @@ROWCOUNT.
+	UPDATE Users SET
+		Views = 1000
+		WHERE DisplayName LIKE '%Xavier%';
+
+	IF @@ROWCOUNT > 0  
+	PRINT 'Multiple rows have been updated';  
+
+	SELECT Id, DisplayName, Views FROM Users where DisplayName like '%xavier%'
+
+A more advanced way would be storing the value of @@ROWCOUNT inside a variable.
+	DECLARE @rowsAffected INT
+
+	UPDATE Users SET
+		Views = 1001
+		WHERE DisplayName LIKE '%Xavier%';
+
+	SET @rowsAffected = @@ROWCOUNT
+
+	IF @rowsAffected > 0
+	PRINT 'Multiple rows have been updated: ' + CAST(@rowsAffected as varchar(10));
+
+	SELECT Id, DisplayName, Views FROM Users WHERE DisplayName LIKE '%xavier%'
+
+- Modifying Data Using UPDATE with Constraints
+We are going to update a column with a constraint:
+	SELECT * FROM Comments WHERE PostId = 5;
+
+	SELECT * FROM Users WHERE Id = 5;
+
+This will reference a user that does not exists: 
+	UPDATE Comments SET 
+		UserId = 340000
+		WHERE  PostId = 5;
+
+There is no user with this id: 
+	SELECT * FROM Users WHERE Id = 340000
+
+- UPDATE Using Variables
+We are going to update a column using a variable.
+	SELECT Id, DisplayName, Reputation, CreationDate 
+	FROM Users
+	ORDER BY Reputation DESC
+
+Update the reputation of all users by increasing it with the number of years that they have been in this site.
+	DECLARE @YearsActive INT=0;
+
+	UPDATE Users SET
+		@YearsActive = YEAR(GETDATE()) - YEAR(Users.CreationDate),
+		Reputation += @YearsActive;
+
+Let's confirm it running the select query again.
+	SELECT Id, DisplayName, Reputation, CreationDate 
+	FROM Users
+	ORDER BY Reputation DESC
+
+- FROM Within an UPDATE
+We are going to update values using data from another column.
+	SELECT Id, PostTypeId, Score, Title 
+	FROM Posts 
+	WHERE PostTypeId = 1
+	ORDER BY Score DESC
+
+Add each Comment's Score to the related Post's Score.
+	UPDATE Posts 
+		SET Posts.Score += Comments.Score * 10
+		FROM Posts INNER JOIN Comments ON (Posts.Id = Comments.PostId)
+		WHERE Posts.PostTypeId = 1

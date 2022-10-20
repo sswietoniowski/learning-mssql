@@ -231,19 +231,110 @@ How do you find information in a plan?
 
 ## 5. Operators in a Query Plan
 
-### Introduction and What Do You Look for in a Plan?
+Topics:
+
+- identify frequently-seen plan operators and understand their function,
+- review how altering a query can change the operator used,
+- review how a change in operator can change query performance.
+
+### What Do You Look for in a Plan?
+
+What is important and what not so much?
 
 ### Scans and Seeks
 
+Scans:
+
+- `Table Scan`,
+- `Clustered Index Scan`.
+
+Seeks:
+
+- `Clustered Index Seek`,
+- `Nonclustered Index Seek`.
+
 ### Data Access Operators
+
+Showed during demo.
 
 ### Nested Loop and Lookups
 
+One operator:
+
+- `Nested Loop`.
+
+Uses each row from one input (outer data set) to find rows from a second input (inner data set) that meet the join predicate.
+
+Seen with smaller data sets and lookups.
+
+Watch for inflated I/O.
+
+Lookups:
+
+- `Key Lookup`,
+- `RID Lookup`.
+
+More info showed during demo.
+
 ### Merge Join and Sort
+
+One operator:
+
+- `Merge Join`.
+
+Data from two ordered inputs joined:
+
+- matching rows returned.
+
+Ideally data is already ordered (e.g. index).
+
+Worktables used when multiple values on both sides of the data set ("many-to-many").
+
+Sort:
+
+- `Sort`.
+
+Orders rows.
+
+Stop-and-go operation.
+
+Requires memory.
+
+Possible to spill to disk.
+
+More info showed during demo.
 
 ### Hash Join
 
+One operator:
+
+- `Hash Join`.
+
+Joins two unordered inputs:
+
+- outputs the matching rows.
+
+Builds a hash table based on key value for each row in the outer data set, then for each row of the inner data set, calculates the hash and probe the table.
+
+Possible to spill to disk.
+
+More info showed during demo.
+
 ### Compute Scalar
+
+Compute scalar:
+
+- `Compute Scalar`.
+
+Evaluates an expression:
+
+- produces a scalar value (e.g. functions).
+
+The estimated cost can be low.
+
+Plans do not always show objects accessed.
+
+More info showed during demo.
 
 ## 6. Important Information in a Plan
 

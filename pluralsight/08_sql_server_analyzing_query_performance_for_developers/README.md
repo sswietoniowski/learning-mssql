@@ -338,24 +338,105 @@ More info showed during demo.
 
 ## 6. Important Information in a Plan
 
-### Introduction and Input Parameters
+Review additional, essential information in a query plan, including:
+
+- row estimates/actuals,
+- parallelism,
+- predicates,
+- warnings.
+
+### Input Parameters
+
+Input values for a query, used on initial compilation, can be found in the plan.
+
+This can be extremely important when comparing an actual plan (with different values) to the plan in cache.
 
 ### Finding Input Parameters in a Plan
 
+Showed during demo.
+
 ### Trace Flags in a Query Plan
+
+Global and session trace flags are captured by execution plans in SQL Server 2014 SP2 and SQL Server 2016+.
+
+Use IsCompileTime attribute to determine if flag present at compilation and execution.
+
+More info [here](https://support.microsoft.com/enus/kb/3170115).
+
+More info showed during demo.
 
 ### Cardinality Estimator Version and Issues
 
+Cardinality estimator version:
+
+- the cardinality estimator (CE) was significantly changed in SQL Server 2014,
+- the new CE can be enabled in a variety of ways,
+- to confirm CE used, check attribute value in the plan.
+
+CE issues:
+
+- check for differences between estimates and actual,
+- can cause significantly more data to move through the plan than needed,
+- validate statistics, CE version, table variables, table value functions to start.
+
 ### Examining CE Version and Estimates
+
+Showed during demo.
 
 ### Execution Statistics for Operators
 
+Operator execution statistics:
+
+- available in SQL Server 2014 SP2 and SQL Server 2016+,
+- includes CPU, duration and I/O information on a per-operator basis.
+
+More info showed during demo.
+
 ### Parallelism in Plans
+
+Parallelism in plans:
+
+- if `MAXDOP` is not set to 1, the optimizer can generate a serial or parallel plan,
+- not every plan can be parallelized,
+- indicates a higher cost query - not necessarily good or bad.
+
+Parallelism and operators:
+
+- `Distribute Streams`,
+- `Repartition Streams`,
+- `Gather Streams`,
+- operator running in parallel.
+
+Parallel plans can have multiple zones of concurrent execution.
+
+`MAXDOP` limits the maximum number of threads _per operator_.
+
+`MAXDOP` does not limit the total threads for a plan.
+
+More info [here](https://sqlperformance.com/2013/10/sql-plan/parallel-plans-branches-threads).
+
+More info showed during demo.
 
 ### Seek and Residual Predicates
 
+Seek predicate.
+
+Residual predicate.
+
+More info showed during demo.
+
 ### Generating Plan Warnings
+
+Warnings:
+
+- spill to tempdb (hash and sort),
+- implicit conversion,
+- no statistics,
+- missing index,
+- missing join predicate.
+
+More info showed during demo.
 
 ## Summary
 
----
+Now that you have completed this course, you should be able to analyze a query plan and understand the information it contains.

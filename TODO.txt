@@ -60,7 +60,7 @@ Termin szkolenia (4 dni / 8h):
 
 PN 2022-11-28 - CZW 2022-12-01
 
-Opcjonale:
+Opcjonalne:
 
 (O) Managing Azure SQL Server Database Performance
 (O) SQL Server: Indexing for Performance

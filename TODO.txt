@@ -25,12 +25,12 @@ T2
 T3
 
 (O) Programming SQL Server Database Stored Procedures: PN
-(I) Troubleshooting SQL Server Performance Problems: WT
-(I) SQL Server: Automatic Tuning in SQL Server 2017 and Azure SQL Database: ŚR
-(O) Programming SQL Server Database Triggers and Functions: CZW
-(I) SQL Server: Introduction to Query Store: PT
+(O) Programming SQL Server Database Triggers and Functions: WT
+(I) Troubleshooting SQL Server Performance Problems: ŚR
+(I) SQL Server: Automatic Tuning in SQL Server 2017 and Azure SQL Database: CZW, PT
+(I) SQL Server: Introduction to Query Store: SO
 
-Materiały na D1 (SO, ND)
+Materiały na D1 (ND)
 
 T4
 

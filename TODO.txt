@@ -20,8 +20,6 @@ T2
 
 + Querying Data Using T-SQL 1h
 + SQL Server: Analyzing Query Performance for Developers 4h
-(O) Programming SQL Server Database Stored Procedures: SO
-(O) Programming SQL Server Database Triggers and Functions: ND
 
 T3
 
@@ -48,6 +46,8 @@ Materiały na D3 (PT, SO, ND)
 
 Materiały na D4 (PN, WT, ŚR, CZW)
 
+(O) Programming SQL Server Database Stored Procedures: SO
+(O) Programming SQL Server Database Triggers and Functions: ND
 (O) Querying JSON, XML, and Temporal Data with T-SQL: PT
 (O) Handling Errors in T-SQL: SO
 (I) SQL Server: Automatic Tuning in SQL Server 2017 and Azure SQL Database: ND

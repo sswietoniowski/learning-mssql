@@ -6,7 +6,7 @@ More info about recommended performance troubleshooting.
 
 ### The Puzzle
 
-### Let's Have a Conversation!
+### Let's Have a Conversation
 
 ### SQL Server Environment
 

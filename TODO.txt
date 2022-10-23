@@ -23,7 +23,8 @@ T2
 
 T3
 
-(I) SQL Server: Replacing Profiler with Extended Events: PN, WT
+(O) Programming SQL Server Database Stored Procedures: PN
+(I) SQL Server: Replacing Profiler with Extended Events: WT
 (I) SQL Server: Introduction to Query Store: ŚR, CZW
 (I) Troubleshooting SQL Server Performance Problems: PT
 
@@ -33,10 +34,11 @@ T4
 
 Materiały na D2 (PN, WT)
 
-(O) Using Memory-optimized Tables and Native Stored Procedures: ŚR
+(O) Programming SQL Server Database Triggers and Functions: ŚR
 (I) Managing SQL Server Database Maintenance: CZW
+(O) Using Memory-optimized Tables and Native Stored Procedures: PT
 
-Materiały na D3 (PT, SO, ND)
+Materiały na D3 (SO, ND)
 
 (O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA
 
@@ -46,8 +48,6 @@ Materiały na D3 (PT, SO, ND)
 
 Materiały na D4 (PN, WT, ŚR, CZW)
 
-(O) Programming SQL Server Database Stored Procedures: SO
-(O) Programming SQL Server Database Triggers and Functions: ND
 (O) Querying JSON, XML, and Temporal Data with T-SQL: PT
 (O) Handling Errors in T-SQL: SO
 (I) SQL Server: Automatic Tuning in SQL Server 2017 and Azure SQL Database: ND

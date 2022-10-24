@@ -68,6 +68,7 @@ Some useful tools & other resources:
 - [SQLServerCentral](https://www.sqlservercentral.com/),
 - [Simple-Talk](https://www.red-gate.com/simple-talk/),
 - [sqlbits](https://sqlbits.com),
+- [DB-Engines.com](https://db-engines.com/en/ranking),
 - [Brent Ozar](https://www.brentozar.com/),
 - [Paul S. Randal](https://www.sqlskills.com/blogs/paul/),
 - [Kimberly L. Tripp](https://www.sqlskills.com/blogs/kimberly/),

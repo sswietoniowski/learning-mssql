@@ -110,7 +110,7 @@ ALTER PROCEDURE procedure_name
 AS
     -- SQL statements
 GO
-````
+```
 
 To drop a stored procedure, use the following syntax:
 
@@ -343,6 +343,23 @@ To return an error code use the following syntax:
 
 ```sql
 RETURN error_code
+```
+
+We can check the return value of a stored procedure by using the `@@ERROR` variable.
+
+To do so use the following syntax:
+
+```sql
+DECLARE @error_code INT
+EXECUTE @error_code = procedure_name
+SELECT @error_code
+```
+
+or
+
+```sql
+EXECUTE procedure_name
+SELECT @@ERROR
 ```
 
 ## Summary

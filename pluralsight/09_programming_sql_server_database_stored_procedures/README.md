@@ -90,6 +90,18 @@ AS
 GO
 ```
 
+If we don't want to see many information about rows that were affected by the stored procedure, we can use the following syntax:
+
+```sql
+CREATE PROCEDURE procedure_name
+    @parameter_name data_type
+AS
+    -- SQL statements
+    SET NOCOUNT ON
+    SELECT ...
+GO
+```
+
 To change a stored procedure, use the following syntax:
 
 ```sql
@@ -98,7 +110,7 @@ ALTER PROCEDURE procedure_name
 AS
     -- SQL statements
 GO
-```
+````
 
 To drop a stored procedure, use the following syntax:
 

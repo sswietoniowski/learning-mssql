@@ -28,7 +28,7 @@ Why do we have to stop using Trace and Profiler?
 | Choose which fields to capture     | Choose which fields to capture                      |
 | Filter on different fields         | Filter on different fields                          |
 | Multiple options for data analysis | Multiple options for data analysis                  |
-| -                                  | Provide multiple options for data collction         |
+| -                                  | Provide multiple options for data collection        |
 | -                                  | Flexible in implementation and configuration        |
 | -                                  | Only method for tracing **new** SQL Server features |
 
@@ -152,7 +152,7 @@ Targets:
 General options:
 
 - `STARTUP_STATE` - starts the event session automatically,
-- `TRACK_CAUSALITY` - attachesas GUID and sequence number to events.
+- `TRACK_CAUSALITY` - attaches GUID and sequence number to events.
 
 Advanced options:
 
@@ -192,7 +192,7 @@ Within the data viewer you can customize what columns you see and you can create
 
 Within the UI data can be grouped by any of the available columns.
 
-Data can also be aggregated to display, for example, the minimim, maximum, or average value fo a column.
+Data can also be aggregated to display, for example, the minimum, maximum, or average value fo a column.
 
 Expand grouping to see data at a detail level.
 
@@ -274,16 +274,66 @@ Showed during demo.
 
 ## 5. Avoiding Performance Issues with Extended Events
 
+The most important items to think about as they relate to performance when creating an event session.
+
+Performance must still be considered with Extended Events.
+
 ### Introduction and General Performance Considerations
+
+Considerations:
+
+- specific events are **still** expensive,
+- write your predicates carefully,
+- adding actions adds overhead,
+- even with a lot of memory on a server, you need to set limits.
+
+Expensive events:
+
+- query_post_compilation_showplan,
+- query_pre_execution_showplan,
+- query_post_execution_showplan.
 
 ### Create Good Predicates
 
+> If you filter on an element that is not a part of the default payload, the Engine has to first collect that information **before** it can perform predicate evaluation.
+
+The first false evaluation of a logical block in a predicate prevents further evaluation.
+
 ### Code Examples of Good and Bad Predicates
+
+Showed during demo.
 
 ### Action Overhead and Limit Setting
 
+Overhead with actions:
+
+- actions execute synchronously on the firing thread,
+- actions can cause side effects to occur when an event fires,
+- large actions (e.g. sql_text, sql_context) may require additional consideration for event sizing.
+
+Set limits!
+
 ### Ignoring the Warnings
+
+Showed during demo.
 
 ### Extended Events Pros and Cons
 
+What you're going to grumble about:
+
+- you cannot integrate PerfMon data with Extended Events data,
+- with the histogram target you can only bucket on one field at a time,
+- Distributed Replay requires \*.trc files,
+- it's just not the same as Trace/SQL Profiler.
+
+Favorite things about XE:
+
+- you can create multiple sessions and start and stop them as needed,
+- you have search capability in the list of events,
+- track causality,
+- write to multiple targets,
+- you can now work with data in the UI.
+
 ## Summary
+
+Extended Events is a powerful tool for troubleshooting and performance monitoring. Now you know how to replace SQL Profiler with Extended Events and how to use the UI to analyze your data.

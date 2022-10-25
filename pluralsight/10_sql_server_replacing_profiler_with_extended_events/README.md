@@ -210,15 +210,67 @@ Events can be bookmarked within the UI, making it easy to quickly find them agai
 
 ### Introduction and Target Basics
 
+Targets are event consumers.
+
+Receive either a single event or a buffer full of events.
+
+Target type:
+
+- basic,
+- aggregate.
+
+Target timing:
+
+- synchronous,
+- asynchronous.
+
 ### Event Dispatching and Revisiting the Big Picture
+
+Event dispatching:
+
+- memory buffer becomes full,
+- event data in the buffer exceeds the event session's `MAX_DISPATCH_LATENCY` configuration option.
 
 ### Event File, Event Counter, and Histogram Targets
 
+Event file target:
+
+- event data is saved to a file on disk,
+- the file can be read in the UI in SQL Server 2012+.
+
+Event counter target:
+
+- counts the number of events that fired,
+- useful when initially setting up an event session or troubleshooting an unknown workload,
+- synchronous target that processes on the thread that fires the event.
+
+Histogram target:
+
+- collects event into "buckets" to provide additional analysis within event frequency,
+- you can only "bucket" on one field,
+- buckets (slots) should be specified with enough room to accommodate all potential values.
+
 ### Tracking Database File Growth Using the Histogram Target
+
+Showed during demo.
 
 ### Event Pairing and Ring Buffer Targets
 
+Event pairing target:
+
+- captures only unmatched events,
+- it is essential to select the proper criteria for matching, otherwise your data will not be valid:
+- use `TRACK_CAUSALITY` and the event_file or ring_buffer target to troubleshoot.
+
 ### Using the Ring Buffer Target
+
+Ring buffer target:
+
+- in-memory target that does FIFO collection,
+- data is materialized as XML when it's queried via `sys.dm_xe_session_targets`:
+  - DMV limitations may result in unreadable XML.
+
+Showed during demo.
 
 ## 5. Avoiding Performance Issues with Extended Events
 

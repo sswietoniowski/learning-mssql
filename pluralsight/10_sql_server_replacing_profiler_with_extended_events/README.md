@@ -164,15 +164,47 @@ Advanced options:
 
 ## 3. Leveraging the Extended Events UI
 
+Everything we used to do with T-SQL, you can now do in the UI (and more!).
+
 ### New Session Wizard, New Session, and Templates
+
+New Session Wizard allows quick creation of a new session from a template or with a minimal set of configurable options.
+
+New Session dialog can be used for advanced session creation with all available options and targets.
+
+Existing sessions can be modified through the right-click menu option.
+
+Templates:
+
+- templates are an easy way to automate setup of an Extended Events session,
+- you can export an existing session to create a template,
+- you can create a custom category for templates you create by editing the XML file.
 
 ### Event Session Creation and Output Analysis in the UI
 
+Showed during demo.
+
 ### Live Data Viewer, Customize Columns, Grouping and Aggregation
+
+Live Data Viewer reads a live stream of event buffers from and Extended Events session on a server.
+
+Within the data viewer you can customize what columns you see and you can create merged columns.
+
+Within the UI data can be grouped by any of the available columns.
+
+Data can also be aggregated to display, for example, the minimim, maximum, or average value fo a column.
+
+Expand grouping to see data at a detail level.
 
 ### Expanding a Grouping and Filtering
 
+Data can be filtered based on time and/or column values.
+
 ### Merging Files, Bookmarking Events
+
+Multiple files can be merged together in the UI to create one master file for analysis.
+
+Events can be bookmarked within the UI, making it easy to quickly find them again.
 
 ## 4. Understanding Target Options for Extended Events
 

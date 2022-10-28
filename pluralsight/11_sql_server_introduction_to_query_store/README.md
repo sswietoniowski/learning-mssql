@@ -148,28 +148,113 @@ Runtime statistics are aggregated over a defined interval of time that can be ch
 
 ### Options for Addressing Poor-performing Queries
 
+Change code and/or schema.
+
+Manually get "best" plan in cache.
+
+Use a plan guide.
+
+Force a plan in Query Store.
+
 ### Using a Plan Guide to Force a Plan
+
+Showed during demo.
 
 ### Plan Guide Details
 
+Multiple options exists (OBJECT, SQL and TEMPLATE) for plan guide creation.
+
+Plan guides allow you to add hints without changing existing code.
+
+Plan guides can be complex to implement.
+
+Not always easy to verify that a plan guide is being used.
+
 ### Using Query Store to Force a Plan
+
+Showed during demo.
 
 ### Query Store Details and Plan Guides vs. Forcing Plan
 
-### How to Determine if a Forced Plan is Being Used
+Forcing a plan requires the query_id and plan_id.
+
+Query Store allows you to easily find regressed queries with multiple plans and force one plan.
+
+Adding hints changes query text which creates a new query (and query_id) in Query Store.
+
+Currently no way to verify a forced plan is the one that's used.
+
+| Plan Guides                                                  | Forcing Plans                                                |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| You can force a plan for an ad hoc query or stored procedure | You can force a plan for an ad hoc query or stored procedure |
+
+You can add hints in plan guides without altering query code | Adding a hint to query code \_changes query text
+Plan guides can be complex to implement | Forcing a plan in query store is very easy
+Verifying guide use via the plan is possible for stored procedures | Verifying a forced plan via then plan is not currently possible
 
 ### Common Reasons for Failed Plan Forcing
 
+Showed during demo.
+
+An index used by a plan is altered.
+
+An index used by a plan is dropped.
+
+Query text is changed.
+
 ## 5. Practical Uses of Query Store
+
+Establish a baseline with Query Store:
+
+- enable Query Store,
+- verify configuration:
+  - sys.database_query_store_options,
+  - sys.query_store_runtime_stats_interval.
 
 ### Understanding Performance with Query Store
 
+Understand the workload:
+
+- what queries are executing?
+  - sys.query_store_query,
+  - sys.query_store_query_text.
+- what are the plans for those queries:
+  - sys.query_store_plan.
+
+Examine query performance:
+
+- what do metrics for each query look like?
+  - sys.query_store_runtime_stats,
+  - sys.query_store_runtime_stats_interval,
+- look for differences in context settings:
+  - sys.query_context_settings.
+
+Showed during demo.
+
 ### Upgrade Testing
+
+SQL Server version.
+
+Hardware.
+
+Application.
 
 ### Using Query Store to Test an Application Change
 
+Showed during demo.
+
 ### Testing Specific to the Cardinality Estimator
+
+SQL Server 2014 introduced a new Cardinality Estimator.
+
+Using the new CE is _not_ required when upgrading.
+
+Testing prior to upgrading is _highly_ recommended.
 
 ### Using Query Store to Test Cardinality Estimator Changes
 
+Showed during demo.
+
 ## Summary
+
+Now you know how to use Query Store :-).

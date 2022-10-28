@@ -187,7 +187,6 @@ Currently no way to verify a forced plan is the one that's used.
 | Plan Guides                                                  | Forcing Plans                                                |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | You can force a plan for an ad hoc query or stored procedure | You can force a plan for an ad hoc query or stored procedure |
-
 You can add hints in plan guides without altering query code | Adding a hint to query code \_changes query text
 Plan guides can be complex to implement | Forcing a plan in query store is very easy
 Verifying guide use via the plan is possible for stored procedures | Verifying a forced plan via then plan is not currently possible

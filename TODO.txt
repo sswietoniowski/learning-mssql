@@ -25,8 +25,8 @@ T3
 
 + Programming SQL Server Database Stored Procedures 2h
 + SQL Server: Replacing Profiler with Extended Events 2h
-(I) SQL Server: Introduction to Query Store: ŚR, PT
-(I) Troubleshooting SQL Server Performance Problems: SO
+(I) SQL Server: Introduction to Query Store: PT, SO
+(I) Troubleshooting SQL Server Performance Problems: ND
 
 T4
 

@@ -26,7 +26,6 @@ T3
 + Programming SQL Server Database Stored Procedures 2h
 + SQL Server: Replacing Profiler with Extended Events 2h
 (I) SQL Server: Introduction to Query Store: PT, SO
-(I) Troubleshooting SQL Server Performance Problems: ND
 
 T4
 
@@ -43,6 +42,8 @@ Materiały na D2 (SO, ND)
 2022-11-07 - 2022-11-18
 
 Materiały na D3 (PN, WT, ŚR)
+
+(I) Troubleshooting SQL Server Performance Problems: ŚR
 
 1,5 tygodnia - czas na dopracowanie materiałów
 

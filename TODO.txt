@@ -25,36 +25,38 @@ T3
 
 + Programming SQL Server Database Stored Procedures 2h
 + SQL Server: Replacing Profiler with Extended Events 2h
-(I) SQL Server: Introduction to Query Store: ŚR, CZW
-(I) Troubleshooting SQL Server Performance Problems: PT
-
-Materiały na D1 (SO, ND)
+(I) SQL Server: Introduction to Query Store: PT, SO
+(I) Troubleshooting SQL Server Performance Problems: ND
 
 T4
 
-Materiały na D2 (PN, WT)
+Materiały na D1 (PN, WT)
 
 (O) Programming SQL Server Database Triggers and Functions: ŚR
 (I) Managing SQL Server Database Maintenance: CZW
 (O) Using Memory-optimized Tables and Native Stored Procedures: PT
 
-Materiały na D3 (SO, ND)
+Materiały na D2 (SO, ND)
 
 (O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA
 
 2022-11-07 - 2022-11-18
 
+Materiały na D3 (PN, WT, ŚR)
+
 1,5 tygodnia - czas na dopracowanie materiałów
 
-Materiały na D4 (PN, WT, ŚR, CZW)
+Materiały na D4 (CZW, PT, SO, ND)
 
-(O) Querying JSON, XML, and Temporal Data with T-SQL: PT
-(O) Handling Errors in T-SQL: SO
-(I) SQL Server: Automatic Tuning in SQL Server 2017 and Azure SQL Database: ND
+(O) Querying JSON, XML, and Temporal Data with T-SQL: PN
+(O) Handling Errors in T-SQL: WT
+(I) SQL Server: Automatic Tuning in SQL Server 2017 and Azure SQL Database: ŚR
 
 2022-11-19 - 2022-11-27
 
 1 tydzień na dopieszczenie wszystkiego :-)
+
+(O) SQL Server: Using SentryOne Plan Explorer
 
 Termin szkolenia (4 dni / 8h):
 
@@ -67,4 +69,3 @@ Opcjonalne:
 (O) SQL Server: Index Fragmentation Internals, Analysis, and Solutions
 (O) SQL Server: Introduction to Extended Events
 (O) T-SQL Data Manipulation Playbook
-(O) SQL Server: Using SentryOne Plan Explorer

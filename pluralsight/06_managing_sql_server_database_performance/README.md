@@ -440,7 +440,7 @@ SQL Server resource management:
 
 Plan cache memory.
 
-![Plan cache memory](./images/02_01_plan_cache_memory.JPG)
+![Plan cache memory](./images/01_plan_cache_memory.JPG)
 
 Plan cache memory and performance:
 
@@ -452,7 +452,7 @@ Plan cache memory and performance:
 
 Buffer pool memory usage.
 
-![Buffer pool memory usage](./images/02_02_buffer_pool_memory_usage.JPG)
+![Buffer pool memory usage](./images/02_buffer_pool_memory_usage.JPG)
 
 Buffer pool memory sizing.
 
@@ -488,9 +488,9 @@ Info about the schedulers can be found in the `sys.dm_os_schedulers` view.
 
 Threading Model and Wait Times.
 
-![Threading Model and Wait Times](./images/02_03_threading_model_and_wait_times.JPG)
+![Threading Model and Wait Times](./images/03_threading_model_and_wait_times.JPG)
 
-![Threading Model and Wait Times - Example](./images/02_04_threading_model_and_wait_times_example.JPG)
+![Threading Model and Wait Times - Example](./images/04_threading_model_and_wait_times_example.JPG)
 
 SUSPENDED: the waiter list:
 
@@ -1309,7 +1309,7 @@ You might be interested in:
 
 ### Page Life Expectancy Patterns
 
-![Page life expectancy patterns](./images/06_01_page_life_expectancy_patterns.JPG)
+![Page life expectancy patterns](./images/06_page_life_expectancy_patterns.JPG)
 
 ### Using and Analyzing Perfmon Traces
 

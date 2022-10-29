@@ -48,6 +48,7 @@ Also used these (paid) courses & books:
   - [Troubleshooting SQL Server Performance Problems](https://app.pluralsight.com/library/courses/troubleshooting-sql-server-performance-problems/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/troubleshooting-sql-server-performance-problems/exercise-files) :arrow_forward:,
   - [SQL Server: Automatic Tuning in SQL Server 2017 and Azure SQL Database](https://app.pluralsight.com/library/courses/sqlserver-azure-database/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/sqlserver-azure-database/exercise-files),
   - [Managing SQL Server Database Maintenance](https://app.pluralsight.com/library/courses/managing-sql-server-database-maintenance/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/managing-sql-server-database-maintenance/exercise-files),
+  - [SQL Server: Benchmarking and Baselining](https://app.pluralsight.com/library/courses/sqlserver-benchmarking/table-of-contents) [:file_folder:](https://app.pluralsight.com/library/courses/sql-server-understanding-using-dbcc-commands/exercise-files) :arrow_forward:,
 - other:
   - [Pro SQL Server 2019 Administration: A Guide for the Modern DBA](https://learning.oreilly.com/library/view/pro-sql-server/9781484250891/) :arrow_forward:.
 

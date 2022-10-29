@@ -16,6 +16,7 @@ There are the following sub-directories:
 - [10_sql_server_replacing_profiler_with_extended_events](10_sql_server_replacing_profiler_with_extended_events/),
 - [11_sql_server_introduction_to_query_store](11_sql_server_introduction_to_query_store/),
 - [12_troubleshooting_sql_server_performance_problems](12_troubleshooting_sql_server_performance_problems/),
+- [13_sql_server_benchmarking_and_baselining](13_sql_server_benchmarking_and_baselining/),
 - [14_programming_sql_server_database_triggers_and_functions](14_programming_sql_server_database_triggers_and_functions/),
 - [97_t-sql_data_manipulation_playbook](97_t-sql_data_manipulation_playbook/),
 - [98_handling_errors_in_t-sql](98_handling_errors_in_t-sql/),

@@ -25,12 +25,13 @@ T3
 
 + Programming SQL Server Database Stored Procedures 2h
 + SQL Server: Replacing Profiler with Extended Events 2h
-(I) SQL Server: Introduction to Query Store: PT, SO
-(I) SQL Server: Benchmarking and Baselining: ND
 
 T4
 
-Materiały na D1 (PN, WT)
+(I) SQL Server: Introduction to Query Store: PT, PN
+(I) SQL Server: Benchmarking and Baselining: PN
+
+Materiały na D1 (WT, ŚR)
 
 (O) Programming SQL Server Database Triggers and Functions: ŚR
 (I) Managing SQL Server Database Maintenance: CZW

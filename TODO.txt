@@ -29,13 +29,9 @@ T3
 T4
 
 (I) SQL Server: Introduction to Query Store: PT, PN
-(I) SQL Server: Benchmarking and Baselining: PN
+(I) SQL Server: Benchmarking and Baselining: WT
 
-Materiały na D1 (WT, ŚR)
-
-(O) Programming SQL Server Database Triggers and Functions: ŚR
-(I) Managing SQL Server Database Maintenance: CZW
-(O) Using Memory-optimized Tables and Native Stored Procedures: PT
+Materiały na D1 (ŚR, CZW, PT)
 
 Materiały na D2 (SO, ND)
 
@@ -44,6 +40,10 @@ Materiały na D2 (SO, ND)
 Materiały na D3 (PN, WT, ŚR)
 
 (I) Troubleshooting SQL Server Performance Problems: ŚR
+(O) Programming SQL Server Database Triggers and Functions: ŚR
+(I) Managing SQL Server Database Maintenance: CZW
+(O) Using Memory-optimized Tables and Native Stored Procedures: PT
+
 (O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA
 
 1,5 tygodnia - czas na dopracowanie materiałów

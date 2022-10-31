@@ -30,6 +30,7 @@ T4
 
 (I) SQL Server: Introduction to Query Store: PT, PN
 (I) SQL Server: Benchmarking and Baselining: WT
+(O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA
 
 Materiały na D1 (ŚR, CZW, PT)
 
@@ -43,8 +44,6 @@ Materiały na D3 (PN, WT, ŚR)
 (O) Programming SQL Server Database Triggers and Functions: ŚR
 (I) Managing SQL Server Database Maintenance: CZW
 (O) Using Memory-optimized Tables and Native Stored Procedures: PT
-
-(O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA
 
 1,5 tygodnia - czas na dopracowanie materiałów
 

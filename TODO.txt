@@ -38,17 +38,16 @@ Materiały na D2 (SO, ND)
 
 2022-11-07 - 2022-11-18
 
+1,5 tygodnia - czas na dopracowanie materiałów
+
 Materiały na D3 (PN, WT, ŚR)
+
+Materiały na D4 (CZW, PT, SO, ND)
 
 (I) Troubleshooting SQL Server Performance Problems: ŚR
 (O) Programming SQL Server Database Triggers and Functions: ŚR
 (I) Managing SQL Server Database Maintenance: CZW
 (O) Using Memory-optimized Tables and Native Stored Procedures: PT
-
-1,5 tygodnia - czas na dopracowanie materiałów
-
-Materiały na D4 (CZW, PT, SO, ND)
-
 (O) Querying JSON, XML, and Temporal Data with T-SQL: PN
 (O) Handling Errors in T-SQL: WT
 (I) SQL Server: Automatic Tuning in SQL Server 2017 and Azure SQL Database: ŚR

@@ -44,19 +44,9 @@ Materiały na D3 (PN, WT, ŚR)
 
 Materiały na D4 (CZW, PT, SO, ND)
 
-(I) Troubleshooting SQL Server Performance Problems: ŚR
-(O) Programming SQL Server Database Triggers and Functions: ŚR
-(I) Managing SQL Server Database Maintenance: CZW
-(O) Using Memory-optimized Tables and Native Stored Procedures: PT
-(O) Querying JSON, XML, and Temporal Data with T-SQL: PN
-(O) Handling Errors in T-SQL: WT
-(I) SQL Server: Automatic Tuning in SQL Server 2017 and Azure SQL Database: ŚR
-
 2022-11-19 - 2022-11-27
 
 1 tydzień na dopieszczenie wszystkiego :-)
-
-(O) SQL Server: Using SentryOne Plan Explorer
 
 Termin szkolenia (4 dni / 8h):
 
@@ -69,3 +59,11 @@ Opcjonalne:
 (O) SQL Server: Index Fragmentation Internals, Analysis, and Solutions
 (O) SQL Server: Introduction to Extended Events
 (O) T-SQL Data Manipulation Playbook
+(O) Troubleshooting SQL Server Performance Problems
+(O) Programming SQL Server Database Triggers and Functions
+(O) Managing SQL Server Database Maintenance
+(O) Using Memory-optimized Tables and Native Stored Procedures
+(O) Querying JSON, XML, and Temporal Data with T-SQL
+(O) Handling Errors in T-SQL
+(O) SQL Server: Automatic Tuning in SQL Server 2017 and Azure SQL Database
+(O) SQL Server: Using SentryOne Plan Explorer

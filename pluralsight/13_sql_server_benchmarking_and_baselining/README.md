@@ -406,28 +406,172 @@ Options:
 
 ## 5. Using DMVs
 
+Dynamic Management Views (DMVs) and Dynamic Management Functions (DMFs) are built into SQL Server:
+
+- collectively known as Dynamic Management Objects (DMOs).
+
+Provide information about the server and its databases that can be used to monitor health and performance as well as diagnose problems:
+
+- server-scoped,
+- database-scoped.
+
+Information does not persist between restarts:
+
+- one exception: syd.dm_db_index_physical_stats,
+- in some cases you can clear data without a restart.
+
+DMVs have been available since SQL Server 2005:
+
+- grouped by functionality,
+- schema changes can occur between versions.
+
 ### When to Use DMVs
+
+Main reasons:
+
+- easy method to capture, review and store metrics:
+  - no additional utilities,
+  - utilize T-SQL,
+- certain information is only available through DMVs:
+  - e.g. cached query plans, SQLOS information, wait statistics,
+- very often dynamic management objects are the best place to start when troubleshooting,
+- be aware of the overhead generated when querying specific DMVs,
+- useful DMV queries gathered by Glenn Berry's can be found [here](https://sqlserverperformance.wordpress.com/tag/dmv-queries/).
 
 ### Capturing DMV Data
 
+There are over 175 dynamic management objects in SQL Server 2012:
+
+- determine what is most relevant to your environment.
+
+Snapshot data to a table at regular intervals.
+
+Report on captured data as needed.
+
 ### DMVs to Consider for Data Capture
 
-### sys.dm_os_performance_counters
+DMVs to consider:
 
-### sys.dm_io_virtual_file_stats
+- `sys.dm_os_sys_info`:
+  - CPU, memory and SQL Server start time,
+- `sys.dm_os_sys_memory`:
+  - available physical memory, page file and memory state,
+- `sys.dm_os_process_memory`:
+  - memory currently in use, large page allocations and whether OS has notified SQL Server of low memory,
+- `sys.dm_os_performance_counters`:
+  - current value for a performance counter,
+- `sys.dm_os_wait_stats`:
+  - aggregate wait statistics for the instance,
+- `sys.dm_db_file_space_usage`:
+  - lists file size and used space for every database file,
+  - works for tempdb only prior to SQL Server 2012,
+- `sys.dm_io_virtual_file_stats`:
+  - reads, writes, latency and current size for every database file,
+- `sys.dm_db_index_physical_stats`:
+  - size, level of fragmentation, forwarded rows for any index or table,
+- `sys.dm_db_index_usage_stats`:
+  - cumulative seeks, scans, lookups and updates for an index,
+- `sys.dm_db_missing_index_details`:
+  - lists indexes the Query Optimizer has determined are missing,
+  - join with `sys.dm_db_missing_index_group_stats` to understand cost impact,
+- `sys.dm_exec_requests`:
+  - lists queries that are currently executing,
+- `sys.dm_exec_query_stats`:
+  - aggregate statistics for cached query plans including execution count, reads, writes, duration and number of rows returned,
+  - `sys.dm_exec_procedure_stats`:
+    - aggregate statistics for cached stored procedures including execution count, reads, writes, duration,
+  - `sys.dm_exec_sql_text`:
+    - provides the text for a currently executing or previously executed query, based on plan_handle or sql_handle (commonly obtained from `sys.dm_exec_requests` or `sys.dm_exec_query_stats`).
+  - `sys.dm_exec_query_plan`:
+    - provides the showplan XML for a currently executing or previously executed query, based on plan_handle or sql_handle (commonly obtained from `sys.dm_exec_requests` or `sys.dm_exec_query_stats`).
 
 ### Other Data You Can Capture
 
-### sys.configurations
+Other data to consider:
+
+- system configuration:
+  - `sys.configurations`, `SERVERPROPERTY`, `DBCC TRACESTATUS`, `sys.databases`,
+- database and file sizes:
+  - `sys.master_files`, `sys.database_files`, `sys.databases`, `DBCC SQLPERF`,
+- database maintenance history:
+  - `msdb.dbo.sysjobhistory`, `msdb.dbo.backupset`, `msdb.dbo.restorehistory`.
 
 ### WhoIsActive
+
+Free tool developed by Adam Machanic, can be found [here](https://github.com/amachanic/sp_whoisactive).
+
+Extremely useful when troubleshooting performance issues.
+
+Can also be utilized to capture baseline information.
+
+Data can also be stored to a table on a scheduled basis:
+
+- can include query text and query plan for later review.
 
 ## 6. Pulling It All Together
 
 ### Before You Start
 
+Define your goal:
+
+- understand where the system is today,
+- make troubleshooting it easier,
+- proactively tune the environment,
+- determine usage patterns and trending,
+- create a starting point for growth and capacity planning,
+- measure the effects of changes.
+
+Determine what data has the most value:
+
+- SQL Server provides a plethora of information,
+- what data is absolutely required in order to reach your goal?
+
 ### Data Options
+
+Performance Monitor:
+
+- SQL Server, resource and OS counters,
+- quickly configure and capture counters with Data Collectors,
+- overhead is easily minimized,
+- analysis is a manual effort.
+
+Queries captured with SQL Trace or Extended Events:
+
+- some effort required to configure and capture queries,
+- performance impact can be drastic if improperly configured,
+- query analysis is most effective with third-party tools,
+- queries can also be captured via DMVs.
+
+DMVs:
+
+- SQL Server and some OS information,
+- data capture and review can be done with T-SQL,
+- easy to implement and maintain,
+- extremely valuable information is quickly available.
+
+Other information:
+
+- server configuration,
+- database and file sizes,
+- maintenance job history.
 
 ### Next Steps
 
+Determine:
+
+- when the data will be collected,
+- how often the data will be sampled,
+- how long the data will be retained,
+- where the data will be stored,
+- how the data will be analyzed or viewed.
+
+Document your plan and your methodology:
+
+- list what information you're capturing, why and how often,
+- note where the data is stored and how it can be retrieved,
+- include retention periods for each set of data,
+- include backup locations for the data and supporting scripts, utilities, etc.
+
 ## Summary
+
+Now you know how to perform baselining and benchmarking.

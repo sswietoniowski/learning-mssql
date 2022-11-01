@@ -196,6 +196,8 @@ Showed during demo.
 
 [This](https://www.sentryone.com/blog/allenwhite/sql-server-performance-counters-to-monitor) article shows a list of counters to capture.
 
+Alternatively you can use [this classic](https://mohammaddarab.com/wp-content/uploads/2018/04/SQLServer-Performance-Poster.pdf).
+
 ### OS/Resource Counters to Capture
 
 Counters to capture:

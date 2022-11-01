@@ -30,7 +30,6 @@ T4
 
 (I) SQL Server: Introduction to Query Store: PT, PN
 (I) SQL Server: Benchmarking and Baselining: WT
-(O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA
 
 Materiały na D1 (ŚR, CZW, PT)
 
@@ -43,6 +42,8 @@ Materiały na D2 (SO, ND)
 Materiały na D3 (PN, WT, ŚR)
 
 Materiały na D4 (CZW, PT, SO, ND)
+
+(O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA
 
 2022-11-19 - 2022-11-27
 

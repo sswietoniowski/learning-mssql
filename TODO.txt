@@ -68,3 +68,4 @@ Opcjonalne:
 (O) Handling Errors in T-SQL
 (O) SQL Server: Automatic Tuning in SQL Server 2017 and Azure SQL Database
 (O) SQL Server: Using SentryOne Plan Explorer
+(O) SQL Server: Collecting and Analyzing Trace Data

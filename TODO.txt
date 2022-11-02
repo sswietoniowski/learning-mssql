@@ -31,17 +31,25 @@ T4
 (I) SQL Server: Introduction to Query Store: PT, PN
 (I) SQL Server: Benchmarking and Baselining: WT
 
-Materiały na D1 (ŚR, CZW, PT)
+Materiały na D1 (ŚR, CZW, PT, SO)
 
-Materiały na D2 (SO, ND)
+Materiały na D2 (ND)
 
-2022-11-07 - 2022-11-18
+2022-11-07 - 2022-11-13
 
-1,5 tygodnia - czas na dopracowanie materiałów
+T5
 
-Materiały na D3 (PN, WT, ŚR)
+czas na dokończenie materiałów
 
-Materiały na D4 (CZW, PT, SO, ND)
+Materiały na D2 (PN)
+
+Materiały na D3 (WT, ŚR, CZW)
+
+Materiały na D4 (PT, SO, ND)
+
+2022-11-14 - 2022-11-16
+
+czas na poprawki do materiałów
 
 (O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA
 

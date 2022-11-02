@@ -33,7 +33,7 @@ T4
 
 Materiały na D1 (ŚR, CZW, PT, SO)
 
-Materiały na D2 (ND)
+Materiały na D2 (ND 1/2)
 
 2022-11-07 - 2022-11-13
 
@@ -41,7 +41,7 @@ T5
 
 czas na dokończenie materiałów
 
-Materiały na D2 (PN)
+Materiały na D2 (PN 2/2)
 
 Materiały na D3 (WT, ŚR, CZW)
 

@@ -31,9 +31,7 @@ T4
 (I) SQL Server: Introduction to Query Store: PT, PN
 (I) SQL Server: Benchmarking and Baselining: WT
 
-Materiały na D1 (ŚR, CZW, PT, SO)
-
-Materiały na D2 (ND 1/2)
+Materiały na D1 (SO, ND)
 
 2022-11-07 - 2022-11-13
 
@@ -41,9 +39,9 @@ T5
 
 czas na dokończenie materiałów
 
-Materiały na D2 (PN 2/2)
+Materiały na D2 (PN, WT)
 
-Materiały na D3 (WT, ŚR, CZW)
+Materiały na D3 (ŚR, CZW)
 
 Materiały na D4 (PT, SO, ND)
 

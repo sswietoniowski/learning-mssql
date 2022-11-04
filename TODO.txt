@@ -29,38 +29,11 @@ T3
 T4
 
 (I) SQL Server: Introduction to Query Store: PT, PN
-(I) SQL Server: Benchmarking and Baselining: WT
-
-Materiały na D1 (SO, ND)
-
-2022-11-07 - 2022-11-13
+(I) SQL Server: Benchmarking and Baselining: WT, SO
 
 T5
 
-czas na dokończenie materiałów
-
-Materiały na D2 (PN, WT)
-
-Materiały na D3 (ŚR, CZW)
-
-Materiały na D4 (PT, SO, ND)
-
-2022-11-14 - 2022-11-16
-
-czas na poprawki do materiałów
-
 (O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA
-
-2022-11-19 - 2022-11-27
-
-1 tydzień na dopieszczenie wszystkiego :-)
-
-Termin szkolenia (4 dni / 8h):
-
-PN 2022-11-28 - CZW 2022-12-01
-
-Opcjonalne:
-
 (O) Managing Azure SQL Server Database Performance
 (O) SQL Server: Indexing for Performance
 (O) SQL Server: Index Fragmentation Internals, Analysis, and Solutions

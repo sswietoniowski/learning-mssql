@@ -33,6 +33,7 @@ T4
 
 T5
 
+(O) SQL Server: Benchmarking and Baselining
 (O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA
 (O) Managing Azure SQL Server Database Performance
 (O) SQL Server: Indexing for Performance

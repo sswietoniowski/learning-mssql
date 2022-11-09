@@ -28,8 +28,7 @@ T3
 
 T4
 
-(I) SQL Server: Introduction to Query Store: PT, PN
-(I) SQL Server: Benchmarking and Baselining: WT
++ SQL Server: Introduction to Query Store 4h
 
 T5
 

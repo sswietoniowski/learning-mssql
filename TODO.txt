@@ -33,8 +33,10 @@ T4
 
 T5
 
-(O) SQL Server: Benchmarking and Baselining
-(O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA
+(O) SQL Server: Benchmarking and Baselining: PT, SO
+
+T6
+
 (O) Managing Azure SQL Server Database Performance
 (O) SQL Server: Indexing for Performance
 (O) SQL Server: Index Fragmentation Internals, Analysis, and Solutions
@@ -49,3 +51,5 @@ T5
 (O) SQL Server: Automatic Tuning in SQL Server 2017 and Azure SQL Database
 (O) SQL Server: Using SentryOne Plan Explorer
 (O) SQL Server: Collecting and Analyzing Trace Data
+(O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA
+

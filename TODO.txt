@@ -32,9 +32,11 @@ T4
 
 T5
 
-(O) SQL Server: Benchmarking and Baselining: PT, SO
+-
 
 T6
+
+(O) SQL Server: Benchmarking and Baselining: PT, SO
 
 (O) Managing Azure SQL Server Database Performance
 (O) SQL Server: Indexing for Performance

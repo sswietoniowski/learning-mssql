@@ -1,47 +1,4 @@
-W ramach przygotowań do szkolenia, przerobić poniższe zgodnie z harmonogramem:
-
-2022-09-28 - 2022-10-09
-
-+ Designing and Implementing SQL Server Tables and Views 4h
-+ Designing and Implementing SQL Server Database Indexes 4h
-+ Managing SQL Server Database Concurrency 4h
-+ Optimizing SQL Server Statistics and Indexes 4h
-+ Analyzing SQL Server Query Plans 4h
-
-2022-10-10 - 2022-11-06 
-
-4 tygodnie - czas na opracowanie materiałów (+ na naukę)
-
-T1
-
-+ Managing SQL Server Database Performance 8h
-
-T2
-
-+ Querying Data Using T-SQL 1h
-+ SQL Server: Analyzing Query Performance for Developers 4h
-
-T3
-
-+ Programming SQL Server Database Stored Procedures 2h
-+ SQL Server: Replacing Profiler with Extended Events 2h
-
-T4
-
-+ SQL Server: Introduction to Query Store 4h
-
-T5
-
--
-
-T6
-
--
-
-T7
-
 (O) SQL Server: Benchmarking and Baselining: PT, SO
-
 (O) Managing Azure SQL Server Database Performance
 (O) SQL Server: Indexing for Performance
 (O) SQL Server: Index Fragmentation Internals, Analysis, and Solutions
@@ -57,4 +14,3 @@ T7
 (O) SQL Server: Using SentryOne Plan Explorer
 (O) SQL Server: Collecting and Analyzing Trace Data
 (O) Pro SQL Server 2019 Administration: A Guide for the Modern DBA
-

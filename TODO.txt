@@ -1,4 +1,4 @@
-(O) SQL Server: Benchmarking and Baselining: PT, SO
+(O) SQL Server: Benchmarking and Baselining
 (O) Managing Azure SQL Server Database Performance
 (O) SQL Server: Indexing for Performance
 (O) SQL Server: Index Fragmentation Internals, Analysis, and Solutions

@@ -15,7 +15,10 @@ This repository contains the following sub-directories:
 
 Based on these (free) courses:
 
-- [TODO](TODO).
+- [Database Design Course - Learn how to design and plan a database for beginners](https://youtu.be/ztHopE5Wnpc),
+- [Database Normalization – Normal Forms 1nf 2nf 3nf Table Examples](https://www.freecodecamp.org/news/database-normalization-1nf-2nf-3nf-table-examples/),
+- [Clustered and nonclustered indexes described](https://learn.microsoft.com/en-us/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver16),
+- [Stored Procedures (Database Engine)](https://learn.microsoft.com/en-us/sql/relational-databases/stored-procedures/stored-procedures-database-engine?view=sql-server-ver16).
 
 Also used these (paid) courses & books:
 

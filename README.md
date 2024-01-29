@@ -1,4 +1,4 @@
-# Learning SQL Server - Fundamentals
+# Learning Microsoft SQL Server
 
 This repository contains resources helping grasps the basics of Microsoft SQL Server.
 

@@ -1,6 +1,6 @@
 # Learning Microsoft SQL Server
 
-This repository contains resources helping grasps the basics of Microsoft SQL Server.
+This repository contains resources that help grasp the basics of Microsoft SQL Server.
 
 ## Repository Contents
 
@@ -9,7 +9,8 @@ This repository contains the following sub-directories:
 - [pluralsight](pluralsight/) contains resources for the _Pluralsight_ paths:
   - [Developing SQL Server Databases Path](https://app.pluralsight.com/paths/skills/developing-sql-server-databases),
   - [Querying Data with T-SQL from SQL Server](https://app.pluralsight.com/paths/skills/querying-data-with-t-sql-from-sql-server),
-- [other](other/) some sample projects.
+- [other](other/) some sample projects,
+- [hyperskill](./hyperskill/) my solutions to [Hyperskill](https://hyperskill.org) projects from different tracks.
 
 ## Learning Resources
 

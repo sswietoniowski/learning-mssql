@@ -7,27 +7,18 @@ The output of the procedure is ordered by their `first_name`.
 Call the procedure for the "Office of Finance" department.
 
 ```sql
-CREATE PROCEDURE GetEmployeesByDept(dept_name VARCHAR(45))
-BEGIN
-    SELECT
-        first_name,
-        last_name,
-        title AS job_title
-    FROM
-        employees
-    JOIN
-        jobs
-    ON
-        employees.job_id = jobs.id
-    JOIN
-        departments
-    ON
-        employees.department_id = departments.id
-    WHERE
-        departments.name = dept_name
-    ORDER BY
-        first_name;
-END;
+create procedure GetEmployeesByDept (IN input_department VARCHAR(45))
+begin
+    select 
+        e.first_name
+        , e.last_name
+        , j.title as job_title
+    from 
+        employees e join departments d on e.department_id = d.id
+        join jobs j on e.job_id = j.id
+    where d.name = input_department
+    order by e.first_name;
+end;
 
-CALL GetEmployeesByDept("Office of Finance");
+call GetEmployeesByDept("Office of Finance");
 ```

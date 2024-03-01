@@ -7,13 +7,11 @@ Find the `maker` in the `Product` table, `COUNT` the number of PC-type models it
 Use `GROUP_BY` and `SUM` functions to solve this task. The order of the columns matters.
 
 ```sql
-SELECT maker, COUNT(model) AS pc_count, 0 AS laptop_count
+SELECT maker, 
+    SUM(CASE when type = 'PC' then 1 else 0 end) AS pc_count, 
+    SUM(CASE when type = 'Laptop' then 1 else 0 end) AS laptop_count
 FROM Product
-WHERE type = 'PC'
+WHERE type = 'PC' or type='Laptop'
 GROUP BY maker
-UNION
-SELECT maker, 0 AS pc_count, COUNT(model) AS laptop_count
-FROM Product
-WHERE type = 'Laptop'
-GROUP BY maker;
+HAVING pc_count > 0 AND laptop_count > 0;
 ```

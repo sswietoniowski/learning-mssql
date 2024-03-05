@@ -39,16 +39,34 @@ CREATE TABLE insurance_benefits (
   FOREIGN KEY (job_id) REFERENCES jobs(id)
 );
 
-INSERT INTO departments (id, name) 
-VALUES (1, 'HR'), (2, 'IT'), (3, 'Finance'), (4, 'Marketing');
+INSERT INTO departments (id, name)
+VALUES
+    (1, 'HR'), (2, 'IT'),
+    (3, 'Finance'),
+    (4, 'Marketing');
 
 INSERT INTO jobs (id, title, type, hourly_rate)
-VALUES (1, 'Manager', 'Salaried', 30.00), (2, 'Assistant Manager', 'Salaried', 25.00), (3, 'HR Specialist', 'Hourly', 20.00),
-    (4, 'IT Specialist', 'Hourly', 20.00), (5, 'Accountant', 'Hourly', 20.00), (6, 'Marketing Specialist', 'Hourly', 20.00);
+VALUES
+    (1, 'Manager', 'Salaried', 30.00),
+    (2, 'Assistant Manager', 'Salaried', 25.00),
+    (3, 'HR Specialist', 'Hourly', 20.00),
+    (4, 'IT Specialist', 'Hourly', 20.00),
+    (5, 'Accountant', 'Hourly', 20.00),
+    (6, 'Marketing Specialist', 'Hourly', 20.00);
 
 INSERT INTO employees (id, first_name, last_name, department_id, job_id, date_employed)
-VALUES (1, 'John', 'Doe', 1, 1, '2019-01-01'), (2, 'Jane', 'Doe', 1, 2, '2019-01-01'),
-    (3, 'Jim', 'Doe', 2, 3, '2019-01-01'), (4, 'Jill', 'Doe', 3, 4, '2019-01-01'), (5, 'Jack', 'Doe', 4, 5, '2019-01-01');
+VALUES
+    (1, 'John', 'Doe', 1, 1, '2019-01-01'),
+    (2, 'Jane', 'Doe', 1, 2, '2019-01-01'),
+    (3, 'Jim', 'Doe', 2, 3, '2019-01-01'),
+    (4, 'Jill', 'Doe', 3, 4, '2019-01-01'),
+    (5, 'Jack', 'Doe', 4, 5, '2019-01-01');
 
 INSERT INTO insurance_benefits (id, job_id, annual_insurance)
-VALUES (1, 1, 100.00), (2, 2, 80.00), (3, 3, 60.00), (4, 4, 60.00), (5, 5, 60.00), (6, 6, 60.00);
+VALUES
+    (1, 1, 100.00),
+    (2, 2, 80.00),
+    (3, 3, 60.00),
+    (4, 4, 60.00),
+    (5, 5, 60.00),
+    (6, 6, 60.00);

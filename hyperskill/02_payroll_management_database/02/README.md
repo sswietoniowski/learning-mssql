@@ -5,6 +5,10 @@ Create the procedure called `EmployeeTotalPay` that takes in `first_name`, `last
 Output the total pay for Philip Wilson and Daisy Diamond.
 
 ```sql
+drop procedure if exists EmployeeTotalPay;
+
+delimiter //
+
 create procedure EmployeeTotalPay (IN first_name VARCHAR(45), IN last_name VARCHAR(45), IN total_hours INT, IN normal_hours INT, IN overtime_rate DECIMAL(10, 2), IN max_overtime_pay DECIMAL(10, 2), OUT total_pay DECIMAL(10, 2))
 begin
     declare overtime_hours INT;
@@ -22,7 +26,9 @@ begin
     set normal_pay = normal_hours * overtime_rate;
 
     set output_total_pay = normal_pay + overtime_pay;
-end;
+end//
+
+delimiter ;
 
 call EmployeeTotalPay("Philip", "Wilson", 50, 40, 20.00, 500.00, @employee1_total_pay);
 call EmployeeTotalPay("Daisy", "Diamond", 60, 40, 20.00, 500.00, @employee2_total_pay);

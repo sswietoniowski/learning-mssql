@@ -7,6 +7,10 @@ The output of the procedure is ordered by their `first_name`.
 Call the procedure for the "Office of Finance" department.
 
 ```sql
+drop procedure if exists GetEmployeesByDept;
+
+delimiter //
+
 create procedure GetEmployeesByDept (IN input_department VARCHAR(45))
 begin
     select
@@ -18,7 +22,9 @@ begin
         join jobs j on e.job_id = j.id
     where d.name = input_department
     order by e.first_name;
-end;
+end//
+
+delimiter ;
 
 call GetEmployeesByDept("Office of Finance");
 ```

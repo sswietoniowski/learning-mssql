@@ -2,7 +2,7 @@
 
 Create the procedure called `EmployeeTotalPay` that takes in `first_name`, `last_name`, `total_hours`, `normal_hours`, `overtime_rate`, `max_overtime_pay`, and outputs `total_pay`.
 
-Output the total pay for Philip Wilson and Daisy Diamond.
+Output the total pay for "Philip Wilson" and "Daisy Diamond".
 
 ```sql
 drop procedure if exists EmployeeTotalPay;

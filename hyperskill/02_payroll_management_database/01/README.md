@@ -9,11 +9,11 @@ Call the procedure for the "Office of Finance" department.
 ```sql
 create procedure GetEmployeesByDept (IN input_department VARCHAR(45))
 begin
-    select 
+    select
         e.first_name
         , e.last_name
         , j.title as job_title
-    from 
+    from
         employees e join departments d on e.department_id = d.id
         join jobs j on e.job_id = j.id
     where d.name = input_department

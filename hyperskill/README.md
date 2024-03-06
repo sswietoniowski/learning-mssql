@@ -21,3 +21,7 @@ There are no certificates for this track yet.
 | [Databases for Sales](./03_databases_for_sales)                 | Medium | Completed |
 
 My [certificate](https://hyperskill.org/certificates/2e7a5bb8-4a43-4238-a2d2-d9cdd02a5ee7.pdf) of completion of the track.
+
+## Introduction to MongoDB Track
+
+My [certificate](TODO:) of completion of the track.

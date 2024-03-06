@@ -14,10 +14,10 @@ There are no certificates for this track yet.
 
 [My](https://hyperskill.org/profile/7889902) solutions to [Hyperskill](https://hyperskill.org) projects from the [SQL for Backend Developers](https://hyperskill.org/tracks/40) track.
 
-| Project                                                         | Level  | Status      |
-| --------------------------------------------------------------- | ------ | ----------- |
-| [Electronics Store Customer](./01_electronics_store_customer)   | Easy   | Completed   |
-| [Payroll Management Database](./02_payroll_management_database) | Medium | Completed   |
-| [Databases for Sales](./03_databases_for_sales)                 | Medium | In Progress |
+| Project                                                         | Level  | Status    |
+| --------------------------------------------------------------- | ------ | --------- |
+| [Electronics Store Customer](./01_electronics_store_customer)   | Easy   | Completed |
+| [Payroll Management Database](./02_payroll_management_database) | Medium | Completed |
+| [Databases for Sales](./03_databases_for_sales)                 | Medium | Completed |
 
-My [certificate](TODO:) of completion of the track.
+My [certificate](https://hyperskill.org/certificates/2e7a5bb8-4a43-4238-a2d2-d9cdd02a5ee7.pdf) of completion of the track.

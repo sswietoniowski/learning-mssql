@@ -24,4 +24,4 @@ My [certificate](https://hyperskill.org/certificates/2e7a5bb8-4a43-4238-a2d2-d9c
 
 ## Introduction to MongoDB Track
 
-My [certificate](TODO:) of completion of the track.
+My [certificate](https://hyperskill.org/certificates/e3413c0d-9e4a-4ebb-927c-b05561629109.pdf) of completion of the track.
